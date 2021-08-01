@@ -1,0 +1,67 @@
+.profile {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 100%;
+  display: inline-block;
+  padding: 10px;
+}
+.profile_name{
+  line-height: 18px;
+  padding: 20px;
+}
+
+.profile_name .name{
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.profile_name .title{
+  color: #777;
+  font-size: 13px;
+}
+
+.profile_image {
+  margin-top: -10px;
+  -webkit-clip-path: polygon( 0 9%, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon( 0 9%, 100% 0%, 100% 100%, 0 100%);
+}
+
+.profile_image img{
+  width: 100%;
+}
+
+/* import logo from './logo.svg';
+<img src={logo} className="App-logo" alt="logo" /> */
+.profile_information {
+  top: 0;
+  left: 0;
+  margin: -40px 18px 30px;
+}
+
+.profile_information .timeline .timeline_content {
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+.timelineItem_text {
+  font-size: 13.5px !important;
+  color: #787878;
+  font-weight: 400 !important;
+}
+
+.timelineItem_text  > a{
+  color: #787878;
+  text-decoration: none;
+}
+.timelineItem_text > span{
+  color: #000;
+}
+
+.profile .button-container {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  margin-top: 20px;
+
+}
