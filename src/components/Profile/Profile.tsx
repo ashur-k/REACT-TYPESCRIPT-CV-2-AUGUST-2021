@@ -4,7 +4,7 @@ import './profile.css';
 import profileImage from '../../assets/images/ash.jpg';
 import CustomTimeLine, { CustomTimelineSeparator } from '../Timeline/Timeline';
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
-import { profile, socials, socialsInterface } from '../../utils/resumeData';
+import { profile, socials } from '../../utils/resumeData';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import CustomButton from '../Button/Button'
@@ -50,12 +50,12 @@ const Profile = () => {
       </figure>
 
       <div className="profile_information">
-        <CustomTimeLine title={'name'} icon={<ImageSearchIcon/>}  >
+        <CustomTimeLine title={''} icon={<ImageSearchIcon/>}  >
           <CustomTimelineItem title='Name' text={profile.name} link=""/>
           <CustomTimelineItem title='Title' text={profile.title} link=""/>
           <CustomTimelineItem title='Email' text={profile.email} link=""/>
           {
-            socials.map((social: any) => (
+            socials.map((social) => (
               <CustomTimelineItem 
                 key={social.title}
                 title={social.title} 
@@ -64,8 +64,6 @@ const Profile = () => {
               />
             ))
           }
-          
-          
         </CustomTimeLine>
         <div className='button-container'>
           <CustomButton text={"Download Cv"} icon={< GetAppIcon />}/>

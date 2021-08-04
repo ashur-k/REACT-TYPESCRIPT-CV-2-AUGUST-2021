@@ -1,20 +1,23 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-import { BrowserRouter as Router, Link, NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import { HomeRounded, Telegram } from '@material-ui/icons';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
+
+
 import CustomButton from '../Button/Button';
 import './Header.css';
+import { socials } from '../../utils/resumeData';
+import  getIcon  from '../../helperFunctions/getIcon';
+
 
 const Header = (props:any) => {
   
   const pathName =props?.location?.pathname;
+
+  
 
   return (
     <Navbar expand="lg" sticky='top' className='header'>
@@ -26,7 +29,7 @@ const Header = (props:any) => {
 
       <Navbar.Toggle />
 
-      <Navbar.Collapse>
+      <Navbar.Collapse className="navbar_collapse">
         <Nav className='header_left'>
           <Nav.Link 
             as={NavLink} 
@@ -42,12 +45,31 @@ const Header = (props:any) => {
             >
             Portfolio
           </Nav.Link>
+          <Nav.Link 
+            as={NavLink} 
+            to='/blog'
+            className={pathName === "/blog" ? "header_link_active" : "header_link"}
+            >
+            Blog
+          </Nav.Link>
+          <Nav.Link 
+            as={NavLink} 
+            to='/contact'
+            className={pathName === "/contact" ? "header_link_active" : "header_link"}
+            >
+            Contact
+          </Nav.Link>
         </Nav>
         <div className='header_right'>
-          <a href='https://www.facebook.com/'><FacebookIcon/></a>
-          <a href='https://twitter.com/'><TwitterIcon/></a>
-          <a href='https://www.linkedin.com/in/ashur-kanwal-37979b195/'><LinkedInIcon/></a>    
-          <a href='https://github.com/ashur-k'><GitHubIcon /></a>
+          { 
+            socials.map((social) => (
+              <a 
+                href={social.link} 
+                target="_blank" 
+                rel="noreferrer"
+              >{getIcon(social.icon)}</a>
+           ))}
+
           <CustomButton text={'Hire me'} icon={ <Telegram />} />             
         </div>
       </Navbar.Collapse>

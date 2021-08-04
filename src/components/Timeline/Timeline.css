@@ -3,15 +3,13 @@
 }
 /* Header */
 
-/* {Header title */
+/* Header title */
   .timeline .timeline_header {
     padding-top:7px;
 
   }
 
   .timeline .timeline_firstItem {
-    display: flex !important;
-    flex-direction: column !important;
     min-height:80px !important;
   }
 
@@ -25,7 +23,7 @@
   }
 
   .timeline .timeline_dot_header {
-    color: #333 !important;
+    color: #000 !important;
     background-color: var(--main-color) !important;
     font-size:small !important;
     padding: 10px !important;
@@ -33,7 +31,7 @@
 
   /* Remaining Items */
   .timeline .timeline_dot {
-    color: #000;
+    color: #000 !important;
     border-color: var(--main-color) !important;
     padding: 2px!important;
   }

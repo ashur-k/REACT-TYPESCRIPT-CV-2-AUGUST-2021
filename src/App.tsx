@@ -5,6 +5,7 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
+import Blog from './pages/Blog/Blog';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
 
@@ -19,14 +20,19 @@ function App() {
         <Grid item xs>
           <Router>
             <Header />
-            <Switch>
-              <Route path="/portfolio">
-                <Portfolio />
-              </Route>
-              <Route path="/">
-                <Resume />
-              </Route>
-            </Switch>
+            <div className="main-content container_shadow">
+              <Switch>
+                <Route path="/portfolio">
+                  <Portfolio />
+                </Route>
+                <Route path="/blog">
+                  <Blog />
+                </Route>
+                <Route path="/">
+                  <Resume />
+                </Route>
+              </Switch>
+            </div>            
           </Router>
           <Footer />
         </Grid>

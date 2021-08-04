@@ -17,8 +17,7 @@ interface timeLineProps {
 
 const CustomTimeline = ({ title, icon, children }: timeLineProps ) => {
   return (
-      <Timeline className='timeline' >
-        {/* Item Header */}
+    <Timeline className='timeline'>
       <TimelineItem className={'timeline_firstItem'}>
         <TimelineSeparator>
           <TimelineDot className={'timeline_dot_header'}>
@@ -28,20 +27,19 @@ const CustomTimeline = ({ title, icon, children }: timeLineProps ) => {
         </TimelineSeparator>
         <TimelineContent>
           <Typography variant='h6' className={'timeline_header'}>
-          
+            {title}
           </Typography>
         </TimelineContent>
-        {children}
-      </TimelineItem>
+      </TimelineItem>      
+      {children}
     </Timeline>
  
   )
 };
 
-export const CustomTimelineSeparator: React.FC = () => (
+export const CustomTimelineSeparator = () => (
   <TimelineSeparator className={'separator_padding'}>
-    <TimelineDot variant={'outlined'} className={'timeline_dot'} />
-    
+    <TimelineDot variant={'outlined'} className={'timeline_dot'} />    
     <TimelineConnector />
   </TimelineSeparator>
 )
