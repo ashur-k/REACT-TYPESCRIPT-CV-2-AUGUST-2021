@@ -1,8 +1,3 @@
-import WebOutlinedIcon from '@material-ui/icons/WebOutlined';
-import { SvgIconProps } from '@material-ui/core';
-
-
-
 export interface profileInfo {
   name: string;
   title: string;
