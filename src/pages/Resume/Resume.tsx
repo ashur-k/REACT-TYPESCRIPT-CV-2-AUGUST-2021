@@ -99,7 +99,7 @@ const Resume = () => {
             <Grid item xs={12} sm={6} md={3}>
               <div className="service">
                 <Icon className="service_icon">
-                {getIcon(service.icon)}
+                  {getIcon(service.icon)}
                 </Icon>
                 <Typography className="service_title" variant='h6'>
                   {service.title}

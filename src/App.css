@@ -1,5 +1,9 @@
 :root {
-  --main-color: #ffc500;
+  --main-color: #e22d15;
+  --secondary-color: #ffffff;
+}
+.SVG{
+  color: var(--secondary-color) !important;;
 }
 /* Margins and Paddings */
 .top_30{
@@ -10,6 +14,9 @@
 }
 .mb_30{
   margin-bottom: 30px !important;
+}
+.mb_20{
+  margin-bottom: 20px !important;
 }
 .p_30{
   padding: 30px !important;
@@ -76,4 +83,4 @@
   .top_60 {
     margin-top: 30px !important;
   }
-  }
+}

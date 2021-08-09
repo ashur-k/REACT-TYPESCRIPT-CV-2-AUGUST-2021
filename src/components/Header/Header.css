@@ -1,3 +1,7 @@
+.fixed-iisus{
+  position: fixed !important;
+}
+
 .header {
   margin-bottom: 30px !important;
   background-color: #fff !important;
@@ -40,7 +44,7 @@
 
 .header .header_left{
   margin: auto;
-  margin-left: 0px;
+  margin-left: 10px;
 }
 
 .header .header_right {
@@ -51,4 +55,37 @@
   font-size: 16px !important;
   margin-right: 12px;
   color: #000 !important;
+}
+
+.mobile_social_icons{
+  display:none;
+}
+
+@media (max-width: 991px) {
+
+  .navbar_collapse{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header .header_left{
+    margin: auto;
+    text-align: center !important;
+  }
+
+  .header .header_right {
+    margin-bottom: 15px;
+  }
+  .mobile_social_icons{
+    display: inline-block !important;
+  }
+
+  .mobile_social_icons > a > .MuiSvgIcon-root {
+    font-size: 16px !important;
+    margin-right: 12px;
+    color: #000 !important;
+  }
+  .not-show-on-smaller-screen{
+    display: none;
+  }
 }

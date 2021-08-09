@@ -10,7 +10,8 @@ import { HomeRounded, Telegram } from '@material-ui/icons';
 import CustomButton from '../Button/Button';
 import './Header.css';
 import { socials } from '../../utils/resumeData';
-import  getIcon  from '../../helperFunctions/getIcon';
+
+import getIcon from '../../helperFunctions/getIcon';
 
 
 const Header = (props:any) => {
@@ -20,17 +21,30 @@ const Header = (props:any) => {
   
 
   return (
+    
     <Navbar expand="lg" sticky='top' className='header'>
+
       <Nav.Link as={NavLink} to='/' className='header_navlink'>
         <Navbar.Brand className='header_home'>
-          <HomeRounded />
+          <HomeRounded className="SVG" />
         </Navbar.Brand>
       </Nav.Link>
-
+      <div className="mobile_social_icons">
+          { 
+            socials.map((social) => (
+              <a 
+                key={social.icon}
+                href={social.link} 
+                target="_blank" 
+                rel="noreferrer"
+              >{getIcon(social.icon)}</a>
+           ))}          
+        </div>
       <Navbar.Toggle />
 
       <Navbar.Collapse className="navbar_collapse">
         <Nav className='header_left'>
+
           <Nav.Link 
             as={NavLink} 
             to='/'
@@ -59,21 +73,27 @@ const Header = (props:any) => {
             >
             Contact
           </Nav.Link>
+
         </Nav>
+
         <div className='header_right'>
           { 
             socials.map((social) => (
               <a 
+                key={social.icon}
                 href={social.link} 
                 target="_blank" 
                 rel="noreferrer"
+                className="not-show-on-smaller-screen"
               >{getIcon(social.icon)}</a>
            ))}
 
           <CustomButton text={'Hire me'} icon={ <Telegram />} />             
         </div>
+
       </Navbar.Collapse>
     </Navbar>
+    
   )
 }
 

@@ -50,10 +50,10 @@ const Profile = () => {
       </figure>
 
       <div className="profile_information">
-        <CustomTimeLine title={''} icon={<ImageSearchIcon/>}  >
-          <CustomTimelineItem title='Name' text={profile.name} link=""/>
-          <CustomTimelineItem title='Title' text={profile.title} link=""/>
+        <CustomTimeLine title={''} icon={<ImageSearchIcon className="SVG"/>}  >
+          <CustomTimelineItem title='Mobile' text='0739-732-5523' link=""/>
           <CustomTimelineItem title='Email' text={profile.email} link=""/>
+          <CustomTimelineItem title='Address' text='Falkirk Scotland' link=""/>
           {
             socials.map((social) => (
               <CustomTimelineItem 

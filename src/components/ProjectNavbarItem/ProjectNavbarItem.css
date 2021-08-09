@@ -1,0 +1,13 @@
+.project-navbar-item{
+  text-transform: capitalize;
+  cursor: pointer;
+  /* margin-left: 2px; */
+  margin-right: 25px;
+} 
+
+.project-navbar-item:hover{
+  color: green;  
+}
+.text-green{
+  color: green !important;
+}

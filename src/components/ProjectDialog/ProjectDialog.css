@@ -1,0 +1,42 @@
+.projectDialog_title{
+  margin-top: -48px !important;
+  padding-top: 2px !important;
+  width: auto !important;
+  max-width: 70% !important;
+}
+.dialogClose_button{
+  color:black;
+  text-align:right;
+  margin-right:15px; 
+  margin-top:5px;
+  cursor:pointer;
+}
+
+.projectDialog .projectDialog_image {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.projectDialog .projectDialog_description {
+  margin-top: 10px !important;
+}
+.projectDialog .projectDialog_actions {
+  justify-content: center !important;
+  margin-bottom: 10px;
+}
+.projectDialog .projectDialog_icon {
+  color: darkslategray !important;
+  margin: 0px 12px !important;
+  cursor: pointer !important;
+}
+
+.projectDialog .projectDialog_icon:hover {
+  color: var(--main-color) !important;
+  margin: 0px 12px;
+  cursor: pointer;
+}
+
+.projectDialog .projectDialog_icon > .MuiSvgIcon-root {
+  font-size:30px;
+}

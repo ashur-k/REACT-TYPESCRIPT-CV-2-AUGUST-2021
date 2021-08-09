@@ -1,6 +1,8 @@
 import WebOutlinedIcon from '@material-ui/icons/WebOutlined';
 import { SvgIconProps } from '@material-ui/core';
 
+
+
 export interface profileInfo {
   name: string;
   title: string;
@@ -96,7 +98,7 @@ export const socials: socialsInterface[] = [
   {
     title: 'GitHub',
     link: 'https://github.com/ashur-k',
-    text: 'myFacebook',
+    text: 'myGitHub',
     icon: 'GitHubIcon',
   },
 ]
@@ -208,68 +210,84 @@ export const skills: SkillInterface[] = [
   },
 ];
 
-export interface ProjectsInterface {
-  tag: string;
-  image: string;
+export type Category = "react" | "nextjs" | "typescript" | "flask" | "django" | "mongo" | "main-projects" ;
+
+
+
+export interface ProjectInterface {
+  id:number;
   title: string;
+  image_path: string;
   description: string;
-  links:[
-    {
-      hostedLink:string;
-      GitLink:string;
-    },
-  ];
+  deployed_url: string;
+  github_url: string;
+  category: Category[];
+  key_techs: string[];
 }
 
 
-export const projects:ProjectsInterface[] = [
+export const projects:ProjectInterface[] = [
   {
-    tag: 'React',
-    image: '../assets/images/ash.jpg',
-    title: 'Project React',
-    description: 'Lorem Ipsum Lorem Ipsum Lorem',    
-    links: [      
-      {
-        hostedLink:'site.com',
-        GitLink:'site.com'
-      }, 
-    ],
+    id:1,
+    title: 'RR-Cloth',   
+    image_path: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',    
+    deployed_url: "https://rr-cloth.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/RR-Clothes",
+    category: ['react'], 
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"]
   },
   {
-    tag: 'Python',
-    image: '../assets/images/ash.jpg',
-    title: 'Project 2',
-    description: 'Lorem Ipsum Lorem Ipsum Lorem',
-    links: [      
-      {
-        hostedLink:'site.com',
-        GitLink:'site.com'
-      }, 
+    id:2,
+    title: 'Pro-Shop',  
+    image_path: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvamVjdHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',    
+    deployed_url: "https://rr-cloth.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/RR-Clothes",
+    category: ['typescript'], 
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"],
+  },
+  {
+    id:3,
+    title: "Ash-Crown-Online Shopping",
+    image_path: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
+    deployed_url: "https://rr-cloth.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/RR-Clothes",
+    category: ['typescript'], 
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"],
+  },
+  {
+    id:4,
+    title: "Jaxx Productions",
+    image_path: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2plY3RzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
+    deployed_url: "https://jacxx-productions.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",
+    category: ["django"],
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"],
+  },
+  {
+    id:5,
+    title: "Jaxx Productions",
+    image_path: 'https://images.unsplash.com/photo-1573496130141-209d200cebd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
+    deployed_url: "https://jacxx-productions.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",
+    category: ["django"],
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"]
+  },
+  {
+    id:6,
+    title: "Jaxx Productions",
+    image_path: 'https://images.unsplash.com/photo-1573167710701-35950a41e251?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
+    deployed_url: "https://jacxx-productions.herokuapp.com/",
+    github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",
+    category: ["django"],
+    key_techs: ["Django", "AWS", "Heroku", "Stripe", "AJAX"],
+  },
 
-    ],
-  },
-  {
-    tag: 'Java',
-    image: '../assets/images/ash.jpg',
-    title: 'Project 3',
-    description: 'Lorem Ipsum Lorem Ipsum Lorem',
-    links: [      
-      {
-        hostedLink:'site.com',
-        GitLink:'site.com'
-      }, 
-    ],
-  },
-  {
-    tag: 'Python',
-    image: '../assets/images/ash.jpg',
-    title: 'Project 4',
-    description: 'Lorem Ipsum Lorem Ipsum Lorem',
-    links: [      
-      {
-        hostedLink:'site.com',
-        GitLink:'site.com'
-      }, 
-    ],
-  },
 ]
+
+

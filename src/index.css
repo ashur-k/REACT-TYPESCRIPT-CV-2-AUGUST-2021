@@ -12,7 +12,7 @@ body {
   background: #fafafa;
   overflow-x: hidden;
   background: url('./assets//images/bgImage.jpg');
-  background-size: 200%;
+  background-size: contain;
 
 }
 
