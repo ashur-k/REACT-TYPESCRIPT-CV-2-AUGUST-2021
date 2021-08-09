@@ -89,7 +89,7 @@ const Resume = () => {
       <Grid container className="section pb_45">
         <Grid item className="section_title mb_30">
           <span></span>
-          <h6 className='section_title_text'>My Services</h6>
+          <h6 className='section_title_text'>My Skills</h6>
         </Grid>
 
         <Grid item xs={12}>
