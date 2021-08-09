@@ -1,3 +1,5 @@
+## Live Link: 
+https://priceless-chandrasekhar-5b609b.netlify.app/
 ## Commands:
 - cd react-ts-resume
 - yarn start
