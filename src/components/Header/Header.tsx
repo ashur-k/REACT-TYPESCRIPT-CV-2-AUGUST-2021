@@ -18,8 +18,6 @@ const Header = (props:any) => {
   
   const pathName =props?.location?.pathname;
 
-  
-
   return (
     
     <Navbar expand="lg" sticky='top' className='header'>

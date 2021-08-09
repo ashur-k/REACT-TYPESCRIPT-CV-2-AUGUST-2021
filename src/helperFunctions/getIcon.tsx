@@ -1,6 +1,3 @@
-import WebOutlinedIcon from '@material-ui/icons/WebOutlined';
-import AddIcCallIcon from '@material-ui/icons/AddIcCall';
-import AndroidIcon from '@material-ui/icons/Android';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -8,6 +5,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import WorkIcon from '@material-ui/icons/Work';
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
 import CloseIcon from '@material-ui/icons/Close';
+import { IoLogoReact, IoLogoPython } from "react-icons/io5";
+import { FiDatabase } from "react-icons/fi";
+
+
 
 const getIcon = (icon: string): JSX.Element => {
   switch(icon) {
@@ -23,14 +24,14 @@ const getIcon = (icon: string): JSX.Element => {
       return (<LinkedInIcon className="SVG" />);
     case 'GitHubIcon':
       return (<GitHubIcon />);
-    case 'WebOutlinedIcon':
-      return (<WebOutlinedIcon className="SVG" />);
-    case 'AddIcCallIcon':
-      return (<AddIcCallIcon className="SVG" />);
-    case 'AndroidIcon':
-      return (<AndroidIcon className="SVG" />);
+    case 'IoLogoPython':
+      return (<IoLogoPython />);
     case 'CloseIcon':
       return (<CloseIcon />);
+    case 'IoLogoReact':
+      return (<IoLogoReact />);
+    case 'FiDatabase':
+      return (<FiDatabase />);
     default:
       return (<small>No Icon Found</small>);
   }

@@ -98,45 +98,89 @@ export const socials: socialsInterface[] = [
   },
 ]
 
-interface EducationAndExperiencesInterface {
+interface ExperiencesInterface {
   title: string;
   date: string;
   description: string;
+  gitLink:string;
+  hostLink: string;
 }
 
-export const experiences:EducationAndExperiencesInterface[] = [
+export const experiences:ExperiencesInterface[] = [
   {
-    title: 'Project 1',
-    date: '2018 - present',
-    description: 'Lorem Ipsum text for now'
+    title: 'Kirk Of the Holy Rood',
+    date: 'Jan-2021 - April-2021',
+    description: 'Python django application, admin can manage all content including adding removing ministry section pages',
+    gitLink:"www.github.com",
+    hostLink:"www.github.com",
   },
   {
-    title: 'Project 2',
-    date: '2017 - 2018',
-    description: 'Lorem Ipsum text for now'
+    title: 'RR-Clothes',
+    date: 'Sept-2020 - Dec-2020',
+    description: 'Python django E-commerce shopping site sells product including color size variants.',
+    gitLink:"www.github.com",
+    hostLink:"www.github.com",
   },
   {
-    title: 'Project 3',
-    date: '2016- 2019',
-    description: 'Lorem Ipsum text for now'
+    title: 'Car Sales Showroom',
+    date: 'May-2020 - August-2020',
+    description: 'Python flask appicaition built to manage and book car test drives.',
+    gitLink:"www.github.com",
+    hostLink:"www.github.com",
+  },
+  {
+    title: 'Covid App',
+    date: 'Jan-2020 - April-2020',
+    description: 'International Rapid Covid API data where user can see covid stats of all countries.',
+    gitLink:"www.github.com",
+    hostLink:"www.github.com",
   },
 ]
 
-export const education:EducationAndExperiencesInterface[] = [
+interface EducationAndInterface {
+  title: string;
+  instituteName:string;
+  instituteLink:string;
+  date: string;
+  description: string;
+ 
+}
+
+export const education:EducationAndInterface[] = [
   {
-    title: 'Education 1',
-    date: '2018 - present',
-    description: 'Lorem Ipsum text for now'
+    title: 'Full-Stack Web developer',
+    instituteName: 'Code Institute',
+    instituteLink:'link',
+    date: 'Dec-2019 - -Dec-2020',
+    description: 'Full-Stack Web developer'
   },
   {
-    title: 'Education 2',
+    title: 'Bachelors Degree',
+    instituteName: 'Code Institute',
+    instituteLink:'link',
     date: '2017 - 2018',
     description: 'Lorem Ipsum text for now'
   },
   {
-    title: 'Education 3',
+    title: 'First Line Manager Diploma',
+    instituteName: 'Code Institute',
+    instituteLink:'link',
+    date: '2017 - 2018',
+    description: 'Management is the best I love management'
+  },
+  {
+    title: 'Computer Itq Graphics',
+    instituteName: 'Code Institute',
+    instituteLink:'link',
     date: '2016- 2019',
-    description: 'Lorem Ipsum text for now'
+    description: 'Adobe Suits and adobe suites'
+  },
+  {
+    title: 'Performing Arts In Music',
+    instituteName: 'Code Institute',
+    instituteLink:'link',
+    date: '2016- 2019',
+    description: 'Performing art singing, dancing, and acting.'
   },
 ]
 
@@ -148,19 +192,19 @@ interface servicesInterface {
 
 export const services: servicesInterface[] = [
   {
-    title: 'Web Dev',
-    description: 'Lorem Ipsume',
-    icon: 'WebOutlinedIcon',
+    title: 'React Skills',
+    description: 'I am decent with React, I understand react fair enough. I have built react E-commerce site using react context, graphql and Redux. I have built site using next.js, Gatsby. I have beginners understading of Typescript. My current resume site is built using react typescript and all typescripts types are writen by me with my knowlwdege.',
+    icon: 'IoLogoReact',
   },
   {
-    title: 'Web Dev2',
-    description: 'Lorem Ipsume',
-    icon: 'AddIcCallIcon',
+    title: 'Python Skills',
+    description: 'I am decent with React, I understand react fair enough. I have built react E-commerce site using react context, graphql and Redux. I have built site using next.js, Gatsby. I have beginners understading of Typescript. My current resume site is built using react typescript and all typescripts types are writen by me with my knowlwdege.',
+    icon: 'IoLogoPython',
   },
   {
-    title: 'Web De3',
-    description: 'Lorem Ipsume',
-    icon: 'AndroidIcon',
+    title: 'Database Skills',
+    description: 'I am decent with React, I understand react fair enough. I have built react E-commerce site using react context, graphql and Redux. I have built site using next.js, Gatsby. I have beginners understading of Typescript. My current resume site is built using react typescript and all typescripts types are writen by me with my knowlwdege.',
+    icon: 'FiDatabase',
   }, 
 ]
 
