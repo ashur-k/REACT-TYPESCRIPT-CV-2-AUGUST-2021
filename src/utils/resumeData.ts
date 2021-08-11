@@ -255,7 +255,7 @@ export type Category = "react" | "nextjs" | "typescript" | "flask" | "django" | 
 
 export interface ProjectInterface {
   id:number;
-  title: string;
+  name: string;
   image_path: string;
   description: string;
   deployed_url: string;
@@ -268,8 +268,8 @@ export interface ProjectInterface {
 export const projects:ProjectInterface[] = [
   {
     id:1,
-    title: 'RR-Cloth',   
-    image_path: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80',
+    name: 'RR-Cloth',   
+    image_path: '/images/RR-cloth.png',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',    
     deployed_url: "https://rr-cloth.herokuapp.com/",
     github_url: "https://github.com/ashur-k/RR-Clothes",
@@ -278,8 +278,8 @@ export const projects:ProjectInterface[] = [
   },
   {
     id:2,
-    title: 'Pro-Shop',  
-    image_path: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvamVjdHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
+    name: 'Pro-Shop',  
+    image_path: '/images/pro-shop.jpg',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',    
     deployed_url: "https://rr-cloth.herokuapp.com/",
     github_url: "https://github.com/ashur-k/RR-Clothes",
@@ -288,8 +288,8 @@ export const projects:ProjectInterface[] = [
   },
   {
     id:3,
-    title: "Ash-Crown-Online Shopping",
-    image_path: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    name: "Ash-Crown-Online Shopping",
+    image_path: '/images/crwn.jpg',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
     deployed_url: "https://rr-cloth.herokuapp.com/",
     github_url: "https://github.com/ashur-k/RR-Clothes",
@@ -298,8 +298,8 @@ export const projects:ProjectInterface[] = [
   },
   {
     id:4,
-    title: "Jaxx Productions",
-    image_path: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2plY3RzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60',
+    name: "Jaxx Productions",
+    image_path: '/images/jaxx.jpg',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
     deployed_url: "https://jacxx-productions.herokuapp.com/",
     github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",
@@ -308,8 +308,8 @@ export const projects:ProjectInterface[] = [
   },
   {
     id:5,
-    title: "Jaxx Productions",
-    image_path: 'https://images.unsplash.com/photo-1573496130141-209d200cebd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80',
+    name: "Monster Rolodex",
+    image_path: '/images/rolodex.jpg',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
     deployed_url: "https://jacxx-productions.herokuapp.com/",
     github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",
@@ -318,8 +318,8 @@ export const projects:ProjectInterface[] = [
   },
   {
     id:6,
-    title: "Jaxx Productions",
-    image_path: 'https://images.unsplash.com/photo-1573167710701-35950a41e251?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    name: "Covid Pandemic",
+    image_path: '/images/covid.png',
     description: 'RR-Cloth is a fully functional ecommerce site. This site is able to sell products including all its various variants. The site has been developed using HTML5, CSS3, JavaScript, jQuery, Postgres-SQL, Python-Django. It is hosted using heroku and amazon web services (AWS).The site is implemented with an order/checkout payment system using Stripe. For reliability stripe webhooks are implemented to make sure the site doesn’t lose any order information if there is a system failure at the user end while making a payment.',
     deployed_url: "https://jacxx-productions.herokuapp.com/",
     github_url: "https://github.com/ashur-k/E-Commerce-AND-Video-Subscription",

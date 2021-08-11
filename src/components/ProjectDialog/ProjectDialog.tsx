@@ -32,7 +32,7 @@ const ProjectDialog:FunctionComponent<{
         <Icon>{getIcon('CloseIcon')}</Icon>
       </p>      
 
-      <DialogTitle className="projectDialog_title" id="alert-dialog-title">{projectDialog?.title}</DialogTitle>
+      <DialogTitle className="projectDialog_title" id="alert-dialog-title">{projectDialog?.name}</DialogTitle>
         
         <img className="projectDialog_image" src={projectDialog?.image_path} alt="" />
         <DialogContent id="alert-dialog-description">
@@ -41,7 +41,7 @@ const ProjectDialog:FunctionComponent<{
           </Typography>
           <Typography variant="body2" className="projectDialog_description">
             {projectDialog?.description}
-          </Typography>
+          </Typography>          
           <Typography variant="h6" className="projectDialog_description">
             Key Techs:
           </Typography>

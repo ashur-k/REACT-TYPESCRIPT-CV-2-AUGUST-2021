@@ -1,35 +1,50 @@
+import React, { useState, useEffect } from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import {  Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography } from '@material-ui/core';
-import React, { useState } from 'react';
-import { projects as projectData, Category  } from '../../utils/resumeData'
-import './Portfolio.css';
+import { Category, ProjectInterface } from '../../utils/resumeData'
 
 import ProjectsNavbar  from '../../components/ProjectNabar/ProjectNavbar';
-import ProjectDialog from '../../components/ProjectDialog/ProjectDialog'
-
+import ProjectDialog from '../../components/ProjectDialog/ProjectDialog';
+import { useActions } from '../../hooks/useActions';
+import './Portfolio.css';
 
 const Portfolio = () => {
+  
+  const { listProjects } = useActions();
+  
+  const {error, loading, projects} =  useTypedSelector(
+    (state) => state.projectList
+    );
 
+  const [projectsData, setProjectsData] = useState(projects);
+  const [active, setActive] = useState("all");
+
+
+  useEffect(() => {
+    listProjects()
+   }, [])
+
+ 
+  
+
+  const handleFilterCategory = (category: Category | 'all') => {
+    if(category === "all"){
+      setProjectsData((projects))
+      setActive(category);
+      return;
+    }
+    const newArray = projects.filter((filteredProject)=> 
+      filteredProject.category.includes(category)
+    );
+    setProjectsData(newArray);
+    setActive(category);
+    }
+  
+  // State to handel project dialog
   const [open, setOpen] = React.useState(false);
   const closeDialog = () => {
     setOpen(false);
   };
-
-
-  const [projects, setProjects] = useState(projectData);
-  const [active, setActive] = useState("all");
-
-  const handleFilterCategory = (category: Category | 'all') => {
-    if(category === "all"){
-      setProjects((projectData))
-      setActive(category);
-      return;
-    }
-    const newArray = projectData.filter((project)=> 
-      project.category.includes(category)
-    );
-    setProjects(newArray);
-    setActive(category);
-    }
 
   return (
     <Grid className="section pb_45 pt_45">
@@ -50,8 +65,9 @@ const Portfolio = () => {
     
         <Grid container spacing={1}>  
           <Grid container item xs={12} spacing={1}>
-            {
-              projects.map((project) => (     
+            {error && <h3>{error}</h3>}
+            {loading && <h3>...Loading</h3>}
+            {!error && !loading && projectsData.map((project) => (     
                 <Grid key={project.id} item xs={12} sm={6}>           
                       <div>
                     <Grow in timeout={1000}>
@@ -63,11 +79,11 @@ const Portfolio = () => {
                           <CardMedia 
                             className='customCard_image' 
                             image={project.image_path}
-                            title={project.title}
+                            title={project.name}
                           />
                           <CardContent>
                             <Typography className='customCard_title'>
-                              {project.title}
+                              {project.name}
                             </Typography>
                             <Typography variant='body2' className='customCard_description'>
                               {project.description}
@@ -88,5 +104,3 @@ const Portfolio = () => {
 }
 
 export default Portfolio;
-
-
