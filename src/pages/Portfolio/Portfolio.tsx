@@ -6,8 +6,6 @@ import { Category } from '../../utils/resumeData'
 
 import ProjectsNavbar  from '../../components/ProjectNabar/ProjectNavbar';
 import ProjectDialog from '../../components/ProjectDialog/ProjectDialog';
-import { useActions } from '../../hooks/useActions';
-
 import { listProjects } from '../../redux/actions/projectActions';
 import './Portfolio.css';
 
