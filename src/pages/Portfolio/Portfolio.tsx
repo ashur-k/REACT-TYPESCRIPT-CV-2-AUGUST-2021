@@ -11,11 +11,14 @@ import './Portfolio.css';
 const Portfolio = () => {
   
   const { listProjects } = useActions();
-  
+  // type selector is useSelector adjusted 
+  // with its type at '../../hooks/useTypedSelector'
   const {error, loading, projects} =  useTypedSelector(
     (state) => state.projectList
     );
 
+  // Setting state ProjectsData to Projects 
+  // Array mapping on ProjectData to perform filtering for projects(secondary navbar) 
   const [projectsData, setProjectsData] = useState(projects);
   const [active, setActive] = useState("all");
 
@@ -23,9 +26,6 @@ const Portfolio = () => {
   useEffect(() => {
     listProjects()
    }, [])
-
- 
-  
 
   const handleFilterCategory = (category: Category | 'all') => {
     if(category === "all"){
@@ -62,12 +62,15 @@ const Portfolio = () => {
             active={active}
           />
         </Grid>
-    
         <Grid container spacing={1}>  
           <Grid container item xs={12} spacing={1}>
-            {error && <h3>{error}</h3>}
-            {loading && <h3>...Loading</h3>}
-            {!error && !loading && projectsData.map((project) => (     
+            
+            {loading
+              ? (<h3>Loading...</h3>)
+              : error 
+              ? (<h3>{error}</h3>)
+              : (
+                projectsData.map((project) => (     
                 <Grid key={project.id} item xs={12} sm={6}>           
                       <div>
                     <Grow in timeout={1000}>
@@ -95,7 +98,8 @@ const Portfolio = () => {
                     <ProjectDialog projectDialog={project} open={open} onClose={closeDialog} />
                     </div>                  
                 </Grid>
-              ))}
+              )))}
+              
           </Grid> 
         </Grid>      
       </div>      
