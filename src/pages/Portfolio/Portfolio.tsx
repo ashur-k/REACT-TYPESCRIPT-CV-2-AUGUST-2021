@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import {  Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography } from '@material-ui/core';
-import { Category, ProjectInterface } from '../../utils/resumeData'
+import { Category } from '../../utils/resumeData'
 
 import ProjectsNavbar  from '../../components/ProjectNabar/ProjectNavbar';
 import ProjectDialog from '../../components/ProjectDialog/ProjectDialog';
 import { useActions } from '../../hooks/useActions';
+
+import { listProjects } from '../../redux/actions/projectActions';
 import './Portfolio.css';
 
 const Portfolio = () => {
-  
-  const { listProjects } = useActions();
+  const dispatch = useDispatch();
+
   // type selector is useSelector adjusted 
   // with its type at '../../hooks/useTypedSelector'
   const {error, loading, projects} =  useTypedSelector(
@@ -22,10 +25,9 @@ const Portfolio = () => {
   const [projectsData, setProjectsData] = useState(projects);
   const [active, setActive] = useState("all");
 
-
   useEffect(() => {
-    listProjects()
-   }, [])
+    dispatch(listProjects())
+   }, [dispatch])
 
   const handleFilterCategory = (category: Category | 'all') => {
     if(category === "all"){
