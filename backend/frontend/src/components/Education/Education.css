@@ -1,0 +1,9 @@
+.education_link{
+  text-decoration: none;
+  color: rgb(73, 71, 71);
+}
+
+.education_link:hover{
+  text-decoration: none;
+  color: var(--main-color) !important;
+}
