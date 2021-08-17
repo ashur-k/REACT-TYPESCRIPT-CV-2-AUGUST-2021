@@ -1,15 +1,20 @@
-import { Typography } from '@material-ui/core'
+import React from 'react';
 
-import './profile.css';
-import profileImage from '../../assets/images/ash.jpg';
+// Typescript imports
+import { profile, socials } from '../../utils/types';
+
+// Material UI and bootstrap Components import
+import { Typography } from '@material-ui/core'
 import CustomTimeLine, { CustomTimelineSeparator } from '../Timeline/Timeline';
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
-import { profile, socials } from '../../utils/types';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import CustomButton from '../Button/Button'
 import GetAppIcon from '@material-ui/icons/GetApp';
 
+// css and Images imports
+import profileImage from '../../assets/images/ash.jpg';
+import './profile.css';
 
 interface customTimelinechildren {
   title: string;
@@ -17,13 +22,14 @@ interface customTimelinechildren {
   link: string | null;
 }
 
+// Custom timeline copmponent to show socail icons in sidebar section 
 const CustomTimelineItem = ({title, text, link}: customTimelinechildren) => (
   <TimelineItem>
     <CustomTimelineSeparator />
     <TimelineContent>
       {link ? (
       <Typography className="timelineItem_text">
-        <span>{title}: </span>{" "}
+        <span>{title}:</span>{" "}
         <a href={link} target='_blank' rel='noreferrer'>
           {text}
         </a>        

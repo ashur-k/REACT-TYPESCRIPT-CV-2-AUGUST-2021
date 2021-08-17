@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 // Typescript imports
+import { ResumeDataInterface } from '../../utils/types';
 // import { education } from '../../utils/types';
 
 // Icon helper function imported
@@ -10,14 +11,12 @@ import  getIcon  from '../../helperFunctions/getIcon';
 import { Typography } from '@material-ui/core';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineContent from '@material-ui/lab/TimelineContent';
-
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 // Custom components import
 import CustomTimeline, { CustomTimelineSeparator } from '../../components/Timeline/Timeline';
 
 // css imports
 import './Education.css'
-import { ResumeDataInterface } from '../../utils/types'
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 
 const Education:FunctionComponent<{
@@ -29,7 +28,7 @@ const Education:FunctionComponent<{
       icon={getIcon('SchoolRoundedIcon')}
       >
       {education_details.map((edu) => (
-        <TimelineItem key={edu.title}>
+        <TimelineItem key={edu.id}>
           <CustomTimelineSeparator />
           <TimelineContent className='timeline_content'>
             <Typography className="timeline_title">

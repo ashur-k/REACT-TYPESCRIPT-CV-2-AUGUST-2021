@@ -1,6 +1,10 @@
+import React from 'react';
+
+// Material UI and bootstrap Components import
 import { Typography } from '@material-ui/core';
 import { Copyright } from '@material-ui/icons';
-import React from 'react';
+
+// css imports
 import './Footer.css';
 
 const Footer = () => {

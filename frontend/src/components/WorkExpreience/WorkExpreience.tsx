@@ -26,7 +26,7 @@ const WorkExpreience:FunctionComponent<{
         icon={getIcon('WorkIcon')}
         >
         {work_expereinces.map((experience) => (
-          <TimelineItem key={experience.title}>
+          <TimelineItem key={experience.id}>
             <CustomTimelineSeparator />
             <TimelineContent className='timeline_content'>
               <Typography className="timeline_title">{experience.title}</Typography>

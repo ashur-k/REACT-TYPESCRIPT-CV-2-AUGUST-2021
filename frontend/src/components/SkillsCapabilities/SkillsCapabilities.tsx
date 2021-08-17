@@ -14,13 +14,13 @@ const SkillsCapabilities:FunctionComponent<{
   return (
     <Grid 
       container
-      justify='space-between' 
+      justifyContent='space-between' 
       className="section graybg pb_45 p_50"
     >
       <Grid item xs={12}>
-        <Grid container justify="space-between" spacing={3}>
+        <Grid container justifyContent="space-between" spacing={3}>
           {skillCapabilities.map((skill) => (
-            <Grid key={skill.title} item xs={12} sm={6} md={3} >
+            <Grid key={skill.id} item xs={12} sm={6} md={3} >
               <Paper elevation={0} className='skill'>
                 <Typography variant='h6' className="skills_title">
                   {skill.title}

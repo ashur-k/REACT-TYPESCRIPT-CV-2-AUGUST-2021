@@ -1,3 +1,4 @@
+// Material UI Icons import
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -5,6 +6,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import WorkIcon from '@material-ui/icons/Work';
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
 import CloseIcon from '@material-ui/icons/Close';
+
+// React Icons import
 import { IoLogoReact, IoLogoPython, IoLogoVercel, IoLogoFirebase } from "react-icons/io5";
 import { FiDatabase } from "react-icons/fi";
 import { FaGit } from "react-icons/fa";

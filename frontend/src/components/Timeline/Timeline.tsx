@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Material UI and bootstrap Components import
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
@@ -6,6 +8,8 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import { Typography } from '@material-ui/core';
+
+// css imports
 import './Timeline.css'
 
 interface timeLineProps {
@@ -13,7 +17,6 @@ interface timeLineProps {
   icon:any;
   children: any;
 }
-
 
 const CustomTimeline = ({ title, icon, children }: timeLineProps ) => {
   return (

@@ -1,5 +1,9 @@
 import { FunctionComponent } from "react";
+
+// Custom components import
 import { ProjectNavbarItems } from '../ProjectNavbarItem/ProjectNavbarItem';
+
+// css imports
 import './ProjectNavbar.css';
 
 const ProjectsNavbar: FunctionComponent<{

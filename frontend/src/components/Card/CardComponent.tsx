@@ -7,6 +7,9 @@ import  getIcon  from '../../helperFunctions/getIcon';
 import { Icon, Typography } from '@material-ui/core';
 import { Card, CardGroup } from 'react-bootstrap';
 
+// css imports
+import './CardComponent.css';
+
 export const CardComponent:FunctionComponent<{
   icon: string;
   title: string;
@@ -19,21 +22,18 @@ export const CardComponent:FunctionComponent<{
         <Icon className="service_icon" style={{margin:'12px', paddingBottom:"50px"}}>
           {getIcon(icon)}
         </Icon>
-        <Card.Body>
-          <Card.Title>
-            <Typography className="service_title" variant='h6'>
-              {title}
-            </Typography>
-          </Card.Title>
-          <Card.Text>
+        <Card.Body>        
+          <Typography className="service_title" variant='h6'>
+            {title}
+          </Typography>          
           <Typography className="service_description" variant='body2'>
             {description}
-          </Typography>
-          </Card.Text>
+          </Typography>          
         </Card.Body>
         </div>
       </Card>
     </CardGroup>  
   )
 }
+
 

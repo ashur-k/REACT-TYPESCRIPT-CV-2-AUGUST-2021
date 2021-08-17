@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // Redux imports
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { listProjects } from '../../redux/actions/projectActions';
 
 // Typescript imports
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Category, ProjectInterface } from '../../utils/types';
 
 // Material UI and bootstrap Components import

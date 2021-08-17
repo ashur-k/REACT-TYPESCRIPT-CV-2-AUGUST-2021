@@ -1,5 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
+// Typescript imports
+import { ProjectInterface  } from '../../utils/types';
+
+// Get icon helper function
+import  getIcon  from '../../helperFunctions/getIcon';
+
 // Material UI components import
 import { Grid, Icon, Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,14 +13,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Image } from 'react-bootstrap';
-
-// Typescript imports
-import { ProjectInterface  } from '../../utils/types';
-
 // Custom components import
 import CustomButton from '../Button/Button'
-// Get icon helper function
-import  getIcon  from '../../helperFunctions/getIcon';
 
 // css imports
 import './ProjectDialog.css';
