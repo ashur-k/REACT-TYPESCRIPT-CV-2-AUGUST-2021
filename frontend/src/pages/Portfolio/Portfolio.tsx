@@ -25,6 +25,8 @@ const Portfolio = () => {
       (state) => state.projectList
     );
   const [projectsData, setProjectsData] = useState<ProjectInterface[]>([]);  
+
+  const [projectDialog, setProjectDialog] = useState<null|ProjectInterface>(null);
   const [active, setActive] = useState("all");
 
   // UseEffect to dispatch listProjects action
@@ -86,10 +88,10 @@ const Portfolio = () => {
                     <Grow in timeout={1000}>
                       <Card
                         className='customCard' 
-                        onClick={() => {setOpen(true)}}
+                        onClick={() => {setProjectDialog(project); setOpen(true)}}
                       >
                         <CardActionArea>
-                        <Image src={project.image} rounded thumbnail alt={project.name} /> 
+                          <Image src={project.image} rounded thumbnail alt={project.name} /> 
                           <CardContent>
                             <Typography className='customCard_title'>
                               {project.name}
@@ -101,13 +103,14 @@ const Portfolio = () => {
                         </CardActionArea>
                       </Card>                                         
                     </Grow>
-                    <ProjectDialog projectDialog={project} open={open} onClose={closeDialog} />
+                    
                     </div>                  
                 </Grid>
               )))}              
           </Grid> 
         </Grid>      
-      </div>      
+      </div>   
+      <ProjectDialog projectDialog={projectDialog} open={open} onClose={closeDialog} />   
     </Grid>
   )
 }

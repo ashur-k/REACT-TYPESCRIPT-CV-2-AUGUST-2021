@@ -6,6 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Image } from 'react-bootstrap';
 
 // Typescript imports
 import { ProjectInterface  } from '../../utils/types';
@@ -19,12 +20,11 @@ import  getIcon  from '../../helperFunctions/getIcon';
 import './ProjectDialog.css';
 
 const ProjectDialog:FunctionComponent<{
-  projectDialog: ProjectInterface;
+  projectDialog: null | ProjectInterface;
   open: boolean;
   onClose:(val: boolean) => void;
 }> = ({ projectDialog, open, onClose } ) => {
-  
-  
+
   return (
     <Dialog 
       className="projectDialog" 
@@ -38,15 +38,15 @@ const ProjectDialog:FunctionComponent<{
         <Icon>{getIcon('CloseIcon')}</Icon>
       </p>      
 
-      <DialogTitle className="projectDialog_title" id="alert-dialog-title">{projectDialog.name}</DialogTitle>
+      <DialogTitle className="projectDialog_title" id="alert-dialog-title">{projectDialog?.name}</DialogTitle>
         
-        <img className="projectDialog_image" src={projectDialog.image} alt="" />
+        <Image src={projectDialog?.image} rounded fluid alt={projectDialog?.name} />
         <DialogContent id="alert-dialog-description">
           <Typography variant="h6" className="projectDialog_description">
             Description:
           </Typography>
           <Typography variant="body2" className="projectDialog_description">
-            {projectDialog.description}
+            {projectDialog?.description}
           </Typography>          
           <Typography variant="h6" className="projectDialog_description">
             Key Techs:
@@ -55,7 +55,7 @@ const ProjectDialog:FunctionComponent<{
               <Grid container spacing={1}>  
                 <Grid container item xs={12} spacing={1}>
                   {
-                    projectDialog.key_techs.map((item) => (
+                    projectDialog?.key_techs.map((item) => (
                       <Grid key={item} item xs={2} >
                         <Typography variant="body2">{item}</Typography>
                       </Grid> 
@@ -69,7 +69,7 @@ const ProjectDialog:FunctionComponent<{
            <CustomButton 
             text="View Codes on Github" 
             icon={
-            <a href={projectDialog.github_url} target="_blank" rel="noreferrer">
+            <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
               <span>{getIcon('GitHubIcon')}</span>
             </a>
             } 
@@ -77,7 +77,7 @@ const ProjectDialog:FunctionComponent<{
             <CustomButton 
             text="View Live Hosted Site" 
             icon={
-            <a href={projectDialog.github_url} target="_blank" rel="noreferrer">
+            <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
               <span>{getIcon('GitHubIcon')}</span>
             </a>
             } 
