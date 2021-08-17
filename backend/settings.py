@@ -104,6 +104,7 @@ if 'DATABASE_URL' in os.environ:
     }    
     # print(os.environ.get('DATABASE_URL'))
 else:
+    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',

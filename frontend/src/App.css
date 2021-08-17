@@ -32,6 +32,10 @@
 .p_50 {
   padding: 50px !important;
 }
+a{
+  color:transparent !important;
+  text-decoration: none!important;
+}
 
 .container_shadow {
   box-shadow: 0px 2px 92px 0px rgba(0, 0, 0, 0.13);

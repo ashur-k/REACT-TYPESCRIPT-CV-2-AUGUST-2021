@@ -40,3 +40,12 @@
 .projectDialog .projectDialog_icon > .MuiSvgIcon-root {
   font-size:30px;
 }
+.key-tech-items{
+  --tw-bg-opacity: 1;
+  background-color: #d33131;
+  color: #000;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}

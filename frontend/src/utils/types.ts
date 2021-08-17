@@ -258,10 +258,12 @@ export interface ProjectInterface {
   image: string;
   description: string;
   deployed_url: string;
+  deployed_url_icon: string;
   github_url: string;
   category: Category[];
   key_techs: string[];
 }
+
 export interface ResumeDataInterface {
   id: number;
   about_me: string;
@@ -305,8 +307,6 @@ export interface ResumeDataInterface {
     }
   ];
 } 
-
-
 
 export const resumeData: ResumeDataInterface[] = [
   {

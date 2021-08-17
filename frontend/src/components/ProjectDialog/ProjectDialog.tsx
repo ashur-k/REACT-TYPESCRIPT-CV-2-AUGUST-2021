@@ -57,7 +57,7 @@ const ProjectDialog:FunctionComponent<{
                   {
                     projectDialog?.key_techs.map((item) => (
                       <Grid key={item} item xs={2} >
-                        <Typography variant="body2">{item}</Typography>
+                        <Typography className="key-tech-items" variant="body2">{item}</Typography>
                       </Grid> 
                   ))
                   }
@@ -66,22 +66,20 @@ const ProjectDialog:FunctionComponent<{
             </div>
          </DialogContent>
           <DialogActions className="projectDialog_actions">
-           <CustomButton 
-            text="View Codes on Github" 
-            icon={
             <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
-              <span>{getIcon('GitHubIcon')}</span>
+              <CustomButton 
+                text="View Codes on Github" 
+                icon={getIcon('GitHubIcon')}
+              //</CustomButton>
+              />
             </a>
-            } 
-            />
-            <CustomButton 
-            text="View Live Hosted Site" 
-            icon={
             <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
-              <span>{getIcon('GitHubIcon')}</span>
+              <CustomButton 
+                text="View Live Hosted Site" 
+                icon={getIcon(projectDialog?.deployed_url_icon)}
+              //</CustomButton>
+              />
             </a>
-            } 
-        />
         </DialogActions>
       </Dialog>
   )

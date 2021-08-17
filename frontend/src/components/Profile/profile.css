@@ -53,8 +53,8 @@
   font-weight: 400 !important;
 }
 
-.timelineItem_text  > a{
-  color: #787878;
+.timelineItem_text > a{
+  color: #787878!important;
   text-decoration: none;
 }
 .timelineItem_text > span{

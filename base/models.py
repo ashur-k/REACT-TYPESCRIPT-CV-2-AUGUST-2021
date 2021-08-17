@@ -80,6 +80,7 @@ class Project(models.Model):
   key_techs = ArrayField(
     models.CharField(max_length=200)
   )
+  deployed_url_icon = models.CharField(max_length=150, default="add icon name", null=False, blank=False)
   deployed_url = models.CharField(max_length=500)
   github_url = models.CharField(max_length=500)
   
