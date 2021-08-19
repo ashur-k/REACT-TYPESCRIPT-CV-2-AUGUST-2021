@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Blog from './pages/Blog/Blog';
+import Contact from './pages/Contact/Contact';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
 
@@ -27,6 +28,9 @@ function App() {
                 </Route>
                 <Route path="/blog">
                   <Blog />
+                </Route>
+                <Route path="/contact">
+                  <Contact />
                 </Route>
                 <Route path="/">
                   <Resume />

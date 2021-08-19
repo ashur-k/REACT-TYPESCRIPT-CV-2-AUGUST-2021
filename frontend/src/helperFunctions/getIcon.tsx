@@ -6,6 +6,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import WorkIcon from '@material-ui/icons/Work';
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
 import CloseIcon from '@material-ui/icons/Close';
+import SendIcon from '@material-ui/icons/Send';
+import SearchIcon from '@material-ui/icons/Search';
 
 // React Icons import
 import { IoLogoReact, IoLogoPython, IoLogoVercel, IoLogoFirebase } from "react-icons/io5";
@@ -47,6 +49,10 @@ const getIcon = (icon:string | undefined): JSX.Element => {
       return (<IoLogoFirebase />);
     case 'SiNetlify':
       return (<SiNetlify />);
+    case 'SendIcon':
+      return (<SendIcon />);
+    case 'SearchIcon':
+      return (<SearchIcon />);
     default:
       return (<small>No Icon Found</small>);
   }
