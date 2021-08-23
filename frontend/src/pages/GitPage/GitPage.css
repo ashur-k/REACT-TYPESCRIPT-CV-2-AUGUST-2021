@@ -1,6 +1,7 @@
 .ContactInfo_items{
   font-size: 14px;
-  color: #787878;
+  color: #333 !important;
+
 }
 .ContactInfo_items > span{
   color: #000;

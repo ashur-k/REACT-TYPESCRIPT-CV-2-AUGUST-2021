@@ -64,9 +64,9 @@ const Header = (props: RouteComponentProps) => {
           </Nav.Link>
           <Nav.Link
             as={NavLink}
-            to='/contact'
-            className={pathName === "/contact" ? "header_link_active" : "header_link"}
-          >Contact
+            to='/GitPage'
+            className={pathName === "/GitPage" ? "header_link_active" : "header_link"}
+          >Git
           </Nav.Link>
         </Nav>
         {/* Only visible on desktop */}

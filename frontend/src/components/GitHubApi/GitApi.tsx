@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react'; 
 
 import  getIcon  from '../../helperFunctions/getIcon';
 
@@ -27,26 +27,32 @@ const useStyles = makeStyles({
 });
 
 const GitApi = () => {
-  const [name, setName] = useState('');
-  const [userName, setUserName] = useState('');
-  const [followers, setFollowers] = useState('');
-  const [following, setFollowing] = useState('');
-  const [repos, setRepos] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
+  const [followers, setFollowers] = useState<string>('');
+  const [following, setFollowing] = useState<string>('');
+  const [repos, setRepos] = useState<string>('');
+  const [avatar, setAvatar] = useState<string>('');  
+  const [term, setTerm] = useState<string>('ashur-k');
   
-  const [userInput, setUserInput] = useState('');
-  const [error, seterror] = useState('');
+const [reposInfo, setReposInfo] = useState<any>([]);
 
-  const [reposInfo, setReposInfo] = useState<any>([]);
-  const [term, setTerm] = useState('ashur-k');
+interface GitUserData{
+  name: string;
+  login: string;
+  followers: string;
+  following: string;
+  public_repos: string;
+  avatar_url: string;
 
+}
   // UseEffect to update data
   useEffect(() => {  
     async function fetchGitUsers(){ 
       try {
-        const result:any = await axios(`https://api.github.com/users/${term}`)
+        const result = await axios(`https://api.github.com/users/${term}`)
+
         setData(result.data)
-        console.log(result.data)
       }catch(err){
         console.log("USER Fetch ERROR:", err)
       }
@@ -65,10 +71,11 @@ const GitApi = () => {
   fetchGitRepos()   
     
   },[term]);
+  
 
 
-
-  const setData = ({ name, login, followers, following, public_repos, avatar_url }:any) => {
+ 
+  const setData= ({ name, login, followers, following, public_repos, avatar_url }:GitUserData) => {
     setName(name)
     setUserName(login)
     setFollowers(followers)
@@ -93,40 +100,14 @@ const GitApi = () => {
           >       
             
         </Grid>
-        <Grid container spacing={3}> 
-        
-          <Grid item xs={7}>
-            <Grid container spacing={0}>  
-            <Typography className="repositoriesTitle" variant="h6">Repositories List:
- 
-            <TextField 
-              label="Search"
-              value={term} 
-              fullWidth
-              onChange={e => setTerm(e.target.value)}     
-              className="searchInputField"
-              variant="filled"
-              />
-              </Typography>
-          
-              <Grid container item xs={12} spacing={1}>
-             
-            {
-              reposInfo.map((repo:any) => (  
-                <Grid item xs={6}>
-                  <a href={repo.html_url} target="_blank" rel="noreferrer">
-                  <Paper className="repoName-Paper" elevation={3} >
-                    {repo.name}
-                  </Paper>
-                  </a>
-                </Grid>
-              ))
-            }
-              </Grid>
-            </Grid>
-          </Grid>
-        <Grid item xs={5}>
-              <Card className={classes.root}>
+        <Grid 
+          container 
+          spacing={3} 
+          direction="column"
+          alignItems="center"
+          justify="center"> 
+          <Grid item xs={12} >
+            <Card className={classes.root}>
                   <CardHeader
                       avatar={
                         <Avatar aria-label="recipe" className={classes.avatar}>
@@ -160,6 +141,37 @@ const GitApi = () => {
                   </CardActions>
                 </Card>
           </Grid>
+          <Grid item xs={12}>
+            <Grid container spacing={0}>  
+            <div className="repositoriesTitle"> 
+            <TextField 
+              label="Search"
+              value={term} 
+              fullWidth
+              onChange={e => setTerm(e.target.value)}     
+              className="searchInputField"
+              
+              />
+              </div>
+
+          
+              <Grid container item xs={12} spacing={1}>
+             
+            {
+              reposInfo.map((repo:any) => (  
+                <Grid item xs={12} sm={12} md={6}>
+                  <a href={repo.html_url} target="_blank" rel="noreferrer">
+                  <Paper className="repoName-Paper" elevation={3} >
+                    {repo.name}
+                  </Paper>
+                  </a>
+                </Grid>
+              ))
+            }
+              </Grid>
+            </Grid>
+          </Grid>
+        
         </Grid>
       </Grid>
     </div>  
