@@ -12,6 +12,11 @@ from .models import Project, Aboutme
 from .serializers import ProjectSerializer, AboutmeSerializer, UserSerializer, UserSerializerWithToken
 from django.contrib.auth.models import User
 
+# To Hash Passwords
+from django.contrib.auth.hashers import make_password
+
+# for error status
+from rest_framework import status
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
@@ -34,6 +39,24 @@ def getRoutes(request):
     routes = ['api/getProjects']
     return Response(routes)
 
+# Users Views
+@api_view(['POST'])
+def registerUser(request): 
+    ''' Creating user taking frontend input values'''
+    data = request.data
+    try:        
+        user = User.objects.create(
+            first_name = data['name'],
+            username = data['email'],
+            email = data['email'],
+            password = make_password(data['password'])
+        )    
+        serializer = UserSerializerWithToken(user, many=False)
+        return Response(serializer.data)
+    except:
+        message = {'detail': 'User with this email already exists.'}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -51,6 +74,7 @@ def getUsers(request):
     return Response(serializer.data)
 
 
+# Project Views
 @api_view(['GET'])
 def getProjects(request):
     projects = Project.objects.all()

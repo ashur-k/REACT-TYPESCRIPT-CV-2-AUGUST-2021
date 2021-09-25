@@ -9,6 +9,7 @@ import Blog from './pages/Blog/Blog';
 import GitPage from './pages/GitPage/GitPage';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
+import Login from './pages/Login/Login';
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
                 </Route>
                 <Route path="/GitPage">
                   <GitPage />
+                </Route>
+                <Route path="/Login">
+                  <Login />
                 </Route>
                 <Route path="/">
                   <Resume />

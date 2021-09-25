@@ -264,6 +264,10 @@ export interface ProjectInterface {
   key_techs: string[];
 }
 
+export interface UserInterface {
+  
+}
+
 export interface ResumeDataInterface {
   id: number;
   about_me: string;

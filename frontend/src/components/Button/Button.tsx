@@ -14,7 +14,8 @@ interface buttonInterface {
 const CustomButton = ({text, icon}: buttonInterface) => {
   return (
     <Button 
-      className='custom_btn' 
+      className='custom_btn'
+      type="submit"
       endIcon={
         icon ? (
           <div className="btn_icon_container">{icon}</div>
