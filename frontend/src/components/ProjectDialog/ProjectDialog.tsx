@@ -73,7 +73,7 @@ const ProjectDialog:FunctionComponent<{
               //</CustomButton>
               />
             </a>
-            <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
+            <a href={projectDialog?.deployed_url} target="_blank" rel="noreferrer">
               <CustomButton 
                 text="View Live Hosted Site" 
                 icon={getIcon(projectDialog?.deployed_url_icon)}
