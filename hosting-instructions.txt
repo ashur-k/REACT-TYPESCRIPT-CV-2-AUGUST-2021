@@ -1,0 +1,17 @@
+Settings from Django:
+  Bringing site on load URL 
+  and poiniting Django 
+  to frontend build folder 
+  to look for build that we will
+  create with npm run build command:
+
+  Step 1:
+    Django Settings.py file 
+    go to TEMPLATES
+    inside dirs add the below line
+      os.path.join(BASE_DIR, 'frontend/build')
+  
+
+Commands and Settings from React
+~Inside your react frontend project run build command:
+  npm run build
