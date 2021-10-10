@@ -3,16 +3,19 @@ import { Action } from '../interfaces/UserInterfaces';
 
 import { UserInterface } from '../../utils/types';
 
+const userInfoFromStorage = localStorage.getItem('userInfo') ?
+  JSON.parse(localStorage.getItem('userInfo') || '{}') : {};
+
  interface UserReducerInterface {
    loading: boolean;
    error: string | null;
-   user: any;
+   userInfo: any;
  };
 
  const initialState = {
   loading: false,
   error: null,
-  user: [],
+  userInfo: {userInfo: userInfoFromStorage},
 };
 
 export const userLoginReducer = (
@@ -20,16 +23,16 @@ export const userLoginReducer = (
   action: Action):UserReducerInterface => {
   switch (action.type) {
     case ActionType.USER_LOGIN_REQUEST:
-      return { loading: true, error: null, user: [] };
+      return { loading: true, error: null, userInfo: [] };
 
     case ActionType.USER_LOGIN_SUCCESS:
-      return { loading: false, error: null, user: action.payload };
+      return { loading: false, error: null, userInfo: action.payload };
 
     case ActionType.USER_LOGIN_FAIL:
-      return { loading: false, error: action.payload, user: [] };
+      return { loading: false, error: action.payload, userInfo: [] };
     
     case ActionType.USER_LOGOUT:
-      return { loading: false, error: action.payload, user: [] };
+      return { loading: false, error: null, userInfo: [] };
     
     default:
       return state

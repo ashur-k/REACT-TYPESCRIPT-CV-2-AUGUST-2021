@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'storages',
     
     'base.apps.BaseConfig',
+    'blog.apps.BlogConfig',
 ]
 
 REST_FRAMEWORK = {

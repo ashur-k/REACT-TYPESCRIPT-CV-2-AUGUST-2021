@@ -9,7 +9,8 @@ import Blog from './pages/Blog/Blog';
 import GitPage from './pages/GitPage/GitPage';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
-import Login from './pages/Login/Login';
+import { Login } from './pages/Login/Login';
+import BlogDetail from './pages/BlogDetail/BlogDetail';
 
 
 function App() {
@@ -27,9 +28,10 @@ function App() {
                 <Route path="/portfolio">
                   <Portfolio />
                 </Route>
-                <Route path="/blog">
-                  <Blog />
-                </Route>
+                
+                <Route path="/blog" component={Blog} />
+                <Route path="/blog-detail/:id?" component={BlogDetail} />
+                
                 <Route path="/GitPage">
                   <GitPage />
                 </Route>

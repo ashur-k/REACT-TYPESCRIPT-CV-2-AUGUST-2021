@@ -1,0 +1,50 @@
+.content {
+  text-align: center;
+}
+
+.heading {
+  color: #000;
+  text-transform: capitalize;
+  font-size: 80px;
+  line-height: 60px;
+  margin-bottom: 80px;
+}
+
+.heading .small {
+  display: block;
+  font-size: 40px;
+}
+
+.heading .no-fill {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+}
+
+
+
+.blogs-section {
+  width: 100%;
+  padding: 50px 5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 80px;
+}
+
+.blog-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-overview {
+  margin: 10px 20px;
+  line-height: 30px;
+}
+
+.btn.dark {
+  background: #1b1b1b;
+  color: #fff;
+}

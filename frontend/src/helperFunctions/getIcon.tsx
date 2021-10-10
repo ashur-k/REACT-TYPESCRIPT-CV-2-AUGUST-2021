@@ -8,6 +8,8 @@ import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
 import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 import SearchIcon from '@material-ui/icons/Search';
+import DescriptionIcon from '@material-ui/icons/Description';
+
 
 // React Icons import
 import { IoLogoReact, IoLogoPython, IoLogoVercel, IoLogoFirebase } from "react-icons/io5";
@@ -15,6 +17,7 @@ import { FiDatabase } from "react-icons/fi";
 import { FaGit } from "react-icons/fa";
 import { GrHeroku } from "react-icons/gr";
 import { SiNetlify } from "react-icons/si";
+import { VscChecklist } from "react-icons/vsc";
 
 
 const getIcon = (icon:string | undefined): JSX.Element => {
@@ -53,6 +56,10 @@ const getIcon = (icon:string | undefined): JSX.Element => {
       return (<SendIcon />);
     case 'SearchIcon':
       return (<SearchIcon />);
+    case 'VscChecklist':
+      return (<VscChecklist className="SVG"/>);
+    case 'DescriptionIcon':
+      return (<DescriptionIcon className="SVG"/>);
     default:
       return (<small>No Icon Found</small>);
   }

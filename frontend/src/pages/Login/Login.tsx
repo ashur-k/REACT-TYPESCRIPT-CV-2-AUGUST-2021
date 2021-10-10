@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../redux/actions/userActions';
+import { login, logout } from '../../redux/actions/userActions';
 import FormContainer from '../../components/FormContainer/FormContainer';
 
 // Typescript and data imports
@@ -18,13 +19,38 @@ import CustomButton from '../../components/Button/Button';
 
 // Material UI and bootstrap Components import
 
-function Login() {
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { History } from 'history';
+
+
+export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  // const redirect = location.search ? location.search.split('=')[1] : '/'
+
+  // const userLogin = useSelector(state => state.userLogin)
+  const dispatch = useDispatch();
+
+  const {error, loading, userInfo } =  useTypedSelector(
+    (state) => state.userLogin
+  );
+
+  // useEffect(() => {
+  //   if(user){
+  //     history.push(redirect)
+  //   }
+  // })
+
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    dispatch(login(email, password))
     console.log('Submitted')
+  }
+
+
+  const logoutHandler = () => {
+        dispatch(logout())
   }
 
   return (
@@ -34,6 +60,8 @@ function Login() {
         <Grid item className="section_title mb_20">
           <span></span>
           <h6 className="section_title_text">Login Page</h6>
+          {error && <p>{error}</p>}
+          {loading && <h3>Loading...</h3>}
         </Grid>
         <Grid container item xs={12} spacing={3}>
         <Grid item xs={12}>
@@ -60,7 +88,8 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)} />
             </Grid>
             <Grid item xs={12}>
-              <CustomButton text="Submit" icon={getIcon('SendIcon')} />
+              <CustomButton text="Login" icon={getIcon('SendIcon')} />
+              <Button variant="secondary" onClick={logoutHandler}>Logout</Button>
             </Grid>
           </form>
           </Grid>
@@ -72,4 +101,4 @@ function Login() {
   )
 }
 
-export default Login
+// export default Login

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Typescript imports
 import { socials } from '../../utils/types';
@@ -12,14 +12,31 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { HomeRounded, Telegram } from '@material-ui/icons';
 import CustomButton from '../Button/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Button, Nav, Navbar } from 'react-bootstrap';
 
 // css imports
 import './Header.css';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+
+import { logout } from '../../redux/actions/userActions'
+import { useDispatch } from 'react-redux';
 
 const Header = (props: RouteComponentProps) => {
 
   const pathName = props?.location?.pathname;
+  const dispatch = useDispatch();
+
+  const userLogin =  useTypedSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  console.log("USER-INFORMATION", userInfo)
+  const [login, setLogin] = useState<boolean>(false);
+
+
+  const logoutHandler = () => {
+    console.log("logging out")
+    dispatch(logout)
+  }
 
   return (
     <Navbar expand="lg" sticky='top' className='header'>
@@ -56,12 +73,31 @@ const Header = (props: RouteComponentProps) => {
             className={pathName === "/portfolio" ? "header_link_active" : "header_link"}
           >Portfolio
           </Nav.Link>
+
           <Nav.Link
             as={NavLink}
             to='/blog'
             className={pathName === "/blog" ? "header_link_active" : "header_link"}
           >Blog
           </Nav.Link>
+          {userInfo ? (
+            <Nav.Link 
+              as={NavLink}
+              to='/login'
+              className={pathName === "/login" ? "header_link_active" : "header_link"}
+            >Logout
+          </Nav.Link>
+          ):(
+            <Nav.Link
+              as={NavLink}
+              to='/login'
+              className={pathName === "/login" ? "header_link_active" : "header_link"}
+            >Login
+            </Nav.Link>
+          )
+          }
+          
+
           <Nav.Link
             as={NavLink}
             to='/GitPage'

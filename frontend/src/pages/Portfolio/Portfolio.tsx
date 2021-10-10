@@ -45,15 +45,15 @@ const Portfolio = () => {
       setProjectsData((projects))
       setActive(category);
       return;
-    }
-    const newArray = projects.filter((filteredProject)=> 
-      filteredProject.category.includes(category)
-    );
-    setProjectsData(newArray);
-    setActive(category);
-    }
+    }    
+      const newArray = projects.filter((filteredProject)=> 
+        filteredProject.category.includes(category)
+      );
+      setProjectsData(newArray);
+      setActive(category);
+  }
   
-  // State to handel project dialog
+  // State to handle project dialog
   const [open, setOpen] = React.useState(false);
   const closeDialog = () => {
     setOpen(false);

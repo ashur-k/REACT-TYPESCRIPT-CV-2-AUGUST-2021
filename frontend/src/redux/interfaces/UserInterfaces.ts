@@ -6,7 +6,7 @@ interface UserLoginRequest {
 }
 interface UserLoginSuccess {
   type: ActionType.USER_LOGIN_SUCCESS;
-  payload: any;
+  payload: string[];
 }
 interface UserLoginFail {
   type: ActionType.USER_LOGIN_FAIL;
@@ -14,7 +14,6 @@ interface UserLoginFail {
 }
 interface UserLogout {
   type: ActionType.USER_LOGOUT;
-  payload: string;
 }
 
 export type Action = 

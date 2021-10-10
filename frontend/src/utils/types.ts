@@ -325,7 +325,7 @@ export const resumeData: ResumeDataInterface[] = [
             "date": "Dec-2019 - -Dec-2020",
             "description": "Full-Stack Web developer",
             "about_me": 1
-          }
+          },
       ],
       "work_expereinces": [
         {
@@ -365,4 +365,5 @@ export const resumeData: ResumeDataInterface[] = [
       
   },
 ]
+
 
