@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // Typescript imports
 import { socials } from '../../utils/types';
-import { RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
 // Get icon helper function
 import getIcon from '../../helperFunctions/getIcon';
@@ -74,7 +74,7 @@ const Header = (props: RouteComponentProps) => {
           >Portfolio
           </Nav.Link>
 
-          <Nav.Link
+          {/* <Nav.Link
             as={NavLink}
             to='/blog'
             className={pathName === "/blog" ? "header_link_active" : "header_link"}
@@ -95,7 +95,7 @@ const Header = (props: RouteComponentProps) => {
             >Login
             </Nav.Link>
           )
-          }
+          } */}
           
 
           <Nav.Link
@@ -117,7 +117,7 @@ const Header = (props: RouteComponentProps) => {
                 className="not-show-on-smaller-screen"
               >{getIcon(social.icon)}</a>
             ))}
-          <CustomButton text={'Hire me'} icon={<Telegram />} />
+            {/* <CustomButton text={'Hire me'} icon={<Telegram />} /> */}
         </div>
       </Navbar.Collapse>
     </Navbar>
