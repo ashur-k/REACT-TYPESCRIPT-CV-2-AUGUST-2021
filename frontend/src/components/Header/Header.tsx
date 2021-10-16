@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Typescript imports
-import { socials } from '../../utils/types';
+import { profile, socials } from '../../utils/types';
 import { Link, RouteComponentProps } from 'react-router-dom';
 
 // Get icon helper function
@@ -117,7 +117,9 @@ const Header = (props: RouteComponentProps) => {
                 className="not-show-on-smaller-screen"
               >{getIcon(social.icon)}</a>
             ))}
-            {/* <CustomButton text={'Hire me'} icon={<Telegram />} /> */}
+            <a href={profile.cv} target="_blank" rel="noreferrer" download>
+              <CustomButton text={'Hire me'} icon={<Telegram />} />
+            </a>
         </div>
       </Navbar.Collapse>
     </Navbar>

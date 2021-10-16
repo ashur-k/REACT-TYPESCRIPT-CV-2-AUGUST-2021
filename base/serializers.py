@@ -48,7 +48,7 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
   class Meta:
     model = WorkExperience
     fields = '__all__'
-
+  
 
 class SkillSerializer(serializers.ModelSerializer):
   class Meta:
@@ -82,6 +82,10 @@ class AboutmeSerializer(serializers.ModelSerializer):
     work_expereinces = obj.workexperience_set.all()
     serializer = WorkExperienceSerializer(work_expereinces, many=True)
     return serializer.data
+  
+  # def sequnceing(self, instance):
+  #       sequence = instance.work_expereinces.all().order_by('id')
+  #       return WorkExperienceSerializer(sequence, many=True).data
   
   def get_skills(self, obj):
     skills = obj.skill_set.all()

@@ -29,14 +29,18 @@ class Education(models.Model):
 
 class WorkExperience(models.Model):  
   class Meta:
-    verbose_name_plural = 'Experiences'  
+    verbose_name_plural = 'Experiences'
+    ordering = ['display_order', 'pk']
   
   about_me = models.ForeignKey(Aboutme, on_delete=models.CASCADE)
   title =  models.CharField(max_length=50, null=False, blank=False)
   date = models.CharField(max_length=150, null=False, blank=False)
   description = models.TextField(null=True, blank=True)
-  deployed_url = models.CharField(max_length=500)
-  github_url = models.CharField(max_length=500)
+  display_order = models.IntegerField(null=False, blank=False, default=1)
+  office_job = models.BooleanField(default=False)
+  work_url = models.CharField(max_length=500, null=True, blank=True, default="www.google.com")
+  deployed_url = models.CharField(max_length=500, null=True, blank=True)
+  github_url = models.CharField(max_length=500, null=True, blank=True)
   
   def __str__(self):
     return self.title

@@ -5,6 +5,7 @@ export interface profileInfo {
   email: string;
   address: string;
   phone: string;
+  cv:string;
 
   socials: {
     Facebook: {
@@ -38,6 +39,7 @@ export const profile: profileInfo = {
   email: 'ashurkanwal@yahoo.com',
   address: 'Grangemouth Scotland',
   phone: '07397325523',
+  cv: '/images/AshurkanwalCV.pdf',
 
   socials:{
     Facebook:{
@@ -287,7 +289,10 @@ export interface ResumeDataInterface {
       id: number;
       title: string;
       date: string;
-      description: string; 
+      description: string;
+      display_order: number;
+      office_job: boolean;
+      work_url: string;
       deployed_url:string;
       github_url:string;
       about_me: number;
@@ -333,6 +338,9 @@ export const resumeData: ResumeDataInterface[] = [
             "title": "Kirk Of the Holy Rood",
             "date": "Jan-2021 - April-2021",
             "description": "Python Django application, admin can manage all content including adding removing ministry section pages",
+            "display_order": 1,
+            "office_job": false,
+            "work_url": "",
             "deployed_url": "www.github.com",
             "github_url": "www.github.com",
             "about_me": 1

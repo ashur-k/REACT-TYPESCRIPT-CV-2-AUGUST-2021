@@ -33,18 +33,28 @@ const WorkExpreience:FunctionComponent<{
               <Typography variant='caption' className="timeline_date">{experience.date}</Typography>
               <Typography variant='body2' className="timeline_description">{experience.description}</Typography>
               <div className="timeline_links">
-                <Typography variant='body2' className="timeline_links-typography">
-                  <a href={experience.deployed_url} target="_black" rel="noreferrer">Live Site</a>                        
-                </Typography>
-                <Typography variant='body2' className="timeline_links-typography">                
-                  <a href={experience.github_url} target="_black" rel="noreferrer"> Codes on Git</a>      
-                </Typography>
+                {
+                   experience.office_job ? (
+                    <Typography variant='body2' className="timeline_links-typography">
+                      <a href={experience.work_url} target="_blank" rel="noreferrer">Work Site</a>                        
+                    </Typography>
+                  ) :
+                  (
+                    <div className="buttons-div">
+                      <Typography variant='body2' className="timeline_links-typography">
+                        <a href={experience.deployed_url} target="_blank" rel="noreferrer">Live Site</a>                        
+                      </Typography>
+                      <Typography variant='body2' className="timeline_links-typography">                
+                        <a href={experience.github_url} target="_blank" rel="noreferrer"> Codes on Git</a>      
+                      </Typography>
+                    </div>
+                  )
+                }                
               </div>
             </TimelineContent>
           </TimelineItem>
         ))}
-      </CustomTimeline>
-    
+      </CustomTimeline> 
   )
 }
 

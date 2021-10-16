@@ -12,9 +12,17 @@ import TimelineContent from '@material-ui/lab/TimelineContent';
 import CustomButton from '../Button/Button'
 import GetAppIcon from '@material-ui/icons/GetApp';
 
+import jsPDF from 'jspdf';
+// import AshurkanwalCV from '../../../public/images/AshurkanwalCV.pdf';
+
+
+
+
 // css and Images imports
 import profileImage from '../../assets/images/ash.jpg';
 import './profile.css';
+import DownloadButton from '../DownloadButton/DownloadButton';
+import { Link } from 'react-router-dom';
 
 interface customTimelinechildren {
   title: string;
@@ -24,6 +32,7 @@ interface customTimelinechildren {
 
 // Custom timeline copmponent to show socail icons in sidebar section 
 const CustomTimelineItem = ({title, text, link}: customTimelinechildren) => (
+ 
   <TimelineItem>
     <CustomTimelineSeparator />
     <TimelineContent>
@@ -44,6 +53,14 @@ const CustomTimelineItem = ({title, text, link}: customTimelinechildren) => (
 )
 
 const Profile = () => {
+
+  const downloadPDF = () => {
+    // const doc = new jsPDF('portrait', 'px', 'a4', 'false');
+    // doc.addImage(AshurkanwalCV)
+    
+    console.log('doc')
+  }
+
   return (
     <div className='profile container_shadow'>
       <div className='profile_name'>
@@ -71,9 +88,16 @@ const Profile = () => {
             ))
           }
         </CustomTimeLine>
-        {/* <div className='button-container'>
-          <CustomButton text={"Download Cv"} icon={< GetAppIcon />}/>
-        </div> */}
+        <div className='button-container'>
+        <a href={profile.cv} target="_blank" rel="noreferrer" download>
+          <CustomButton 
+            text={"Download Cv"} 
+            icon={< GetAppIcon />}
+            />
+        </a>
+
+
+        </div>
         
       </div>
     </div>
