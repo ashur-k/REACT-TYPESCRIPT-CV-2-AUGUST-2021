@@ -89,7 +89,7 @@ const Profile = () => {
           }
         </CustomTimeLine>
         <div className='button-container'>
-        <a href={profile.cv} target="_blank" rel="noreferrer">
+        <a href="https://ashur-resume-site.s3.eu-west-2.amazonaws.com/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
           <CustomButton 
             text={"Download Cv"} 
             icon={< GetAppIcon />}
