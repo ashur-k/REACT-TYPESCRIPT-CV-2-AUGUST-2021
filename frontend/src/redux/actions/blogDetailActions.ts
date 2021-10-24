@@ -3,14 +3,12 @@ import { Dispatch } from 'redux';
 import { BlogDetailsActionType } from '../constants/blogDetailConstants';
 import { BlogDetailAction } from '../interfaces/BlogDetailInterface';
 
-export const blogDetail = (id:Number) => {
+export const blogDetail = (id:Number) => async (dispatch: Dispatch<BlogDetailAction>) => {
+   
+  try{
+    dispatch({type: BlogDetailsActionType.BLOG_DETAIL_REQUEST});
+    const { data } = await axios.get(`/api/blog/${id}`);
 
-  return async (dispatch: Dispatch<BlogDetailAction>) => {
-    dispatch({
-      type: BlogDetailsActionType.BLOG_DETAIL_REQUEST
-    });
-    try {
-      const { data } = await axios.get(`/api/blog/${id}`)
       dispatch({
         type: BlogDetailsActionType.BLOG_DETAIL_SUCCESS,
         payload: data
@@ -18,8 +16,9 @@ export const blogDetail = (id:Number) => {
     } catch (error){
       dispatch({
         type: BlogDetailsActionType.BLOG_DETAIL_ERROR,
-        payload: error.message
+        payload: error.message && error.response.data.message
+        ? error.response.data.message
+        : error.message
       })
     }
   }
-}

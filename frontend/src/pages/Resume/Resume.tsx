@@ -41,6 +41,7 @@ const Resume = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    console.log(aboutme)
     aboutme.map((me) => (
       // eslint-disable-next-line no-sequences
       setAboutMeText(me.about_me),

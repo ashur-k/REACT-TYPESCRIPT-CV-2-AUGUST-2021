@@ -74,13 +74,14 @@ const Header = (props: RouteComponentProps) => {
           >Portfolio
           </Nav.Link>
 
-          {/* <Nav.Link
+          <Nav.Link
             as={NavLink}
             to='/blog'
             className={pathName === "/blog" ? "header_link_active" : "header_link"}
           >Blog
           </Nav.Link>
-          {userInfo ? (
+          
+          {/* {userInfo ? (
             <Nav.Link 
               as={NavLink}
               to='/login'
@@ -95,7 +96,7 @@ const Header = (props: RouteComponentProps) => {
             >Login
             </Nav.Link>
           )
-          } */}
+          }  */}
           
 
           <Nav.Link

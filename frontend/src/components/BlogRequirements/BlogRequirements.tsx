@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 // Redux imports
 
 // Typescript imports
-import { ResumeDataInterface } from '../../utils/types';
+
 // Icon helper function imported
 import  getIcon  from '../../helperFunctions/getIcon';
 
@@ -26,7 +26,7 @@ const BlogRequirements:FunctionComponent<{
         title='Requirements'
         icon={getIcon('VscChecklist')}
         >
-        {requirements.map((requirement:any) => (
+        {requirements?.map((requirement:any) => (
           <TimelineItem key={requirement}>
             <CustomTimelineSeparator />
             <TimelineContent className='timeline_content'>

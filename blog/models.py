@@ -27,4 +27,4 @@ class BlogSection(models.Model):
   image_path = models.ImageField(null=True, blank=True)
   
   def __str__(self):
-    return self.article_title
+    return self.title

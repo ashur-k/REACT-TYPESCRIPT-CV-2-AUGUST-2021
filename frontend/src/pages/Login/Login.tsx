@@ -45,7 +45,7 @@ export const Login = () => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(login(email, password))
-    console.log('Submitted')
+    
   }
 
 

@@ -17,11 +17,12 @@ import { Image } from 'react-bootstrap';
 const BlogSteps:FunctionComponent<{
   blog_sections:Blog["blog_sections"];
 }> = ({ blog_sections }) => {
-
+  console.log("Coming from BLogs STEPS", blog_sections)
+  
   return (
     <div>
-      {blog_sections.map((section) => (
-        <Grid container className="section pb_45 pt_45" style={{margin:'auto'}}>
+      {blog_sections?.map((section) => (
+        <Grid key={section.id} container className="section pb_45 pt_45" style={{margin:'auto'}}>
             <SiteTitle title={section.title} />
         <Grid container item xs={12} spacing={3} >
           {/*  */}

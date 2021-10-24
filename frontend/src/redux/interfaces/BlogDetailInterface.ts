@@ -17,4 +17,3 @@ export type BlogDetailAction =
   | BlogDetailRequestAction 
   | BlogDetailSuccessAction 
   | BlogDetailErrorAction
-

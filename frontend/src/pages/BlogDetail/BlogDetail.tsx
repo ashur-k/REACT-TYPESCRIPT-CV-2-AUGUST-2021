@@ -1,57 +1,77 @@
 import React, { useState, useEffect } from 'react';
+
+// Redux imports
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { blogDetail as blogDetailAction } from '../../redux/actions/blogDetailActions';
 
-import { blogDetail as blogDetailAction } from '../../redux/actions/blogDetailActions'
+// Typescript imports
+import { Blog } from '../Blog/data';
 
-import { Grid, Typography } from '@material-ui/core';
-import { Image, ListGroup } from 'react-bootstrap';
-import { blogs as blogData, Category, Blog } from '../Blog/data';
+// Material UI and bootstrap Components import
+import { Grid } from '@material-ui/core';
+import { Alert, Image, Spinner } from 'react-bootstrap';
 import SiteTitle from '../../components/SiteTitle/SiteTitle';
 
-import './BlogDetail.css'
+// Custom components import
 import BlogDescription from '../../components/BlogDescription/BlogDescription';
 import BlogRequirements from '../../components/BlogRequirements/BlogRequirements';
 import BlogSteps from '../../components/BlogSteps/BlogSteps';
 
+// css imports
+import './BlogDetail.css'
 
-// Custom components import
 const BlogDetail = ({ match }: any) => {
 
   const dispatch = useDispatch()
-  const {loading, error, data} = useTypedSelector((state) => state.blogDetail);
+  const {loading, error, blogDetailData} = useTypedSelector((state) => state.blogDetail);
+
+  // USE STATE VARIABLES
+  const [blogs, setBlogs] = useState<Blog | any>([]);
+  const [requirements, setRequirements] = useState<Blog["requirements"] | any>([]);
+  const [blogSections, setBlogSections] = useState<Blog["blog_sections"] | any>([]);
+
   
-  console.log(loading, error)
-  
+  // useEddect to dispatch URL ID to get that object from database
+  // All redux functionality begins here
   useEffect(() => {
     dispatch(blogDetailAction(match.params.id))
   }, [dispatch, match.params.id])
 
+  // useEffect for waiting and then loading 
+  // blogDetailData into blogs use state variable
   useEffect(() => {
+    setBlogs(blogDetailData)
+  }, [blogDetailData])
 
-    data.map((blog_detail) => (
-      console.log(blog_detail)
-    ))
-    
-  }, [data])
-
-
-  // const blog : any = blogData.find((blog) => blog.id === match.params.id)
-
-  const blogs = blogData.filter((blog) =>
-    blog.id.toString().includes(match.params.id)
-  );
-
-
+  // useEffect for waiting and then loading 
+  // blog-sections and requiremnts into their use state variables
+  useEffect(() => {
+    setRequirements(blogs.requirements)
+    setBlogSections(blogs.blog_sections)
+  }, [blogs])
+  
   return (
     <div>
       {
-        blogs.map((blog: any) => (
+        loading ? 
+        (
+        <Grid container className="section pb_45 pt_45">
+          <Spinner animation="border" variant="danger" />
+        </Grid>
+        )
+        : error ? (
           <Grid container className="section pb_45 pt_45">
-            <SiteTitle title={blog.article_title} />
+          <Alert variant='danger'>
+            {error} 
+          </Alert>
+        </Grid>
+        ): (          
+          <Grid container className="section pb_45 pt_45">
+            <SiteTitle title={blogs.article_title} />
 
             <Grid item xs={12}>
-              <Image src={blog.banner_image_path} fluid />
+              <Image src={blogs.banner_image_path} fluid />
             </Grid>
             {/* */}
             <Grid container className="section pb_45">
@@ -59,79 +79,24 @@ const BlogDetail = ({ match }: any) => {
                 <Grid container className='resume_timeline'>
                   {/*   */}
                   <Grid item sm={12} md={6}>
-                    <BlogDescription article_overview={blog.article_overview} />
+                    { <BlogDescription article_overview={blogs.article_overview} />}
                   </Grid>
                   {/* */}
                   <Grid item sm={12} md={6}>
-                    <BlogRequirements requirements={blog.requirements} />
+                    { <BlogRequirements requirements={requirements} /> }
                   </Grid>
                 </Grid>
-
-
                 <Grid item xs={12}>
-                  <BlogSteps blog_sections={blog.blog_sections} />
+                 { <BlogSteps blog_sections={blogSections} /> }
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-        ))}
+        )
+      }
+     
+     
     </div>
-
-    // <Grid className="section pb_45 pt_45">
-    //   {/* Title */}
-    //   <Grid item className="section_title mb_20">
-    //     <span></span>
-    //     <h6 className="section_title_text">Blogs Detail</h6>
-    //   </Grid>  
-    //   <div>
-    //   {
-    //         blogs.map((blog:any) => (  
-
-    //           <Grid container spacing={2}>
-    //             <Grid className="blog-title-grid" item xs={12}>
-    //               <h5>{blog.article_title}</h5>
-    //             </Grid>
-    //             <Grid item xs={12}>
-    //               <Image src={blog.banner_image_path} fluid />
-    //             </Grid>
-    //             <Grid container>
-
-    //               <Grid item xs={6} >
-    //                 <Grid item className="section_title mb_20">
-    //                   <span></span>
-    //                   <h6 className="section_title_text">Description</h6>
-    //                 </Grid>  
-
-    //               </Grid>
-    //               <Grid item xs={6}>
-    //                 <Grid item className="section_title mb_20">
-    //                   <span></span>
-    //                   <h6 className="section_title_text">Requirements</h6>
-    //                 </Grid>  
-
-    //                 {
-    //                   blog.requirements.map((item:any) => (
-    //                     <Grid key={item} item xs={6} >
-    //                       <ListGroup className="requirements-list">
-    //                           <ListGroup.Item>{item}</ListGroup.Item>                      
-    //                       </ListGroup>
-    //                     </Grid> 
-    //                   ))
-    //                 }
-    //               </Grid>
-
-    //             </Grid>
-    //             <Grid item xs={12}>
-    //               <Grid item xs={6} >
-
-    //               </Grid>                   
-    //             </Grid>                    
-    //         </Grid>
-    //         )
-    //         )}
-
-    //   </div>
-    // </Grid>
   )
 }
 

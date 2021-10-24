@@ -7,7 +7,7 @@ import { ActionType } from '../constants/resumeConstants';
 
 export const listAboutme = () => async (dispatch: Dispatch<Action>) => {
   try{
-    dispatch({ type: ActionType.RESUME_LIST_REQUEST})
+    dispatch({ type: ActionType.RESUME_LIST_REQUEST});
     const { data } = await axios.get('/api/about_me/');
 
     dispatch({
