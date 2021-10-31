@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 // Typescript imports
-import { ResumeDataInterface } from '../../utils/types';
+// import { ResumeDataInterface } from '../../utils/types';
 // import { education } from '../../utils/types';
 
 // Icon helper function imported
@@ -11,7 +11,7 @@ import  getIcon  from '../../helperFunctions/getIcon';
 import { Typography } from '@material-ui/core';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineContent from '@material-ui/lab/TimelineContent';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+// import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 // Custom components import
 import CustomTimeline, { CustomTimelineSeparator } from '../../components/Timeline/Timeline';
 

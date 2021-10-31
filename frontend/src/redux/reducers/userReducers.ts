@@ -1,7 +1,6 @@
 import { ActionType } from '../constants/userConstants';
 import { Action } from '../interfaces/UserInterfaces';
 
-import { UserInterface } from '../../utils/types';
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
   JSON.parse(localStorage.getItem('userInfo') || '{}') : {};

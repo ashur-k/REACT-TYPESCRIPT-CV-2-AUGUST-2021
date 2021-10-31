@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Typescript imports
-import { profile, socials } from '../../utils/types';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { socials } from '../../utils/types';
+import {  RouteComponentProps } from 'react-router-dom';
 
 // Get icon helper function
 import getIcon from '../../helperFunctions/getIcon';
@@ -12,31 +12,31 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { HomeRounded, Telegram } from '@material-ui/icons';
 import CustomButton from '../Button/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 
 // css imports
 import './Header.css';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import { logout } from '../../redux/actions/userActions'
-import { useDispatch } from 'react-redux';
+// import { logout } from '../../redux/actions/userActions'
+// import { useDispatch } from 'react-redux';
 
 const Header = (props: RouteComponentProps) => {
 
   const pathName = props?.location?.pathname;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const userLogin =  useTypedSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  console.log("USER-INFORMATION", userInfo)
-  const [login, setLogin] = useState<boolean>(false);
+  
 
 
-  const logoutHandler = () => {
-    console.log("logging out")
-    dispatch(logout)
-  }
+  // const logoutHandler = () => {
+  //   console.log("logging out")
+  //   dispatch(logout)
+  // }
+
 
   return (
     <Navbar expand="lg" sticky='top' className='header'>

@@ -38,6 +38,7 @@ const Resume = () => {
  // React UseEffects
   useEffect(() => {
     dispatch(listAboutme())
+    document.title = "Ash's Resume"
   }, [dispatch]);
 
   useEffect(() => {

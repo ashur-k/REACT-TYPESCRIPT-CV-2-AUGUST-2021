@@ -30,6 +30,7 @@ const BlogDetail = ({ match }: any) => {
   const [blogs, setBlogs] = useState<Blog | any>([]);
   const [requirements, setRequirements] = useState<Blog["requirements"] | any>([]);
   const [blogSections, setBlogSections] = useState<Blog["blog_sections"] | any>([]);
+ 
 
   
   // useEddect to dispatch URL ID to get that object from database
@@ -42,6 +43,7 @@ const BlogDetail = ({ match }: any) => {
   // blogDetailData into blogs use state variable
   useEffect(() => {
     setBlogs(blogDetailData)
+    document.title = "Ash's Blogs-Details"
   }, [blogDetailData])
 
   // useEffect for waiting and then loading 
@@ -49,7 +51,9 @@ const BlogDetail = ({ match }: any) => {
   useEffect(() => {
     setRequirements(blogs.requirements)
     setBlogSections(blogs.blog_sections)
+    
   }, [blogs])
+
   
   return (
     <div>
@@ -69,9 +73,12 @@ const BlogDetail = ({ match }: any) => {
         ): (          
           <Grid container className="section pb_45 pt_45">
             <SiteTitle title={blogs.article_title} />
-
-            <Grid item xs={12}>
-              <Image src={blogs.banner_image_path} fluid />
+            <Grid item xs={12}> 
+              <div>
+                <hr></hr>
+                <Image src={blogs.banner_image_path} fluid />  
+                <hr></hr>  
+              </div>
             </Grid>
             {/* */}
             <Grid container className="section pb_45">

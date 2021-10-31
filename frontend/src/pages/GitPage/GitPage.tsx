@@ -10,6 +10,7 @@ import GitApi from '../../components/GitHubApi/GitApi';
 import './GitPage.css';
 
 function GitPage() {
+  document.title = "Ash's Codes"
 
   return (
     // Contact

@@ -33,6 +33,7 @@ const Blog = () => {
   // All redux functionality begins here
    useEffect(() => {
     dispatch(blogList())
+    document.title = "Ash's Blogs"
   }, [dispatch]);
 
   // useEffect for waiting and then loading 

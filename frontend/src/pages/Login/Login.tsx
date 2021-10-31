@@ -1,26 +1,26 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { login, logout } from '../../redux/actions/userActions';
-import FormContainer from '../../components/FormContainer/FormContainer';
+
 
 // Typescript and data imports
-import { socials } from '../../utils/types';
+
 // Icon helper function imported
 import  getIcon  from '../../helperFunctions/getIcon';
 
-import { Grid, Typography, TextField } from '@material-ui/core';
+import { Grid,  TextField } from '@material-ui/core';
 
-import SiteTitle from '../../components/SiteTitle/SiteTitle';
+
 
 import CustomButton from '../../components/Button/Button';
 
 // Material UI and bootstrap Components import
 
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { History } from 'history';
+
 
 
 export const Login = () => {
@@ -36,18 +36,18 @@ export const Login = () => {
     (state) => state.userLogin
   );
 
-  // useEffect(() => {
-  //   if(user){
-  //     history.push(redirect)
-  //   }
-  // })
+  const objectLength = Object.keys(userInfo).length
 
+
+  console.log(objectLength)
+  console.log(typeof userInfo)
+
+ 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(login(email, password))
     
   }
-
 
   const logoutHandler = () => {
         dispatch(logout())
@@ -64,37 +64,47 @@ export const Login = () => {
           {loading && <h3>Loading...</h3>}
         </Grid>
         <Grid container item xs={12} spacing={3}>
-        <Grid item xs={12}>
+        {Object.keys(userInfo).length ? (
+          <div>
+            <p>User Name: {userInfo?.userInfo?.name}</p>
+            <p>User Email: {userInfo?.userInfo?.email}</p>
+            <p>Admin Status: {userInfo?.userInfo?.isAdmin && (<span>True</span>)}</p>
+            <Button variant="secondary" onClick={logoutHandler}>Logout</Button>
+          </div>
+        ): (
+          <Grid item xs={12}>
           {/* ###################### FORM ######################*/}
           <Grid container spacing={3}>
             <form onSubmit={submitHandler} style={{width:'100%'}}>
-            <Grid item xs={12} sm={6}>              
-              <TextField 
-                fullWidth 
-                name="email"
-                value={email} 
-                label="E-mail"
-                type='email'
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField 
-                fullWidth 
-                name="password" 
-                label="Password"
-                value={password} 
-                type='password'
-                onChange={(e) => setPassword(e.target.value)} />
-            </Grid>
-            <Grid item xs={12}>
-              <CustomButton text="Login" icon={getIcon('SendIcon')} />
-              <Button variant="secondary" onClick={logoutHandler}>Logout</Button>
-            </Grid>
-          </form>
+              <Grid item xs={12} sm={6}>              
+                <TextField 
+                  fullWidth 
+                  name="email"
+                  value={email} 
+                  label="E-mail"
+                  type='email'
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField 
+                  fullWidth 
+                  name="password" 
+                  label="Password"
+                  value={password} 
+                  type='password'
+                  onChange={(e) => setPassword(e.target.value)} />
+              </Grid>
+              <Grid item xs={12}>
+                <CustomButton text="Login" icon={getIcon('SendIcon')} />
+                <Button variant="secondary" onClick={logoutHandler}>Logout</Button>
+              </Grid>
+            </form>
           </Grid>
-         
         </Grid>
+        ) }
+       
+
       </Grid>
     </Grid>
     </div>

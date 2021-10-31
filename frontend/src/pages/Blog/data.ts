@@ -10,11 +10,23 @@ export interface Blog {
   blog_sections: [
     {
       id: number;
+      blog_reading_links: [
+        {
+          id: number;
+          link_title:string;
+          link_url:string;
+          section_title: number;
+        }
+      ];
       title: string;
       paragraph:string;
       image_path:string;
-    }
+      article_title: number
+      
+    },
+    
   ];
+  
 }
 
 export type Category = "react" | "JavaScript" | "flask" | "django" | "mongo" ;
@@ -36,10 +48,20 @@ export const blogs: Blog[] = [
     "blog_sections": [
       {
         "id": 1,
+        "blog_reading_links": [
+          {
+            "id": 1,
+            "link_title": "Node Reading",
+            "link_url": "www.google.com",
+            "section_title": 1,
+          },
+        ],
         "title": "STEP 1: Testing if you are all set",
         "paragraph": "Open Vs Code and then your terminal: run python3 --version, npm --version, npx --version pip --version",
         "image_path": "/images/versions_check.png",
+        "article_title": 1
       },
     ],
   },
 ];
+

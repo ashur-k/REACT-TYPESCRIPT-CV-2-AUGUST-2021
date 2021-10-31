@@ -33,6 +33,7 @@ const Portfolio = () => {
   // UseEffect to dispatch listProjects action
   useEffect(() => {
     dispatch(listProjects())
+    document.title = "Ash's Portfolio"
   },[dispatch]);
 
   // UseEffect to update data to ProjectsData
