@@ -18,6 +18,23 @@ export interface Blog {
           section_title: number;
         }
       ];
+      blog_section_images: [
+        {
+          id: number;
+          image_title:string;
+          number_of_image:number;
+          image_path:string;
+          section_title: number;
+        }
+      ];
+      blog_section_code_snippet: [
+        {
+          id: number;
+          code_title:string;
+          code_snippet:string;
+          section_title: number;
+        }
+      ];
       title: string;
       paragraph:string;
       image_path:string;
@@ -54,6 +71,23 @@ export const blogs: Blog[] = [
             "link_title": "Node Reading",
             "link_url": "www.google.com",
             "section_title": 1,
+          },
+        ],
+        "blog_section_images": [
+          {
+            "id": 1,
+            "image_title": "Node Reading",
+            "number_of_image": 3,
+            "image_path": "www.com",
+            "section_title": 2
+          },
+        ],
+        "blog_section_code_snippet": [
+          {
+            "id": 1,
+            "code_title": "Node Reading",
+            "code_snippet": "www.com",
+            "section_title": 2
           },
         ],
         "title": "STEP 1: Testing if you are all set",

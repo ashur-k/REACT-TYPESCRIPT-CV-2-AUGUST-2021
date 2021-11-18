@@ -30,6 +30,7 @@ class BlogSection(models.Model):
   def __str__(self):
     return self.title
 
+
 class BlogReadingLink(models.Model):
   class Meta:
     verbose_name_plural = 'Blog Reading Links'
@@ -41,4 +42,30 @@ class BlogReadingLink(models.Model):
   
   def __str__(self):
     return self.section_title.title + " - " + self.link_title
+
+
+class BlogSectionImage(models.Model):
+  class Meta:
+    verbose_name_plural = 'Blog Section Images'
+    ordering = ('id',)
   
+  section_title = models.ForeignKey(BlogSection, on_delete=models.CASCADE)
+  image_title = models.CharField(max_length=100, null=False, blank=False)
+  number_of_image = models.IntegerField(default=0)
+  image_path = models.ImageField(null=True, blank=True)
+  
+  def __str__(self):
+    return self.section_title.title + " - " + self.image_title
+
+
+class BlogSectionCodeSnippet(models.Model):
+  class Meta:
+    verbose_name_plural = 'Code Snippets'
+    ordering = ('id',)
+  
+  section_title = models.ForeignKey(BlogSection, on_delete=models.CASCADE)
+  code_title = models.CharField(max_length=100, null=False, blank=False)
+  code_snippet = models.TextField(null=True, blank=True)
+  
+  def __str__(self):
+    return self.section_title.title + " - " + self.code_title
