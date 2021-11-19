@@ -106,7 +106,6 @@ const Portfolio = () => {
                             <CardContent>
                               <Typography className='customCard_title'>
                                 {project.name}
-                                {project.image}
                               </Typography>
                               <Typography variant='body2' className='customCard_description'>
                                 {project.description}

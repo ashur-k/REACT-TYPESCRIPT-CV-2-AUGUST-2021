@@ -155,7 +155,7 @@ if 'DATABASE_URL' in os.environ:
     }    
     # print(os.environ.get('DATABASE_URL'))
 else:
-    print("DBSQLITE 3 is running")
+    # print("DBSQLITE 3 is running")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -165,6 +165,8 @@ else:
             'HOST': 'localhost',
             'PORT': '5432'
         }
+        # 'default': dj_database_url.parse(config('DATABASE_URL'))
+    # } 
     }
 
 # Password validation
