@@ -35,6 +35,15 @@ export interface Blog {
           section_title: number;
         }
       ];
+      blog_section_terminal_commands: [
+        {
+          id: number;
+          command_title:string;
+          command_icon:string;
+          command:string;
+          section_title: number;
+        }
+      ];
       title: string;
       paragraph:string;
       image_path:string;
@@ -87,6 +96,15 @@ export const blogs: Blog[] = [
             "id": 1,
             "code_title": "Node Reading",
             "code_snippet": "www.com",
+            "section_title": 2
+          },
+        ],
+        "blog_section_terminal_commands": [
+          {
+            "id": 1,
+            "command_title": "install react",
+            "command_icon": "react",
+            "command": "react",
             "section_title": 2
           },
         ],

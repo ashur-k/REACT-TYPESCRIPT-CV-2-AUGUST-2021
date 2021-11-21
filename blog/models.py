@@ -69,3 +69,17 @@ class BlogSectionCodeSnippet(models.Model):
   
   def __str__(self):
     return self.section_title.title + " - " + self.code_title
+
+
+class BlogSectionTerminalCommand(models.Model):
+  class Meta:
+    verbose_name_plural = 'Terminal Commands'
+    ordering = ('id',)
+  
+  section_title = models.ForeignKey(BlogSection, on_delete=models.CASCADE)
+  command_title = models.CharField(max_length=100, null=False, blank=False)
+  command_icon = models.CharField(max_length=100, null=False, blank=False)
+  command = models.TextField(null=True, blank=True)
+  
+  def __str__(self):
+    return self.section_title.title + " - " + self.command_title

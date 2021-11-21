@@ -1,5 +1,12 @@
 from rest_framework import serializers
-from .models import Blog, BlogSection, BlogReadingLink, BlogSectionImage, BlogSectionCodeSnippet
+from .models import (
+  Blog, 
+  BlogSection, 
+  BlogReadingLink, 
+  BlogSectionImage, 
+  BlogSectionCodeSnippet,
+  BlogSectionTerminalCommand
+  )
 
 
 class BlogReadingLinkSerializer(serializers.ModelSerializer):
@@ -20,11 +27,18 @@ class BlogSectionCodeSnippetSerializer(serializers.ModelSerializer):
     fields = '__all__'
 
 
+class BlogSectionTerminalCommandSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = BlogSectionTerminalCommand
+    fields = '__all__'
+
+
 class BlogSectionSerializer(serializers.ModelSerializer):
   
   blog_reading_links = serializers.SerializerMethodField(read_only=True)
   blog_section_images = serializers.SerializerMethodField(read_only=True)
   blog_section_code_snippets = serializers.SerializerMethodField(read_only=True)
+  blog_section_terminal_commands = serializers.SerializerMethodField(read_only=True)
   
   
   class Meta:
@@ -44,6 +58,11 @@ class BlogSectionSerializer(serializers.ModelSerializer):
   def get_blog_section_code_snippets(self, obj):
     blog_section_code_snippets = obj.blogsectioncodesnippet_set.all()
     serializer = BlogSectionCodeSnippetSerializer(blog_section_code_snippets, many=True)
+    return serializer.data
+
+  def get_blog_section_terminal_commands(self, obj):
+    blog_section_terminal_commands = obj.blogsectionterminalcommand_set.all()
+    serializer = BlogSectionTerminalCommandSerializer(blog_section_terminal_commands, many=True)
     return serializer.data
     
 

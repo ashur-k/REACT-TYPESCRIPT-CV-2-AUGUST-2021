@@ -157,15 +157,15 @@ if 'DATABASE_URL' in os.environ:
 else:
     # print("DBSQLITE 3 is running")
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'react_typescript_resume_db',
-            'USER': 'postgres',
-            'PASSWORD': os.environ.get('DB_PASS'),
-            'HOST': 'localhost',
-            'PORT': '5432'
-        }
-        # 'default': dj_database_url.parse(config('DATABASE_URL'))
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.postgresql',
+        #     'NAME': 'react_typescript_resume_db',
+        #     'USER': 'postgres',
+        #     'PASSWORD': os.environ.get('DB_PASS'),
+        #     'HOST': 'localhost',
+        #     'PORT': '5432'
+        # }
+        'default': dj_database_url.parse(config('DATABASE_URL'))
     # } 
     }
 

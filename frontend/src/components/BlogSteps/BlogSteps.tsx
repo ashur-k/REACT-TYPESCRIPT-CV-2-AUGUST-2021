@@ -5,7 +5,7 @@ import React, { FunctionComponent, useState, useEffect } from 'react';
 // Icon helper function imported
 // import  getIcon  from '../../helperFunctions/getIcon';
 
-import { Grid, Typography, Paper } from '@material-ui/core';
+import { Grid, Typography, Paper, Icon } from '@material-ui/core';
 import { Blog } from '../../pages/Blog/data'
 import CustomTimeline, { CustomTimelineSeparator } from '../../components/Timeline/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -29,7 +29,7 @@ const BlogSteps: FunctionComponent<{
           <SiteTitle title={section.title} />
           <Grid container item xs={12} spacing={3} >
             {section.blog_reading_links.length ? (
-              <Grid item xs={12} md={6} style={{ margin: 'auto' }}>
+              <Grid item xs={12} md={12} style={{ margin: 'auto' }}>
                 <Grid container>
                   <Typography variant='body2'>
                     {section.paragraph}
@@ -75,33 +75,83 @@ const BlogSteps: FunctionComponent<{
                 (
                   <div className="noDisplay"></div>
                 )}
+
+            {
+              section.blog_section_terminal_commands.length ? (
+
+                <Grid item xs={12} md={6} >
+                  <Grid container>
+                    <CustomTimeline
+                      title='Terminal Commands'
+                      icon={getIcon('BsFillTerminalFill')}
+                    >
+                      {
+                        section.blog_section_terminal_commands.map((command: any) => (
+                          <TimelineItem key={command.id}>
+                            <CustomTimelineSeparator />
+                            <TimelineContent className='timeline_content'>
+                                <Typography className="timeline_title">
+                                  <code><pre>{command.command}</pre></code>
+                                </Typography>
+                             
+                            </TimelineContent>
+                          </TimelineItem>
+                        ))
+                      }
+                    </CustomTimeline>
+                  </Grid>
+                </Grid>
+              ) :
+                (
+                  <div className="noDisplay"></div>
+                )}
+
             <Grid item xs={12}>
+              <hr></hr>
+              <Typography variant='h6'>{getIcon('MdAspectRatio')} Screen Shots</Typography>
+              <hr></hr>
               <Grid container>
-                <Image src={section.image_path} fluid />
+                <div>
+                  <Image src={section.image_path} fluid />
+                </div>
+
+                 
+               
                 {
                   section.blog_section_images.map((image: any) => (
                     <div>
-                      <hr></hr>
+                 <hr></hr>
                       <Image src={image.image_path} fluid />
+                      
                     </div>
                   ))
                 }
               </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Grid container>
-                {
-                  section.blog_section_code_snippets.map((snippet: any) => (
-                    <div>
-                      <h6>{snippet.code_title}</h6>
-                      <Paper elevation={3}>
-                        <code><pre>{snippet.code_snippet}</pre></code>
-                      </Paper>
-                    </div>
-                  ))
-                }
-              </Grid>
-            </Grid>
+            {
+              section.blog_section_code_snippets.length ? (
+                <Grid item xs={12}>
+                  <hr></hr>
+                  <Typography variant='h6'>{getIcon('BiCodeBlock')} Code Blocks</Typography>
+                  <hr></hr>
+                  <Grid container>
+                    {
+                      section.blog_section_code_snippets.map((snippet: any) => (
+                        <div className="m-1">
+                          <h6>{snippet.code_title}</h6>
+                          <Paper elevation={3} className="code-paper-padding">
+                            <code><pre>{snippet.code_snippet}</pre></code>
+                          </Paper>
+                        </div>
+                      ))
+                    }
+                  </Grid>
+                </Grid>
+              ):
+                (<div className="noDisplay"></div>)
+            }
+            
+            
           </Grid>
         </Grid>
       ))}

@@ -11,7 +11,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import DescriptionIcon from '@material-ui/icons/Description';
 
 
-
 // React Icons import
 import { IoLogoReact, IoLogoPython, IoLogoVercel, IoLogoFirebase } from "react-icons/io5";
 import { FiDatabase } from "react-icons/fi";
@@ -20,6 +19,11 @@ import { GrHeroku } from "react-icons/gr";
 import { SiNetlify } from "react-icons/si";
 import { VscChecklist } from "react-icons/vsc";
 import { FaBookReader } from "react-icons/fa";
+import { MdAspectRatio } from "react-icons/md";
+import { BsFillTerminalFill } from "react-icons/bs";
+import { DiReact } from "react-icons/di";
+import { BiCodeBlock } from "react-icons/bi";
+
 
 
 const getIcon = (icon:string | undefined): JSX.Element => {
@@ -64,6 +68,14 @@ const getIcon = (icon:string | undefined): JSX.Element => {
       return (<DescriptionIcon className="SVG"/>);
     case 'FaBookReader':
       return (<FaBookReader className="SVG"/>);
+    case 'MdAspectRatio':
+      return (<MdAspectRatio className="SVG-PRIMARY-COLOR"/>);
+    case 'BsFillTerminalFill':
+      return (<BsFillTerminalFill className="SVG"/>);
+    case 'DiReact':
+      return (<DiReact className="SVG"/>);
+    case 'BiCodeBlock':
+      return (<BiCodeBlock className="SVG-PRIMARY-COLOR"/>);  
     default:
       return (<small>No Icon Found</small>);
   }

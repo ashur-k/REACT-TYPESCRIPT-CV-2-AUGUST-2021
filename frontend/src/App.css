@@ -5,6 +5,10 @@
 .SVG{
   color: var(--secondary-color) !important;
 }
+.SVG-PRIMARY-COLOR{
+  color: var(--main-color) !important;
+  font-size: 55px;
+}
 /* Margins and Paddings */
 .top_30{
   margin-top: 30px !important;
