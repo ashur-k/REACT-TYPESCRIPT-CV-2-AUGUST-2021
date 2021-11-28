@@ -15,6 +15,7 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 // css and Images imports
 import profileImage from '../../assets/images/ash.jpg';
+
 import './profile.css';
 
 
@@ -75,7 +76,7 @@ const Profile = () => {
           }
         </CustomTimeLine>
         <div className='button-container'>
-        <a href="https://ashur-resume-site.s3.eu-west-2.amazonaws.com/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
+        <a href="images/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
           <CustomButton 
             text={"Download Cv"} 
             icon={< GetAppIcon />}
