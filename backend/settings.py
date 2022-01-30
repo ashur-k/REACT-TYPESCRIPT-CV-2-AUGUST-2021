@@ -155,7 +155,15 @@ if 'DATABASE_URL' in os.environ:
    
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'react_typescript_resume_db',
+            'USER': 'postgres',
+            'PASSWORD': os.environ.get('DB_PASS'),
+            'HOST': 'localhost',
+            'PORT': '5432'
+        }
+        
      } 
     
 
@@ -234,4 +242,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 
 if os.getcwd() == '/app':
-    DEBUG = True
+    DEBUG = False
