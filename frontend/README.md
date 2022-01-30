@@ -19,4 +19,4 @@ https://priceless-chandrasekhar-5b609b.netlify.app/
    3. yarn add @material-ui/icons 
    4. yarn add react-router-dom
    5. npm install --save @types/react-router-dom
-      - This package is required by React for typescript definitions of React-router-dom
+      - This package is required by React for typescript definitions of React-router-domff
