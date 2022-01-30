@@ -149,25 +149,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # }
 
 if 'DATABASE_URL' in os.environ:
-    print("Amazon online hosted database is running")
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }    
-    # print(os.environ.get('DATABASE_URL'))
+   
 else:
-    # print("DBSQLITE 3 is running")
     DATABASES = {
-        # 'default': {
-        #     'ENGINE': 'django.db.backends.postgresql',
-        #     'NAME': 'react_typescript_resume_db',
-        #     'USER': 'postgres',
-        #     'PASSWORD': os.environ.get('DB_PASS'),
-        #     'HOST': 'localhost',
-        #     'PORT': '5432'
-        # }
-        'default': dj_database_url.parse(config('DATABASE_URL'))
-    # } 
-    }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'react_typescript_resume_db',
+            'USER': 'postgres',
+            'PASSWORD': os.environ.get('DB_PASS'),
+            'HOST': 'localhost',
+            'PORT': '5432'
+        }
+        
+     } 
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

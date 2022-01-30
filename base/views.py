@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from .models import Project, Aboutme
+from .models import Project, Aboutme, ContactInformation
 from .serializers import ProjectSerializer, AboutmeSerializer, UserSerializer, UserSerializerWithToken
 from django.contrib.auth.models import User
 
@@ -111,3 +111,20 @@ def getResumePage(request):
     about_me = Aboutme.objects.all()
     serializer = AboutmeSerializer(about_me, many=True)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def getContactInformation(request):
+    
+    data = request.data
+    
+    information = ContactInformation.objects.create(
+        name = data['name'],
+        email = data['email'],
+        message= data['message']
+        
+    )
+    
+    message = {'detail': 'Your message is successfully received, thanks and I will contact you back soon.'}
+    
+    return Response(message, status=status.HTTP_200_OK)

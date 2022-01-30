@@ -375,3 +375,8 @@ export const resumeData: ResumeDataInterface[] = [
 ]
 
 
+export interface ClientInformationInterface {
+  name: string;
+  email: string;
+  message: string;
+}

@@ -72,6 +72,7 @@ class SkillCapabilities(models.Model):
   def __str__(self):
     return self.title
 
+
 class Project(models.Model):
   class Meta:
     verbose_name_plural = 'Projects'
@@ -88,6 +89,20 @@ class Project(models.Model):
   deployed_url_icon = models.CharField(max_length=150, default="add icon name", null=False, blank=False)
   deployed_url = models.CharField(max_length=500)
   github_url = models.CharField(max_length=500)
+  
+  def __str__(self):
+    return self.name
+
+
+class ContactInformation(models.Model):
+  class Meta:
+    verbose_name_plural = 'Contact Information'
+  
+  
+  name = models.CharField(max_length=200)
+  email = models.EmailField(max_length=50, blank=True)
+  message = models.TextField()
+  received_at = models.DateTimeField(auto_now_add=True)
   
   def __str__(self):
     return self.name

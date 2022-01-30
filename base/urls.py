@@ -17,4 +17,5 @@ urlpatterns = [
     path('project/<str:pk>/', views.getProject, name='project'),
     path('addProject/', views.addProject, name='addProject'),
     path('about_me/', views.getResumePage, name="About-Me"),
+    path('getContactInformation/', views.getContactInformation, name="getContactInformation"),
 ]
