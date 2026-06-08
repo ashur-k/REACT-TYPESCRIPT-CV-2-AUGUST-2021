@@ -33,14 +33,17 @@ from datetime import timedelta
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('PROSHOP_SECRET_KEY')
-
-# print(config('SECRET_KEY'))
+SECRET_KEY = os.environ.get('PROSHOP_SECRET_KEY', 'placeholder-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ashur-kanwal-cv.herokuapp.com']
+# Read ALLOWED_HOSTS from environment; fall back to safe defaults
+_allowed_hosts_env = os.environ.get('ALLOWED_HOSTS', '')
+if _allowed_hosts_env:
+    ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_env.split(',') if h.strip()]
+else:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -134,20 +137,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'react_typescript_resume_db',
-#         'USER': 'postgres',
-#         'PASSWORD': os.environ.get('DB_PASS'),
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-#     # for later refrence using .env
-#     # 'USER': config('DB_NAME')
-#     # Above DB_NAME is insidede .env file which won't be push to git
-# }
-
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -207,7 +196,6 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-# MEDIA_URL = BASE_DIR + MEDIA_URL
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static', 
@@ -218,11 +206,10 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CLOUDINARY_STORAGE = {    
-    'CLOUD_NAME' : config('CLOUD_NAME'),
-    'API_KEY' : config('API_KEY'),
-    'API_SECRET' : config('API_SECRET')
+    'CLOUD_NAME' : os.environ.get('CLOUD_NAME', ''),
+    'API_KEY' : os.environ.get('API_KEY', ''),
+    'API_SECRET' : os.environ.get('API_SECRET', '')
 }
-print("Cloudinary-information-from-environments", config('CLOUD_NAME'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -230,16 +217,3 @@ print("Cloudinary-information-from-environments", config('CLOUD_NAME'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-# AWS_QUERYSTRING_AUTH = False
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_STORAGE_BUCKET_NAME = 'ashur-resume-site'
-# AWS_S3_REGION_NAME = 'eu-west-2'
-# AWS_ACCESS_KEY_ID = os.environ.get('RESUME_AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('RESUME_AWS_SECRET_ACCESS_KEY')
-# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-
-if os.getcwd() == '/app':
-    DEBUG = False
