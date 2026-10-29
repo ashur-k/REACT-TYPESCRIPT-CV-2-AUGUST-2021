@@ -1,11 +1,13 @@
+
 myenv/
+
 # Environment secrets
 .env
 .env.*
+!.env.example
 
 # Python virtual environments
 .venv/
-myenv/
 
 # Python generated files
 __pycache__/
@@ -16,7 +18,6 @@ db.sqlite3
 
 # Node dependencies
 frontend/node_modules/
-
 
 # React production build output
 frontend/build/
