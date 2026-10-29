@@ -17,3 +17,6 @@ db.sqlite3
 # Node dependencies
 frontend/node_modules/
 
+
+# React production build output
+frontend/build/
