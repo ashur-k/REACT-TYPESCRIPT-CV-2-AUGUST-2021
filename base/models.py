@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from cloudinary.models import CloudinaryField
 
 
 class Aboutme(models.Model):
@@ -78,7 +77,7 @@ class Project(models.Model):
     verbose_name_plural = 'Projects'
 
   name = models.CharField(max_length=200)
-  image = models.ImageField(upload_to="images", null=True, blank=True)
+  image = models.ImageField(upload_to="images/", null=True, blank=True)
   description = models.TextField()
   category = ArrayField(
     models.CharField(max_length=200)

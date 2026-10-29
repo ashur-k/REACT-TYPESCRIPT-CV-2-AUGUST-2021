@@ -1,1 +1,19 @@
-myenv/
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local database
+db.sqlite3
+
+# Frontend dependencies and build
+frontend/node_modules/
+frontend/build/
+
+# Generated Django static files
+staticfiles/

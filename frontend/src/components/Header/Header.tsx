@@ -118,7 +118,7 @@ const Header = (props: RouteComponentProps) => {
                 className="not-show-on-smaller-screen"
               >{getIcon(social.icon)}</a>
             ))}
-            <a href="images/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
+            <a href="media/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
               <CustomButton text={'Hire me'} icon={<Telegram />} />
             </a>
         </div>

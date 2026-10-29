@@ -76,7 +76,7 @@ const Profile = () => {
           }
         </CustomTimeLine>
         <div className='button-container'>
-        <a href="images/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
+        <a href="media/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
           <CustomButton 
             text={"Download Cv"} 
             icon={< GetAppIcon />}

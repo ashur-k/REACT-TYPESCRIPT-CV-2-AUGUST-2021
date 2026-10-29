@@ -23,7 +23,10 @@ import { MdAspectRatio } from "react-icons/md";
 import { BsFillTerminalFill } from "react-icons/bs";
 import { DiReact } from "react-icons/di";
 import { BiCodeBlock } from "react-icons/bi";
-
+import { FaPython } from "react-icons/fa";
+import { VscRocket } from "react-icons/vsc";
+import { GiArchitectMask } from "react-icons/gi";
+import { LuFrame } from "react-icons/lu";
 
 
 const getIcon = (icon:string | undefined): JSX.Element => {
@@ -76,6 +79,14 @@ const getIcon = (icon:string | undefined): JSX.Element => {
       return (<DiReact className="SVG"/>);
     case 'BiCodeBlock':
       return (<BiCodeBlock className="SVG-PRIMARY-COLOR"/>);  
+    case 'FaPython':
+      return (<FaPython className="SVG-PRIMARY-COLOR"/>);
+    case 'VscRocket':
+      return (<VscRocket className="SVG-PRIMARY-COLOR"/>);
+    case 'LuFrame':
+      return (<LuFrame className="SVG-PRIMARY-COLOR"/>); 
+    case 'GiArchitectMask':
+      return (<GiArchitectMask className="SVG-PRIMARY-COLOR"/>);
     default:
       return (<small>No Icon Found</small>);
   }
