@@ -1,5 +1,4 @@
-import { ActionType } from '../constants/userConstants';
-import { ProjectInterface } from '../../utils/types';
+import { ActionType } from "../constants/userConstants";
 
 interface UserLoginRequest {
   type: ActionType.USER_LOGIN_REQUEST;
@@ -16,8 +15,4 @@ interface UserLogout {
   type: ActionType.USER_LOGOUT;
 }
 
-export type Action = 
-  | UserLoginRequest 
-  | UserLoginSuccess 
-  | UserLoginFail
-  | UserLogout
+export type Action = UserLoginRequest | UserLoginSuccess | UserLoginFail | UserLogout;

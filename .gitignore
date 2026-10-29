@@ -1,1 +1,19 @@
 myenv/
+# Environment secrets
+.env
+.env.*
+
+# Python virtual environments
+.venv/
+myenv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Local database files
+db.sqlite3
+
+# Node dependencies
+frontend/node_modules/
+

@@ -1,0 +1,59 @@
+
+services:
+  db:
+    container_name: resume-postgres
+    image: postgres:18-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME:?Set DB_NAME in infrastructure/local/.env}
+      POSTGRES_USER: ${DB_USER:?Set DB_USER in infrastructure/local/.env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in infrastructure/local/.env}
+    volumes:
+      - resume_postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    container_name: resume-backend
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../../.env
+      - .env
+    environment:
+      DEBUG: "False"
+      ALLOWED_HOSTS: localhost,127.0.0.1,frontend
+      DB_NAME: ${DB_NAME:?Set DB_NAME in infrastructure/local/.env}
+      DB_USER: ${DB_USER:?Set DB_USER in infrastructure/local/.env}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in infrastructure/local/.env}
+      DB_HOST: db
+      DB_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - resume_media_data:/app/static/images
+
+  frontend:
+    container_name: resume-frontend
+    build:
+      context: ../..
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    volumes:
+      - resume_media_data:/var/www/media:ro
+
+volumes:
+  resume_postgres_data:
+  resume_media_data:

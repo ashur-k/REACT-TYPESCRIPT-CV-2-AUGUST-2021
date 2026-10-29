@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 // Material UI and bootstrap Components import
-import { Typography } from '@material-ui/core';
-import { Copyright } from '@material-ui/icons';
+import { Typography } from "@material-ui/core";
+import { Copyright } from "@material-ui/icons";
 
 // css imports
-import './Footer.css';
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -15,15 +15,14 @@ const Footer = () => {
       </div>
       <div className="footer_right">
         <Typography className="footer_copyright">
-          Coded by {" "}
-          <Copyright/>
+          Coded by <Copyright />
           <a href="/">ashurkanwal@yahoo.com</a>
           <br />
-          <a  href='/'>Ashur Kanwal 2021 Resume Site.</a>
+          <a href="/">Ashur Kanwal 2021 Resume Site.</a>
         </Typography>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

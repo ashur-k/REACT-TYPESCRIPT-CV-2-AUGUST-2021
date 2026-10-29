@@ -4,22 +4,29 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('base', '0009_alter_project_image'),
+        ("base", "0009_alter_project_image"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ContactInformation',
+            name="ContactInformation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('email', models.EmailField(blank=True, max_length=50)),
-                ('description', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("email", models.EmailField(blank=True, max_length=50)),
+                ("description", models.TextField()),
             ],
             options={
-                'verbose_name_plural': 'Contact Information',
+                "verbose_name_plural": "Contact Information",
             },
         ),
     ]

@@ -21,7 +21,7 @@
   margin-right: 5px;
 }
 
-.timeline_links .timeline_links-typography{
+.timeline_links .timeline_links-typography {
   margin-right: 10px;
 }
 
@@ -29,11 +29,11 @@
   background-color: var(--main-color) !important;
   text-decoration: none;
   padding: 2px 5px;
-  color:var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
   border-radius: 5px;
 }
 
-.buttons-div{
+.buttons-div {
   display: flex;
 }
 

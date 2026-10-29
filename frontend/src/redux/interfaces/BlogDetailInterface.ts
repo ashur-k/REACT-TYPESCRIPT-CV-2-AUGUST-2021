@@ -1,7 +1,7 @@
 import { BlogDetailsActionType } from "../constants/blogDetailConstants";
-import { Blog } from '../../pages/Blog/data'
+import { Blog } from "../../pages/Blog/data";
 
-interface BlogDetailRequestAction  {
+interface BlogDetailRequestAction {
   type: BlogDetailsActionType.BLOG_DETAIL_REQUEST;
 }
 interface BlogDetailSuccessAction {
@@ -13,7 +13,5 @@ interface BlogDetailErrorAction {
   payload: string;
 }
 
-export type BlogDetailAction = 
-  | BlogDetailRequestAction 
-  | BlogDetailSuccessAction 
-  | BlogDetailErrorAction
+export type BlogDetailAction =
+  BlogDetailRequestAction | BlogDetailSuccessAction | BlogDetailErrorAction;

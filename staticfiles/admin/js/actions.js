@@ -1,4 +1,4 @@
-/*global gettext, interpolate, ngettext*/
+/*global gettext, interpolate, ngettext, Actions*/
 'use strict';
 {
     function show(selector) {
@@ -36,7 +36,10 @@
 
     function clearAcross(options) {
         reset(options);
-        document.querySelector(options.acrossInput).value = 0;
+        const acrossInputs = document.querySelectorAll(options.acrossInput);
+        acrossInputs.forEach(function(acrossInput) {
+            acrossInput.value = 0;
+        });
         document.querySelector(options.actionContainer).classList.remove(options.selectedClass);
     }
 
@@ -107,8 +110,10 @@
         document.querySelectorAll(options.acrossQuestions + " a").forEach(function(el) {
             el.addEventListener('click', function(event) {
                 event.preventDefault();
-                const acrossInput = document.querySelector(options.acrossInput);
-                acrossInput.value = 1;
+                const acrossInputs = document.querySelectorAll(options.acrossInput);
+                acrossInputs.forEach(function(acrossInput) {
+                    acrossInput.value = 1;
+                });
                 showClear(options);
             });
         });
@@ -151,7 +156,7 @@
             });
         });
 
-        document.querySelector('#changelist-form button[name=index]').addEventListener('click', function() {
+        document.querySelector('#changelist-form button[name=index]').addEventListener('click', function(event) {
             if (list_editable_changed) {
                 const confirmed = confirm(gettext("You have unsaved changes on individual editable fields. If you run an action, your unsaved changes will be lost."));
                 if (!confirmed) {
@@ -167,13 +172,16 @@
                 if (document.querySelector('[name=action]').value) {
                     const text = list_editable_changed
                         ? gettext("You have selected an action, but you haven’t saved your changes to individual fields yet. Please click OK to save. You’ll need to re-run the action.")
-                        : gettext("You have selected an action, and you haven’t made any changes on individual fields. You’re probably looking for the Go button rather than the Save button.");
+                        : gettext("You have selected an action, and you haven’t made any changes on individual fields. You’re probably looking for the Run button rather than the Save button.");
                     if (!confirm(text)) {
                         event.preventDefault();
                     }
                 }
             });
         }
+        // Sync counter when navigating to the page, such as through the back
+        // button.
+        window.addEventListener('pageshow', (event) => updateCounter(actionCheckboxes, options));
     };
 
     // Call function fn when the DOM is loaded and ready. If it is already

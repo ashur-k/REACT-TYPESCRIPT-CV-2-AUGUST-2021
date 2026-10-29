@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import (
-  Blog, 
-  BlogSection, 
-  BlogReadingLink, 
-  BlogSectionImage, 
-  BlogSectionCodeSnippet,
-  BlogSectionTerminalCommand,
-  )
 
+from .models import (
+    Blog,
+    BlogReadingLink,
+    BlogSection,
+    BlogSectionCodeSnippet,
+    BlogSectionImage,
+    BlogSectionTerminalCommand,
+)
 
 admin.site.register(Blog)
 admin.site.register(BlogSection)

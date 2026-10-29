@@ -34,20 +34,19 @@
 
 /* End */
 
-
 /* Dialouge */
 
-.project-nav-bar-container{
+.project-nav-bar-container {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.75rem; 
+  padding-bottom: 0.75rem;
   overflow-y: scroll;
   height: 5vh;
   margin-bottom: 10px;
 }
 
-.MuiBackdrop-root{
+.MuiBackdrop-root {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 

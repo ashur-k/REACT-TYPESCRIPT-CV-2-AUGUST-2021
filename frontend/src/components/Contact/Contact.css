@@ -1,10 +1,9 @@
 .ContactInfo_items {
   font-size: 14px;
   color: #333 !important;
-
 }
 
-.ContactInfo_items>span {
+.ContactInfo_items > span {
   color: #000;
   font-weight: 5000;
 }
@@ -12,10 +11,9 @@
 .contactSocail-icons {
   display: flex !important;
   align-items: center !important;
-
 }
 
-.contactSocail-icons>a>.MuiSvgIcon-root {
+.contactSocail-icons > a > .MuiSvgIcon-root {
   font-size: 28px !important;
   margin-right: 10px;
   background-color: var(--main-color) !important;

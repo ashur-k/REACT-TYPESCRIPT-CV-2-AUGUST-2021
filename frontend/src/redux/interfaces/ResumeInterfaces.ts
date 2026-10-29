@@ -1,7 +1,7 @@
-import { ActionType } from '../constants/resumeConstants';
-import { ResumeDataInterface } from '../../utils/types';
+import { ActionType } from "../constants/resumeConstants";
+import { ResumeDataInterface } from "../../utils/types";
 
-interface ResumeListRequest  {
+interface ResumeListRequest {
   type: ActionType.RESUME_LIST_REQUEST;
 }
 interface ResumeListSuccess {
@@ -13,7 +13,4 @@ interface ResumeListFail {
   payload: string;
 }
 
-export type Action = 
-  | ResumeListRequest 
-  | ResumeListSuccess 
-  | ResumeListFail
+export type Action = ResumeListRequest | ResumeListSuccess | ResumeListFail;

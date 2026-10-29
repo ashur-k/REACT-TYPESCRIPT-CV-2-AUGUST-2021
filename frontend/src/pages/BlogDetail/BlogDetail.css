@@ -1,4 +1,4 @@
-.blog-title-grid{
+.blog-title-grid {
   background-color: var(--main-color) !important;
   color: #fff;
   text-align: center;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.requirements-list{
+.requirements-list {
   margin: 0;
   padding: 0;
 }

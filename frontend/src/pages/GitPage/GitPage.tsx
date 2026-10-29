@@ -1,30 +1,27 @@
-import React from 'react';
+import React from "react";
 
+import { Grid } from "@material-ui/core";
 
-import { Grid } from '@material-ui/core';
+import SiteTitle from "../../components/SiteTitle/SiteTitle";
 
-import SiteTitle from '../../components/SiteTitle/SiteTitle';
-
-
-import GitApi from '../../components/GitHubApi/GitApi';
-import './GitPage.css';
+import GitApi from "../../components/GitHubApi/GitApi";
+import "./GitPage.css";
 
 function GitPage() {
-  document.title = "Ash's Codes"
+  document.title = "Ash's Codes";
 
   return (
     // Contact
     <Grid container className="section pb_45 pt_45">
-      <Grid container item xs={12} spacing={3} >
+      <Grid container item xs={12} spacing={3}>
         {/* Git Information */}
         <Grid item xs={12} className="top_30">
-          <SiteTitle title='Git Information' />
+          <SiteTitle title="Git Information" />
           <GitApi />
         </Grid>
-      </Grid>  
+      </Grid>
     </Grid>
-    
-  )
+  );
 }
 
-export default GitPage
+export default GitPage;

@@ -1,9 +1,19 @@
 from django.contrib import admin
-from .models import Project, Aboutme, Education, WorkExperience, Skill, SkillCapabilities, ContactInformation
+
+from .models import (
+    Aboutme,
+    ContactInformation,
+    Education,
+    Project,
+    Skill,
+    SkillCapabilities,
+    WorkExperience,
+)
 
 
 class ContactInformationAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'message', 'received_at']
+    list_display = ("name", "email", "message", "received_at")
+
 
 admin.site.register(Project)
 admin.site.register(Aboutme)

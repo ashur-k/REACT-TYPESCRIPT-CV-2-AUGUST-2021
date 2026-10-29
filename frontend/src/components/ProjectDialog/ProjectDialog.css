@@ -1,15 +1,15 @@
-.projectDialog_title{
+.projectDialog_title {
   margin-top: -48px !important;
   padding-top: 2px !important;
   width: auto !important;
   max-width: 40% !important;
 }
-.dialogClose_button{
-  color:black;
-  text-align:right;
-  margin-right:15px; 
-  margin-top:5px;
-  cursor:pointer;
+.dialogClose_button {
+  color: black;
+  text-align: right;
+  margin-right: 15px;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .projectDialog .projectDialog_image {
@@ -38,14 +38,14 @@
 }
 
 .projectDialog .projectDialog_icon > .MuiSvgIcon-root {
-  font-size:30px;
+  font-size: 30px;
 }
-.key-tech-items{
+.key-tech-items {
   --tw-bg-opacity: 1;
   background-color: #d33131;
   color: #000;
   text-align: center;
   border-radius: 5px;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }

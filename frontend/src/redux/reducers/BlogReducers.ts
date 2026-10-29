@@ -1,13 +1,13 @@
 import { BlogAction } from "../interfaces/BlogInterfaces";
 import { BlogActionType } from "../constants/blogConstants";
 
-import { Blog } from '../../pages/Blog/data'
+import { Blog } from "../../pages/Blog/data";
 
-interface BlogReducerInterface{
+interface BlogReducerInterface {
   loading: boolean;
   error: string | null;
   blogData: Blog[];
-};
+}
 
 const initialState = {
   loading: false,
@@ -15,11 +15,11 @@ const initialState = {
   blogData: [],
 };
 
-
 export const blogListReducer = (
   state: BlogReducerInterface = initialState,
-  action: BlogAction):BlogReducerInterface => {
-  switch (action.type){
+  action: BlogAction
+): BlogReducerInterface => {
+  switch (action.type) {
     case BlogActionType.BLOG_LIST_REQUEST:
       return { loading: true, error: null, blogData: [] };
     case BlogActionType.BLOG_LIST_SUCCESS:
@@ -29,7 +29,4 @@ export const blogListReducer = (
     default:
       return state;
   }
-
 };
-
-

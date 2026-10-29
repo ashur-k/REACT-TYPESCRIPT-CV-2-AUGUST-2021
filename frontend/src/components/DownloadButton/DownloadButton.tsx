@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 // Material UI and bootstrap Components import
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 
 // css imports
-import './DownloadButton.css';
+import "./DownloadButton.css";
 
 interface buttonInterface {
   text: string;
@@ -12,20 +12,17 @@ interface buttonInterface {
   downloadPDF: Function;
 }
 
-const DownloadButton = ({text, icon, downloadPDF}: buttonInterface) => {
+const DownloadButton = ({ text, icon, downloadPDF }: buttonInterface) => {
   return (
-    <Button 
-      className='custom_btn'
+    <Button
+      className="custom_btn"
       type="submit"
-      endIcon={
-        icon ? (
-          <div className="btn_icon_container">{icon}</div>
-          ): null }
+      endIcon={icon ? <div className="btn_icon_container">{icon}</div> : null}
       onClick={() => downloadPDF()}
-      >
-        <span className='btn_text'>{text}</span>
+    >
+      <span className="btn_text">{text}</span>
     </Button>
-  )
-}
+  );
+};
 
-export default DownloadButton
+export default DownloadButton;

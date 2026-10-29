@@ -1,5 +1,5 @@
 import { BlogActionType } from "../constants/blogConstants";
-import { Blog } from '../../pages/Blog/data'
+import { Blog } from "../../pages/Blog/data";
 
 interface BlogListRequestAction {
   type: BlogActionType.BLOG_LIST_REQUEST;
@@ -13,8 +13,4 @@ interface BlogListErrorAction {
   payload: string;
 }
 
-export type BlogAction = 
-  | BlogListRequestAction 
-  | BlogListSuccessAction 
-  | BlogListErrorAction
-
+export type BlogAction = BlogListRequestAction | BlogListSuccessAction | BlogListErrorAction;

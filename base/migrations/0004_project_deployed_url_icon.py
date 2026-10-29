@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('base', '0003_aboutme_education_skill_skillcapabilities_workexperience'),
+        ("base", "0003_aboutme_education_skill_skillcapabilities_workexperience"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='project',
-            name='deployed_url_icon',
-            field=models.CharField(default='add icon name', max_length=150),
+            model_name="project",
+            name="deployed_url_icon",
+            field=models.CharField(default="add icon name", max_length=150),
         ),
     ]

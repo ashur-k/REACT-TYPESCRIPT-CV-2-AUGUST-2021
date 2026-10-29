@@ -1,4 +1,4 @@
-.fixed-iisus{
+.fixed-iisus {
   position: fixed !important;
 }
 
@@ -38,11 +38,11 @@
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-.navbar_collapse{
+.navbar_collapse {
   justify-content: space-between;
 }
 
-.header .header_left{
+.header .header_left {
   margin: auto;
   margin-left: 10px;
 }
@@ -57,18 +57,17 @@
   color: #000 !important;
 }
 
-.mobile_social_icons{
-  display:none;
+.mobile_social_icons {
+  display: none;
 }
 
 @media (max-width: 991px) {
-
-  .navbar_collapse{
+  .navbar_collapse {
     display: flex;
     flex-direction: column;
   }
 
-  .header .header_left{
+  .header .header_left {
     margin: auto;
     text-align: center !important;
   }
@@ -76,7 +75,7 @@
   .header .header_right {
     margin-bottom: 15px;
   }
-  .mobile_social_icons{
+  .mobile_social_icons {
     display: inline-block !important;
   }
 
@@ -85,7 +84,7 @@
     margin-right: 12px;
     color: #000 !important;
   }
-  .not-show-on-smaller-screen{
+  .not-show-on-smaller-screen {
     display: none;
   }
 }

@@ -1,5 +1,5 @@
-import { ActionType } from '../constants/projectConstants';
-import { ProjectInterface } from '../../utils/types';
+import { ActionType } from "../constants/projectConstants";
+import { ProjectInterface } from "../../utils/types";
 
 interface ProjectListRequest {
   type: ActionType.PROJECT_LIST_REQUEST;
@@ -13,7 +13,4 @@ interface ProjectListFail {
   payload: string;
 }
 
-export type Action = 
-  | ProjectListRequest 
-  | ProjectListSuccess 
-  | ProjectListFail
+export type Action = ProjectListRequest | ProjectListSuccess | ProjectListFail;

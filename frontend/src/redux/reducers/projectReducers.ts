@@ -1,23 +1,24 @@
-import { ActionType } from '../constants/projectConstants';
-import { Action } from '../interfaces/interfaces';
+import { ActionType } from "../constants/projectConstants";
+import { Action } from "../interfaces/interfaces";
 
-import { ProjectInterface } from '../../utils/types'
+import { ProjectInterface } from "../../utils/types";
 
- interface ProjectReducerInterface {
-   loading: boolean;
-   error: string | null;
-   projects: ProjectInterface[];
- };
+interface ProjectReducerInterface {
+  loading: boolean;
+  error: string | null;
+  projects: ProjectInterface[];
+}
 
- const initialState = {
+const initialState = {
   loading: false,
   error: null,
   projects: [],
 };
 
 export const projectListReducer = (
-  state:ProjectReducerInterface = initialState, 
-  action: Action):ProjectReducerInterface  => {
+  state: ProjectReducerInterface = initialState,
+  action: Action
+): ProjectReducerInterface => {
   switch (action.type) {
     case ActionType.PROJECT_LIST_REQUEST:
       return { loading: true, error: null, projects: [] };
@@ -27,8 +28,8 @@ export const projectListReducer = (
 
     case ActionType.PROJECT_LIST_FAIL:
       return { loading: false, error: action.payload, projects: [] };
-    
+
     default:
-      return state
-}
-}
+      return state;
+  }
+};

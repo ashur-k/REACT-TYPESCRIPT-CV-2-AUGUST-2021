@@ -5,27 +5,43 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Project',
+            name="Project",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('image_path', models.CharField(max_length=500)),
-                ('description', models.TextField()),
-                ('category', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=200), size=None)),
-                ('key_techs', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=200), size=None)),
-                ('deployed_url', models.CharField(max_length=500)),
-                ('github_url', models.CharField(max_length=500)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("image_path", models.CharField(max_length=500)),
+                ("description", models.TextField()),
+                (
+                    "category",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=200), size=None
+                    ),
+                ),
+                (
+                    "key_techs",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=200), size=None
+                    ),
+                ),
+                ("deployed_url", models.CharField(max_length=500)),
+                ("github_url", models.CharField(max_length=500)),
             ],
             options={
-                'verbose_name_plural': 'Projects',
+                "verbose_name_plural": "Projects",
             },
         ),
     ]

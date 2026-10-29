@@ -1,25 +1,25 @@
 import { BlogDetailsActionType } from "../constants/blogDetailConstants";
 import { BlogDetailAction } from "../interfaces/BlogDetailInterface";
 
-import { Blog } from '../../pages/Blog/data'
+import { Blog } from "../../pages/Blog/data";
 
-interface BlogDetailReducerInterface{
+interface BlogDetailReducerInterface {
   loading: boolean;
   error: string | null;
   blogDetailData: Blog[];
-};
+}
 
 const initialState = {
   loading: false,
   error: null,
-  blogDetailData:[],
+  blogDetailData: [],
 };
 
-
 export const blogDetailReducer = (
-    state: BlogDetailReducerInterface = initialState,
-    action: BlogDetailAction):BlogDetailReducerInterface => {
-  switch (action.type){
+  state: BlogDetailReducerInterface = initialState,
+  action: BlogDetailAction
+): BlogDetailReducerInterface => {
+  switch (action.type) {
     case BlogDetailsActionType.BLOG_DETAIL_REQUEST:
       return { loading: true, error: null, blogDetailData: [] };
     case BlogDetailsActionType.BLOG_DETAIL_SUCCESS:
@@ -29,6 +29,4 @@ export const blogDetailReducer = (
     default:
       return state;
   }
-
 };
-

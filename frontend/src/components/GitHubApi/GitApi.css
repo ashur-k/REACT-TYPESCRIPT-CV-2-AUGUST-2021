@@ -1,21 +1,20 @@
-.repo_List{
-  color:red !important;
+.repo_List {
+  color: red !important;
 }
-.repoName-Paper{
-  padding:5px;
+.repoName-Paper {
+  padding: 5px;
   background-color: #e22d15 !important;
   color: antiquewhite !important;
   font-size: 14px;
   text-transform: capitalize !important;
 }
-.repoName-Paper:hover{
+.repoName-Paper:hover {
   font-size: 16px;
   background-color: #fff !important;
   color: #e22d15 !important;
- 
 }
-.repositoriesTitle{ 
+.repositoriesTitle {
   width: 98% !important;
   margin-bottom: 10px !important;
-  border-radius:15px;
+  border-radius: 15px;
 }

@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments and caches
+.venv/
+myenv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Frontend dependencies and generated build
+frontend/node_modules/
+frontend/build/
+
+# Django generated files
+staticfiles/
+
+# Local database and backups
+db.sqlite3
+*.dump
+*.sql
+*.backup
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

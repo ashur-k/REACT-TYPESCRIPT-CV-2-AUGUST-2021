@@ -26,7 +26,6 @@
 .service .description {
   color: #989898;
   border-color: var(--main-color) !important;
-  ;
   margin-right: 5p !important;
   text-align: center !important;
 }
@@ -36,7 +35,6 @@
   margin-left: 0px !important;
   font-weight: 300 !important;
   color: var(--main-color) !important;
-  ;
   background-color: #fff !important;
 }
 
