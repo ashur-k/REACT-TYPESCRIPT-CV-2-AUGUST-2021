@@ -14,6 +14,13 @@ ALLOWED_HOSTS = config(
     cast=lambda value: [host.strip() for host in value.split(",") if host.strip()],
 )
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://ashur-resume.co.uk",
+    "https://www.ashur-resume.co.uk",
+]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
