@@ -45,7 +45,15 @@ services:
       - backend
     volumes:
       - resume_media_data:/var/www/media:ro
+    networks:
+      - default
+      - resume_edge
 
 volumes:
   resume_postgres_data:
   resume_media_data:
+
+networks:
+  resume_edge:
+    external: true
+    name: resume_edge
