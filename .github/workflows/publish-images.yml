@@ -60,13 +60,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SOURCE_SHA=$(gh pr list \
-            --state merged \
-            --base main \
-            --head "${GITHUB_REPOSITORY_OWNER}:staging" \
-            --json mergeCommit,headRefOid \
-            --limit 100 \
-            --jq ".[] | select(.mergeCommit.oid == \"${GITHUB_SHA}\") | .headRefOid")
+          SOURCE_SHA=$(gh api \
+            "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls" \
+            --jq '.[] | select(.base.ref == "main" and .head.ref == "staging") | .head.sha' \
+            | head -n 1)
 
           if [ -z "$SOURCE_SHA" ]; then
             echo "Could not find the staging commit merged into this main commit."
