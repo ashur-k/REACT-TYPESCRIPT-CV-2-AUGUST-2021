@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   packages: write
+  pull-requests: read
 
 env:
   IMAGE_PREFIX: ghcr.io/ashur-k/react-typescript-cv-2-august-2021
@@ -21,6 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
+        if: github.ref == 'refs/heads/staging'
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to GitHub Container Registry
@@ -31,6 +33,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish backend
+        if: github.ref == 'refs/heads/staging'
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -40,6 +43,7 @@ jobs:
             ${{ env.IMAGE_PREFIX }}-backend:${{ github.sha }}
 
       - name: Build and publish frontend
+        if: github.ref == 'refs/heads/staging'
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -49,3 +53,43 @@ jobs:
             NGINX_CONFIG=infrastructure/production/nginx/nginx.conf
           tags: |
             ${{ env.IMAGE_PREFIX }}-frontend:${{ github.sha }}
+
+      - name: Find staging commit merged into main
+        if: github.ref == 'refs/heads/main'
+        id: staging
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SOURCE_SHA=$(gh pr list \
+            --state merged \
+            --base main \
+            --head "${GITHUB_REPOSITORY_OWNER}:staging" \
+            --json mergeCommit,headRefOid \
+            --limit 100 \
+            --jq ".[] | select(.mergeCommit.oid == \"${GITHUB_SHA}\") | .headRefOid")
+
+          if [ -z "$SOURCE_SHA" ]; then
+            echo "Could not find the staging commit merged into this main commit."
+            exit 1
+          fi
+
+          echo "sha=$SOURCE_SHA" >> "$GITHUB_OUTPUT"
+          echo "Staging source commit: $SOURCE_SHA"
+
+      - name: Install crane
+        if: github.ref == 'refs/heads/main'
+        uses: imjasonh/setup-crane@v0.4
+
+      - name: Promote backend image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          crane tag \
+            "${IMAGE_PREFIX}-backend:${{ steps.staging.outputs.sha }}" \
+            "${GITHUB_SHA}"
+
+      - name: Promote frontend image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          crane tag \
+            "${IMAGE_PREFIX}-frontend:${{ steps.staging.outputs.sha }}" \
+            "${GITHUB_SHA}"
