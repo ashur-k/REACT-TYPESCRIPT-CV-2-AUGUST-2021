@@ -1,0 +1,35 @@
+name: Verify Staging Images
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  IMAGE_PREFIX: ghcr.io/ashur-k/react-typescript-cv-2-august-2021
+
+jobs:
+  verify:
+    name: Verify staging images
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify source branch
+        run: |
+          if [ "${{ github.head_ref }}" != "staging" ]; then
+            echo "Pull requests into main must come from staging."
+            exit 1
+          fi
+
+      - name: Verify backend image
+        run: |
+          docker manifest inspect \
+            "${IMAGE_PREFIX}-backend:${{ github.event.pull_request.head.sha }}"
+
+      - name: Verify frontend image
+        run: |
+          docker manifest inspect \
+            "${IMAGE_PREFIX}-frontend:${{ github.event.pull_request.head.sha }}"
