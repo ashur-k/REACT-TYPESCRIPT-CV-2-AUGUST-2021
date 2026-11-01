@@ -27,6 +27,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 RUN SECRET_KEY=build-only-placeholder \
     DEBUG=False \
     ALLOWED_HOSTS=localhost \
+    DJANGO_ADMIN_PATH=build-admin \
     python manage.py collectstatic --noinput
 
 EXPOSE 8000
