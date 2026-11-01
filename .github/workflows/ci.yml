@@ -49,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SECRET_KEY: ci-only-secret-key-for-checks
+      DJANGO_ADMIN_PATH: ci-admin-path
 
     steps:
       - name: Checkout repository
@@ -75,8 +76,6 @@ jobs:
 
       - name: Check Django configuration
         run: uv run python manage.py check
-        env:
-          SECRET_KEY: "ci-only-test-secret-not-for-production"
 
       - name: Run backend tests
         run: uv run python manage.py test

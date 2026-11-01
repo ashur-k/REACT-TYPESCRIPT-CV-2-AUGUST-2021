@@ -1,4 +1,4 @@
-FROM node:22-alpine AS build
+FROM node:22-alpine AS base
 
 WORKDIR /app
 
@@ -8,14 +8,25 @@ RUN npm ci
 
 COPY frontend/ ./
 
+FROM base AS development
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+
+
+
+FROM base AS production-build
+
 RUN npm run build
 
-FROM nginx:alpine AS runtime
 
-ARG NGINX_CONFIG=infrastructure/local/nginx/nginx.conf
+FROM nginx:alpine AS production
 
-COPY ${NGINX_CONFIG} /etc/nginx/conf.d/default.conf
+ARG NGINX_CONFIG=infrastructure/production/nginx/nginx.conf
 
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=production-build /app/build/ /usr/share/nginx/html/
+
+COPY ${NGINX_CONFIG} /etc/nginx/templates/default.conf.template
 
 EXPOSE 80
