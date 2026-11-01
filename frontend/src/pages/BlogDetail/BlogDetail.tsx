@@ -79,22 +79,22 @@ const BlogDetail = ({ match }: any) => {
                 <Grid
                   size={{
                     sm: 12,
-                    md: 6
-                  }}>
+                    md: 6,
+                  }}
+                >
                   {<BlogDescription article_overview={blogs.article_overview} />}
                 </Grid>
                 {/* */}
                 <Grid
                   size={{
                     sm: 12,
-                    md: 6
-                  }}>
+                    md: 6,
+                  }}
+                >
                   {<BlogRequirements requirements={requirements} />}
                 </Grid>
               </Grid>
-              <Grid size={12}>
-                {<BlogSteps blog_sections={blogSections} />}
-              </Grid>
+              <Grid size={12}>{<BlogSteps blog_sections={blogSections} />}</Grid>
             </Grid>
           </Grid>
         </Grid>

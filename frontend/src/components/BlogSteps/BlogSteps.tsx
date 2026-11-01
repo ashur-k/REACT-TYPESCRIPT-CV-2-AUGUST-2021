@@ -32,8 +32,9 @@ const BlogSteps: FunctionComponent<{
                 style={{ margin: "auto" }}
                 size={{
                   xs: 12,
-                  md: 12
-                }}>
+                  md: 12,
+                }}
+              >
                 <Grid container>
                   <Typography variant="body2">{section.paragraph}</Typography>
                 </Grid>

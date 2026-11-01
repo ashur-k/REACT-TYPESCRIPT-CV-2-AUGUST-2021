@@ -88,8 +88,9 @@ const Portfolio = () => {
                     key={project.id}
                     size={{
                       xs: 12,
-                      sm: 6
-                    }}>
+                      sm: 6,
+                    }}
+                  >
                     <div>
                       <Grow in timeout={1000}>
                         <Card
