@@ -6,6 +6,7 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
+ADMIN_URL = config("DJANGO_ADMIN_PATH").strip("/") + "/"
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config(
