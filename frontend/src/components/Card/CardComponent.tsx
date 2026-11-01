@@ -4,7 +4,7 @@ import React, { FunctionComponent } from "react";
 import getIcon from "../../helperFunctions/getIcon";
 
 // Material UI and bootstrap Components import
-import { Icon, Typography } from "@material-ui/core";
+import { Icon, Typography } from "@mui/material";
 import { Card, CardGroup } from "react-bootstrap";
 
 // css imports

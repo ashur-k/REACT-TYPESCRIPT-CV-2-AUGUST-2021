@@ -7,11 +7,15 @@ import { ProjectInterface } from "../../utils/types";
 import getIcon from "../../helperFunctions/getIcon";
 
 // Material UI components import
-import { Grid, Icon, Typography } from "@material-ui/core";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  Icon,
+  Typography,
+} from "@mui/material";
 import { Image } from "react-bootstrap";
 // Custom components import
 import CustomButton from "../Button/Button";
@@ -54,9 +58,9 @@ const ProjectDialog: FunctionComponent<{
         </Typography>
         <div>
           <Grid container spacing={1}>
-            <Grid container item xs={12} spacing={1}>
+            <Grid container spacing={1} size={12}>
               {projectDialog?.key_techs.map((item) => (
-                <Grid key={item} item xs={2}>
+                <Grid key={item} size={2}>
                   <Typography className="key-tech-items" variant="body2">
                     {item}
                   </Typography>

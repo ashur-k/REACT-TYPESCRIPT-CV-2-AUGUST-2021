@@ -4,7 +4,7 @@ import React, { FunctionComponent } from "react";
 import { ResumeDataInterface } from "../../utils/types";
 
 // Material UI and bootstrap Components import
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 
 // Custom components import
 import { CardComponent } from "../Card/CardComponent";
@@ -16,9 +16,15 @@ const Skills: FunctionComponent<{
   skills: ResumeDataInterface["skills"];
 }> = ({ skills }) => {
   return (
-    <Grid container spacing={3} justifyContent="space-around">
+    <Grid container spacing={3} sx={{ justifyContent: "space-around" }}>
       {skills.map((skill) => (
-        <Grid key={skill.id} item sm={12} md={4}>
+        <Grid
+          key={skill.id}
+          size={{
+            sm: 12,
+            md: 4,
+          }}
+        >
           <CardComponent icon={skill.icon} title={skill.title} description={skill.description} />
         </Grid>
       ))}

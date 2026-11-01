@@ -3,6 +3,7 @@ import { Dispatch } from "redux";
 
 import { ActionType } from "../constants/clientInformationConstants";
 import { Action } from "../interfaces/clientInformationInterface";
+import getErrorMessage from "../../helperFunctions/getErrorMessage";
 
 export const ClientInformation =
   (name: string, email: string, message: string) => async (dispatch: Dispatch<Action>) => {
@@ -22,8 +23,7 @@ export const ClientInformation =
     } catch (error) {
       dispatch({
         type: ActionType.CLIENT_INFORMATION_FAIL,
-        payload:
-          error.response && error.response.data.detail ? error.reponse.data.detail : error.message,
+        payload: getErrorMessage(error),
       });
     }
   };

@@ -257,48 +257,44 @@ export interface UserInterface {}
 export interface ResumeDataInterface {
   id: number;
   about_me: string;
-  education_details: [
-    {
-      id: number;
-      title: string;
-      institute_name: string;
-      institute_link: string;
-      date: string;
-      description: string;
-      about_me: number;
-    },
-  ];
-  work_expereinces: [
-    {
-      id: number;
-      title: string;
-      date: string;
-      description: string;
-      display_order: number;
-      office_job: boolean;
-      work_url: string;
-      deployed_url: string;
-      github_url: string;
-      about_me: number;
-    },
-  ];
-  skills: [
-    {
-      id: number;
-      title: string;
-      description: string;
-      icon: string;
-      about_me: number;
-    },
-  ];
-  skill_capabilities: [
-    {
-      id: number;
-      title: string;
-      category: string[];
-      about_me: number;
-    },
-  ];
+
+  education_details: {
+    id: number;
+    title: string;
+    institute_name: string;
+    institute_link: string;
+    date: string;
+    description: string;
+    about_me: number;
+  }[];
+
+  work_expereinces: {
+    id: number;
+    title: string;
+    date: string;
+    description: string;
+    display_order: number;
+    office_job: boolean;
+    work_url: string;
+    deployed_url: string;
+    github_url: string;
+    about_me: number;
+  }[];
+
+  skills: {
+    id: number;
+    title: string;
+    description: string;
+    icon: string;
+    about_me: number;
+  }[];
+
+  skill_capabilities: {
+    id: number;
+    title: string;
+    category: string[];
+    about_me: number;
+  }[];
 }
 
 export const resumeData: ResumeDataInterface[] = [

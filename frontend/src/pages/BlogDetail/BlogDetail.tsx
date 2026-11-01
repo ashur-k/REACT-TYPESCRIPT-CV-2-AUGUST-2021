@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Redux imports
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { blogDetail as blogDetailAction } from "../../redux/actions/blogDetailActions";
 
@@ -9,7 +9,7 @@ import { blogDetail as blogDetailAction } from "../../redux/actions/blogDetailAc
 import { Blog } from "../Blog/data";
 
 // Material UI and bootstrap Components import
-import { Grid } from "@material-ui/core";
+import Grid from "@mui/material/Grid";
 import { Alert, Image, Spinner } from "react-bootstrap";
 import SiteTitle from "../../components/SiteTitle/SiteTitle";
 
@@ -19,10 +19,11 @@ import BlogRequirements from "../../components/BlogRequirements/BlogRequirements
 import BlogSteps from "../../components/BlogSteps/BlogSteps";
 
 // css imports
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./BlogDetail.css";
 
 const BlogDetail = ({ match }: any) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { loading, error, blogDetailData } = useTypedSelector((state) => state.blogDetail);
 
   // USE STATE VARIABLES
@@ -63,7 +64,7 @@ const BlogDetail = ({ match }: any) => {
       ) : (
         <Grid container className="section pb_45 pt_45">
           <SiteTitle title={blogs.article_title} />
-          <Grid item xs={12}>
+          <Grid size={12}>
             <div>
               <hr></hr>
               <Image src={blogs.banner_image_path} fluid />
@@ -72,18 +73,26 @@ const BlogDetail = ({ match }: any) => {
           </Grid>
           {/* */}
           <Grid container className="section pb_45">
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container className="resume_timeline">
                 {/*   */}
-                <Grid item sm={12} md={6}>
+                <Grid
+                  size={{
+                    sm: 12,
+                    md: 6
+                  }}>
                   {<BlogDescription article_overview={blogs.article_overview} />}
                 </Grid>
                 {/* */}
-                <Grid item sm={12} md={6}>
+                <Grid
+                  size={{
+                    sm: 12,
+                    md: 6
+                  }}>
                   {<BlogRequirements requirements={requirements} />}
                 </Grid>
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 {<BlogSteps blog_sections={blogSections} />}
               </Grid>
             </Grid>

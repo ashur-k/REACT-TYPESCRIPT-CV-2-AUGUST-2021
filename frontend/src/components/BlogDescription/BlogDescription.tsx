@@ -8,9 +8,9 @@ import React, { FunctionComponent } from "react";
 import getIcon from "../../helperFunctions/getIcon";
 
 // Material UI and bootstrap Components import
-import { Typography } from "@material-ui/core";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineContent from "@material-ui/lab/TimelineContent";
+import { Typography } from "@mui/material";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineContent from "@mui/lab/TimelineContent";
 // import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 // Custom components import
 import CustomTimeline, { CustomTimelineSeparator } from "../../components/Timeline/Timeline";

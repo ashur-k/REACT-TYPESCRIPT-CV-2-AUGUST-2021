@@ -1,14 +1,15 @@
 // Material UI Icons import
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import WorkIcon from "@material-ui/icons/Work";
-import SchoolRoundedIcon from "@material-ui/icons/SchoolRounded";
-import CloseIcon from "@material-ui/icons/Close";
-import SendIcon from "@material-ui/icons/Send";
-import SearchIcon from "@material-ui/icons/Search";
-import DescriptionIcon from "@material-ui/icons/Description";
+import type { ReactElement } from "react";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
+import CloseIcon from "@mui/icons-material/Close";
+import SendIcon from "@mui/icons-material/Send";
+import SearchIcon from "@mui/icons-material/Search";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 // React Icons import
 import { IoLogoReact, IoLogoPython, IoLogoVercel, IoLogoFirebase } from "react-icons/io5";
@@ -25,7 +26,7 @@ import { BiCodeBlock } from "react-icons/bi";
 import { FaPython } from "react-icons/fa";
 import { VscRocket } from "react-icons/vsc";
 
-const getIcon = (icon: string | undefined): JSX.Element => {
+const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
     case "WorkIcon":
       return <WorkIcon className="SVG" />;

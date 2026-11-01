@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { ActionType } from "../constants/userConstants";
 import { Action } from "../interfaces/UserInterfaces";
 
-//import { ProjectInterface } from '../../utils/resumeData';
+import getErrorMessage from "../../helperFunctions/getErrorMessage";
 
 export const login = (email: string, password: string) => async (dispatch: Dispatch<Action>) => {
   try {
@@ -28,8 +28,7 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
   } catch (error) {
     dispatch({
       type: ActionType.USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.detail ? error.response.data.detail : error.message,
+      payload: getErrorMessage(error),
     });
   }
 };

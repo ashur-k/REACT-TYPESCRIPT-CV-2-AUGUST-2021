@@ -1,4 +1,3 @@
-
 services:
   db:
     container_name: resume-postgres
@@ -13,10 +12,13 @@ services:
     volumes:
       - resume_postgres_data:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      test:
+        ["CMD-SHELL", 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
       interval: 5s
       timeout: 5s
       retries: 10
+    networks:
+      - resume-local-network
 
   backend:
     container_name: resume-backend
@@ -40,20 +42,52 @@ services:
         condition: service_healthy
     volumes:
       - resume_media_data:/app/static/images
+    networks:
+      - resume-local-network
 
   frontend:
     container_name: resume-frontend
     build:
       context: ../..
       dockerfile: frontend/Dockerfile
+      target: development
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../../frontend:/app
+      - /app/node_modules
+    depends_on:
+      nginx:
+        condition: service_started
+    networks:
+      - resume-local-network
+
+  nginx:
+    container_name: resume-nginx
+    build:
+      context: ../..
+      dockerfile: infrastructure/local/nginx/Dockerfile
     restart: unless-stopped
     ports:
       - "8080:80"
+    environment:
+      DJANGO_ADMIN_PATH: ${DJANGO_ADMIN_PATH:?Set DJANGO_ADMIN_PATH in project root .env}
+      NGINX_ENVSUBST_FILTER: "^DJANGO_ADMIN_PATH$"
     depends_on:
-      - backend
+      backend:
+        condition: service_started
     volumes:
       - resume_media_data:/var/www/media:ro
+    networks:
+      - resume-local-network
 
 volumes:
   resume_postgres_data:
   resume_media_data:
+  frontend_build:
+
+networks:
+  resume-local-network:
+    name: resume-local-network
+    driver: bridge

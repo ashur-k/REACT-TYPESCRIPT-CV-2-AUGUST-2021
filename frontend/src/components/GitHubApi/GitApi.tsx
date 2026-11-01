@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import getIcon from "../../helperFunctions/getIcon";
 
-// Material UI and bootstrap Components import
 import {
   Avatar,
   Card,
@@ -14,26 +13,14 @@ import {
   Paper,
   TextField,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
 // css imports
 import "./GitApi.css";
-import { makeStyles } from "@material-ui/core/styles";
-import { Image } from "react-bootstrap";
-import { red } from "@material-ui/core/colors";
-import axios from "axios";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-});
+import { Image } from "react-bootstrap";
+
+import axios from "axios";
 
 const GitApi = () => {
   const [name, setName] = useState<string>("");
@@ -92,24 +79,29 @@ const GitApi = () => {
     };
   }, [term]);
 
-  const classes = useStyles();
-
   return (
     <div style={{ width: "100%" }}>
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Grid
           container
           spacing={3}
-          alignItems="center"
-          justifyContent="center"
+          sx={{ alignItems: "center", justifyContent: "center" }}
           className="section"
         ></Grid>
-        <Grid container spacing={3} direction="column" alignItems="center" justify="center">
-          <Grid item xs={12}>
-            <Card className={classes.root}>
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid size={12}>
+            <Card sx={{ maxWidth: 345 }}>
               <CardHeader
                 avatar={
-                  <Avatar aria-label="recipe" className={classes.avatar}>
+                  <Avatar aria-label="recipe" sx={{ bgcolor: "error.main" }}>
                     {getIcon("FaGit")}
                   </Avatar>
                 }
@@ -133,7 +125,7 @@ const GitApi = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Grid container spacing={0}>
               <div className="repositoriesTitle">
                 <TextField
@@ -145,9 +137,15 @@ const GitApi = () => {
                 />
               </div>
 
-              <Grid container item xs={12} spacing={1}>
+              <Grid container spacing={1} size={12}>
                 {reposInfo.map((repo: any) => (
-                  <Grid item xs={12} sm={12} md={6}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      sm: 12,
+                      md: 6,
+                    }}
+                  >
                     <a href={repo.html_url} target="_blank" rel="noreferrer">
                       <Paper className="repoName-Paper" elevation={3}>
                         {repo.name}
