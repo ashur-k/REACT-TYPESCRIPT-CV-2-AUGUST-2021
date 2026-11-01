@@ -15,9 +15,7 @@ services:
       retries: 10
 
   backend:
-    build:
-      context: ../..
-      dockerfile: Dockerfile
+    image: ${IMAGE_PREFIX:?Set IMAGE_PREFIX}-backend:${IMAGE_TAG:?Set IMAGE_TAG}
     restart: unless-stopped
     environment:
       SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY}
@@ -35,11 +33,7 @@ services:
       - resume_media_data:/app/static/images
 
   frontend:
-    build:
-      context: ../..
-      dockerfile: frontend/Dockerfile
-      args:
-        NGINX_CONFIG: infrastructure/production/nginx/nginx.conf
+    image: ${IMAGE_PREFIX:?Set IMAGE_PREFIX}-frontend:${IMAGE_TAG:?Set IMAGE_TAG}
     restart: unless-stopped
     depends_on:
       - backend
