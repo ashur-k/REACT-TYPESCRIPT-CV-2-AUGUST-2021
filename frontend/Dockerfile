@@ -25,7 +25,7 @@ FROM nginx:alpine AS production
 
 ARG NGINX_CONFIG=infrastructure/production/nginx/nginx.conf
 
-COPY --from=production-build /app/build/ /usr/share/nginx/html/
+COPY --from=production-build /app/dist/ /usr/share/nginx/html/
 
 COPY ${NGINX_CONFIG} /etc/nginx/templates/default.conf.template
 
