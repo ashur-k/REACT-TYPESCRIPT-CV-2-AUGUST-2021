@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // Redux imports
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/useActions";
 import { listProjects } from "../../redux/actions/projectActions";
 
 // Typescript imports
@@ -8,7 +8,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { Category, ProjectInterface } from "../../utils/types";
 
 // Material UI and bootstrap Components import
-import { Card, CardActionArea, CardContent, Grid, Grow, Typography } from "@material-ui/core";
+import { Card, CardActionArea, CardContent, Grid, Grow, Typography } from "@mui/material";
 import { Alert, Image, Spinner } from "react-bootstrap";
 
 // Custom components import
@@ -16,11 +16,11 @@ import ProjectsNavbar from "../../components/ProjectNabar/ProjectNavbar";
 import ProjectDialog from "../../components/ProjectDialog/ProjectDialog";
 
 // css imports
+// @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./Portfolio.css";
 
 const Portfolio = () => {
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
   const { error, loading, projects } = useTypedSelector((state) => state.projectList);
   const [projectsData, setProjectsData] = useState<ProjectInterface[]>([]);
 
@@ -72,19 +72,25 @@ const Portfolio = () => {
         <Grid className="section pb_45 pt_45">
           <div>
             {/* Title */}
-            <Grid item className="section_title mb_20">
+            <Grid className="section_title mb_20">
               <span></span>
               <h6 className="section_title_text">Portfolio</h6>
             </Grid>
 
             {/* Project Navbar */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <ProjectsNavbar handlerFilterCategory={handleFilterCategory} active={active} />
             </Grid>
             <Grid container spacing={1}>
-              <Grid container item xs={12} spacing={1}>
+              <Grid container spacing={1} size={12}>
                 {projectsData.map((project) => (
-                  <Grid key={project.id} item xs={12} sm={6}>
+                  <Grid
+                    key={project.id}
+                    size={{
+                      xs: 12,
+                      sm: 6,
+                    }}
+                  >
                     <div>
                       <Grow in timeout={1000}>
                         <Card

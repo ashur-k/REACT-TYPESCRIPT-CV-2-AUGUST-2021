@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 // Material UI and bootstrap Components import
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 // css imports
 import "./BlogCards.css";

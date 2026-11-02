@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Redux imports
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/useActions";
 import { listAboutme } from "../../redux/actions/resumeActions";
 
 // Typescript imports
@@ -9,7 +9,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { ResumeDataInterface } from "../../utils/types";
 
 // Material UI and bootstrap Components import
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import { Alert, Spinner } from "react-bootstrap";
 
 // Custom components import
@@ -21,19 +21,21 @@ import SiteTitle from "../../components/SiteTitle/SiteTitle";
 import Contact from "../../components/Contact/Contact";
 
 // css imports
+// @ts-ignore CSS imports are resolved by the bundler.
 import "./Resume.css";
 
 const Resume = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { error, loading, aboutme } = useTypedSelector((state) => state.resumeList);
 
   // React UseStates
   const [aboutMeText, setAboutMeText] = useState<string>("");
-  const [education, setEducation] = useState<ResumeDataInterface["education_details"] | any>([]);
-  const [work, setWork] = useState<ResumeDataInterface["work_expereinces"] | any>([]);
-  const [skills, setSkills] = useState<ResumeDataInterface["skills"] | any>([]);
+
+  const [education, setEducation] = useState<ResumeDataInterface["education_details"]>([]);
+  const [work, setWork] = useState<ResumeDataInterface["work_expereinces"]>([]);
+  const [skills, setSkills] = useState<ResumeDataInterface["skills"]>([]);
   const [skillCapabilities, setSkillCapabilities] = useState<
-    ResumeDataInterface["skill_capabilities"] | any
+    ResumeDataInterface["skill_capabilities"]
   >([]);
 
   // React UseEffects
@@ -43,17 +45,17 @@ const Resume = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (aboutme.length === 0) {
+    if (!aboutme || aboutme.length === 0) {
       return;
     }
 
     const me = aboutme[0];
 
-    setAboutMeText(me.about_me);
-    setEducation(me.education_details);
-    setWork(me.work_expereinces);
-    setSkills(me.skills);
-    setSkillCapabilities(me.skill_capabilities);
+    setAboutMeText(me.about_me ?? "");
+    setEducation(me.education_details ?? []);
+    setWork(me.work_expereinces ?? []);
+    setSkills(me.skills ?? []);
+    setSkillCapabilities(me.skill_capabilities ?? []);
   }, [aboutme]);
 
   return (
@@ -73,7 +75,7 @@ const Resume = () => {
             {loading && <Spinner animation="border" variant="danger" />}
             <SiteTitle title="About Me" />
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Typography variant="body2" className="aboutme_text">
                 {aboutMeText}
               </Typography>
@@ -83,32 +85,45 @@ const Resume = () => {
           {/* Education and Experience */}
           <Grid container className="section pb_45">
             <SiteTitle title="Resume" />
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container className="resume_timeline">
-                {/* Education  */}
-                <Grid item sm={12} md={6}>
+                {/* Education */}
+                <Grid
+                  size={{
+                    sm: 12,
+                    md: 6,
+                  }}
+                >
                   {loading && <Spinner animation="border" variant="danger" />}
                   <Education education_details={education} />
                 </Grid>
+
                 {/* Experience */}
-                <Grid item sm={12} md={6}>
+                <Grid
+                  size={{
+                    sm: 12,
+                    md: 6,
+                  }}
+                >
                   {loading && <Spinner animation="border" variant="danger" />}
                   <WorkExpreience work_expereinces={work} />
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
+
           {/* Services */}
           <Grid container className="section pb_45">
             <SiteTitle title="My Skills" />
-            <Grid item xs={12}>
+            <Grid size={12}>
               {loading && <Spinner animation="border" variant="danger" />}
               <Skills skills={skills} />
             </Grid>
           </Grid>
-          {/* Skills */}
 
+          {/* Skills */}
           <SkillsCapabilities skillCapabilities={skillCapabilities} />
+
           <Contact />
         </div>
       )}

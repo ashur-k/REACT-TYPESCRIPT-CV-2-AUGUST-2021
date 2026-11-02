@@ -1,8 +1,8 @@
 import React from "react";
 
 // Material UI and bootstrap Components import
-import { Typography } from "@material-ui/core";
-import { Copyright } from "@material-ui/icons";
+import { Typography } from "@mui/material";
+import { Copyright } from "@mui/icons-material";
 
 // css imports
 import "./Footer.css";

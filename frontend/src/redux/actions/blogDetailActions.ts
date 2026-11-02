@@ -2,6 +2,7 @@ import axios from "axios";
 import { Dispatch } from "redux";
 import { BlogDetailsActionType } from "../constants/blogDetailConstants";
 import { BlogDetailAction } from "../interfaces/BlogDetailInterface";
+import getErrorMessage from "../../helperFunctions/getErrorMessage";
 
 export const blogDetail = (id: Number) => async (dispatch: Dispatch<BlogDetailAction>) => {
   try {
@@ -15,8 +16,7 @@ export const blogDetail = (id: Number) => async (dispatch: Dispatch<BlogDetailAc
   } catch (error) {
     dispatch({
       type: BlogDetailsActionType.BLOG_DETAIL_ERROR,
-      payload:
-        error.message && error.response.data.message ? error.response.data.message : error.message,
+      payload: getErrorMessage(error),
     });
   }
 };

@@ -1,15 +1,14 @@
-import React from "react";
+import { useLocation, NavLink } from "react-router";
 
 // Typescript imports
 import { socials } from "../../utils/types";
-import { RouteComponentProps } from "react-router-dom";
 
 // Get icon helper function
 import getIcon from "../../helperFunctions/getIcon";
 
 // Material UI and bootstrap Components import
-import { NavLink, withRouter } from "react-router-dom";
-import { HomeRounded, Telegram } from "@material-ui/icons";
+import { HomeRounded, Telegram } from "@mui/icons-material";
+
 import CustomButton from "../Button/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar } from "react-bootstrap";
@@ -17,17 +16,8 @@ import { Nav, Navbar } from "react-bootstrap";
 // css imports
 import "./Header.css";
 
-// import { logout } from '../../redux/actions/userActions'
-// import { useDispatch } from 'react-redux';
-
-const Header = (props: RouteComponentProps) => {
-  const pathName = props?.location?.pathname;
-  // const dispatch = useDispatch();
-
-  // const logoutHandler = () => {
-  //   console.log("logging out")
-  //   dispatch(logout)
-  // }
+const Header = () => {
+  const { pathname } = useLocation();
 
   return (
     <Navbar expand="lg" sticky="top" className="header">
@@ -36,6 +26,7 @@ const Header = (props: RouteComponentProps) => {
           <HomeRounded className="SVG" />
         </Navbar.Brand>
       </Nav.Link>
+
       {/* Only visible on mobile devices */}
       <div className="mobile_social_icons">
         {socials.map((social) => (
@@ -51,14 +42,15 @@ const Header = (props: RouteComponentProps) => {
           <Nav.Link
             as={NavLink}
             to="/"
-            className={pathName === "/" ? "header_link_active" : "header_link"}
+            className={pathname === "/" ? "header_link_active" : "header_link"}
           >
             Resume
           </Nav.Link>
+
           <Nav.Link
             as={NavLink}
             to="/portfolio"
-            className={pathName === "/portfolio" ? "header_link_active" : "header_link"}
+            className={pathname === "/portfolio" ? "header_link_active" : "header_link"}
           >
             Portfolio
           </Nav.Link>
@@ -66,36 +58,20 @@ const Header = (props: RouteComponentProps) => {
           <Nav.Link
             as={NavLink}
             to="/blog"
-            className={pathName === "/blog" ? "header_link_active" : "header_link"}
+            className={pathname === "/blog" ? "header_link_active" : "header_link"}
           >
             Blog
           </Nav.Link>
 
-          {/* {userInfo ? (
-            <Nav.Link 
-              as={NavLink}
-              to='/login'
-              className={pathName === "/login" ? "header_link_active" : "header_link"}
-            >Logout
-          </Nav.Link>
-          ):(
-            <Nav.Link
-              as={NavLink}
-              to='/login'
-              className={pathName === "/login" ? "header_link_active" : "header_link"}
-            >Login
-            </Nav.Link>
-          )
-          }  */}
-
           <Nav.Link
             as={NavLink}
             to="/GitPage"
-            className={pathName === "/GitPage" ? "header_link_active" : "header_link"}
+            className={pathname === "/GitPage" ? "header_link_active" : "header_link"}
           >
             Git
           </Nav.Link>
         </Nav>
+
         {/* Only visible on desktop */}
         <div className="header_right">
           {socials.map((social) => (
@@ -109,8 +85,9 @@ const Header = (props: RouteComponentProps) => {
               {getIcon(social.icon)}
             </a>
           ))}
+
           <a href="media/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
-            <CustomButton text={"Hire me"} icon={<Telegram />} />
+            <CustomButton text="Hire me" icon={<Telegram />} />
           </a>
         </div>
       </Navbar.Collapse>
@@ -118,4 +95,4 @@ const Header = (props: RouteComponentProps) => {
   );
 };
 
-export default withRouter(Header);
+export default Header;

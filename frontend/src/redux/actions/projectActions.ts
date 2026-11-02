@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { ActionType } from "../constants/projectConstants";
 
 import { Action } from "../interfaces/interfaces";
-//import { ProjectInterface } from '../../utils/resumeData';
+import getErrorMessage from "../../helperFunctions/getErrorMessage";
 
 export const listProjects = () => async (dispatch: Dispatch<Action>) => {
   try {
@@ -19,8 +19,7 @@ export const listProjects = () => async (dispatch: Dispatch<Action>) => {
   } catch (error) {
     dispatch({
       type: ActionType.PROJECT_LIST_FAIL,
-      payload:
-        error.response && error.response.data.detail ? error.response.data.detail : error.message,
+      payload: getErrorMessage(error),
     });
   }
 };

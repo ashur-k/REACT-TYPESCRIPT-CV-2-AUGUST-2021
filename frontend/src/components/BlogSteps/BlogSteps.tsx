@@ -5,11 +5,11 @@ import React, { FunctionComponent } from "react";
 // Icon helper function imported
 // import  getIcon  from '../../helperFunctions/getIcon';
 
-import { Grid, Typography, Paper } from "@material-ui/core";
+import { Grid, Typography, Paper } from "@mui/material";
 import { Blog } from "../../pages/Blog/data";
 import CustomTimeline, { CustomTimelineSeparator } from "../../components/Timeline/Timeline";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineContent from "@material-ui/lab/TimelineContent";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineContent from "@mui/lab/TimelineContent";
 
 import "./BlogSteps.css";
 import SiteTitle from "../SiteTitle/SiteTitle";
@@ -26,22 +26,28 @@ const BlogSteps: FunctionComponent<{
       {blog_sections?.map((section: any) => (
         <Grid key={section.id} container className="section pb_45 pt_45" style={{ margin: "auto" }}>
           <SiteTitle title={section.title} />
-          <Grid container item xs={12} spacing={3}>
+          <Grid container size={{ xs: 12 }} spacing={3}>
             {section.blog_reading_links.length ? (
-              <Grid item xs={12} md={12} style={{ margin: "auto" }}>
+              <Grid
+                style={{ margin: "auto" }}
+                size={{
+                  xs: 12,
+                  md: 12,
+                }}
+              >
                 <Grid container>
                   <Typography variant="body2">{section.paragraph}</Typography>
                 </Grid>
               </Grid>
             ) : (
-              <Grid item xs={12} md={12} style={{ margin: "auto" }}>
+              <Grid size={{ xs: 12, md: 12 }} style={{ margin: "auto" }}>
                 <Grid container>
                   <Typography variant="body2">{section.paragraph}</Typography>
                 </Grid>
               </Grid>
             )}
             {section.blog_reading_links.length ? (
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 12 }} style={{ margin: "auto" }}>
                 <Grid container>
                   <CustomTimeline title="Readings" icon={getIcon("FaBookReader")}>
                     {section.blog_reading_links.map((link: any) => (
@@ -62,7 +68,7 @@ const BlogSteps: FunctionComponent<{
             )}
 
             {section.blog_section_terminal_commands.length ? (
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 12 }} style={{ margin: "auto" }}>
                 <Grid container>
                   <CustomTimeline title="Terminal Commands" icon={getIcon("BsFillTerminalFill")}>
                     {section.blog_section_terminal_commands.map((command: any) => (
@@ -84,7 +90,7 @@ const BlogSteps: FunctionComponent<{
               <div className="noDisplay"></div>
             )}
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container>
                 <div>
                   <Image src={section.image_path} fluid />
@@ -99,7 +105,7 @@ const BlogSteps: FunctionComponent<{
               </Grid>
             </Grid>
             {section.blog_section_code_snippets.length ? (
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <hr></hr>
                 <Typography variant="h6">{getIcon("BiCodeBlock")} Code Blocks</Typography>
                 <hr></hr>
