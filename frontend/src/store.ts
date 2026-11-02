@@ -1,32 +1,23 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from "@reduxjs/toolkit";
+import type { Reducer } from "redux";
+
 import { projectListReducer } from "./redux/reducers/projectReducers";
 import { resumeListReducer } from "./redux/reducers/resumeReducers";
 import { userLoginReducer } from "./redux/reducers/userReducers";
 import { blogListReducer } from "./redux/reducers/BlogReducers";
 import { blogDetailReducer } from "./redux/reducers/BlogDetailsReducers";
 
-const reducers = combineReducers({
-  userLogin: userLoginReducer,
-  projectList: projectListReducer,
-  resumeList: resumeListReducer,
-  blogList: blogListReducer,
-  blogDetail: blogDetailReducer,
+const store = configureStore({
+  reducer: {
+    userLogin: userLoginReducer as Reducer<ReturnType<typeof userLoginReducer>>,
+    projectList: projectListReducer as Reducer<ReturnType<typeof projectListReducer>>,
+    resumeList: resumeListReducer as Reducer<ReturnType<typeof resumeListReducer>>,
+    blogList: blogListReducer as Reducer<ReturnType<typeof blogListReducer>>,
+    blogDetail: blogDetailReducer as Reducer<ReturnType<typeof blogDetailReducer>>,
+  },
 });
 
-// const userInfoFromStorage = localStorage.getItem('userInfo') ?
-//   JSON.parse(localStorage.getItem('userInfo') || '{}') : {};
-
-export type RootState = ReturnType<typeof reducers>;
-
-// const initialState = {
-//   loading: false,
-//   error: null,
-//   userLogin: { userInfo: userInfoFromStorage}
-//  };
-const middleware = [thunk];
-
-const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(...middleware)));
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

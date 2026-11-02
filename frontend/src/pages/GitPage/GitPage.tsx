@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 
 import SiteTitle from "../../components/SiteTitle/SiteTitle";
 
@@ -13,9 +13,9 @@ function GitPage() {
   return (
     // Contact
     <Grid container className="section pb_45 pt_45">
-      <Grid container item xs={12} spacing={3}>
+      <Grid container spacing={3} size={12}>
         {/* Git Information */}
-        <Grid item xs={12} className="top_30">
+        <Grid className="top_30" size={12}>
           <SiteTitle title="Git Information" />
           <GitApi />
         </Grid>

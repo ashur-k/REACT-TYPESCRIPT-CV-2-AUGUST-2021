@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Button, Form } from "react-bootstrap";
+import { useAppDispatch } from "../../hooks/useActions";
 import { login, logout } from "../../redux/actions/userActions";
 
 // Typescript and data imports
 
 // Icon helper function imported
 import getIcon from "../../helperFunctions/getIcon";
-
-import { Grid, TextField } from "@material-ui/core";
 
 import CustomButton from "../../components/Button/Button";
 
@@ -24,8 +22,7 @@ export const Login = () => {
   // const redirect = location.search ? location.search.split('=')[1] : '/'
 
   // const userLogin = useSelector(state => state.userLogin)
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
   const { error, loading, userInfo } = useTypedSelector((state) => state.userLogin);
 
   const objectLength = Object.keys(userInfo).length;
@@ -44,15 +41,15 @@ export const Login = () => {
 
   return (
     <div>
-      <Grid className="section pb_45 pt_45">
+      <div className="section pb_45 pt_45">
         {/* Title */}
-        <Grid item className="section_title mb_20">
+        <div className="section_title mb_20">
           <span></span>
           <h6 className="section_title_text">Login Page</h6>
           {error && <p>{error}</p>}
           {loading && <h3>Loading...</h3>}
-        </Grid>
-        <Grid container item xs={12} spacing={3}>
+        </div>
+        <div>
           {Object.keys(userInfo).length ? (
             <div>
               <p>User Name: {userInfo?.userInfo?.name}</p>
@@ -63,42 +60,40 @@ export const Login = () => {
               </Button>
             </div>
           ) : (
-            <Grid item xs={12}>
+            <div>
               {/* ###################### FORM ######################*/}
-              <Grid container spacing={3}>
-                <form onSubmit={submitHandler} style={{ width: "100%" }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      name="email"
-                      value={email}
-                      label="E-mail"
-                      type="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      value={password}
-                      type="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <CustomButton text="Login" icon={getIcon("SendIcon")} />
-                    <Button variant="secondary" onClick={logoutHandler}>
-                      Logout
-                    </Button>
-                  </Grid>
-                </form>
-              </Grid>
-            </Grid>
+              <Form onSubmit={submitHandler} style={{ width: "100%" }}>
+                <Form.Group>
+                  <Form.Label htmlFor="login-email">E-mail</Form.Label>
+                  <Form.Control
+                    id="login-email"
+                    name="email"
+                    value={email}
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label htmlFor="login-password">Password</Form.Label>
+                  <Form.Control
+                    id="login-password"
+                    name="password"
+                    value={password}
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
+                <div>
+                  <CustomButton text="Login" icon={getIcon("SendIcon")} />
+                  <Button variant="secondary" onClick={logoutHandler}>
+                    Logout
+                  </Button>
+                </div>
+              </Form>
+            </div>
           )}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </div>
   );
 };

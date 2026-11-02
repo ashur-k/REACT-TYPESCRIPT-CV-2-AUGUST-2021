@@ -4,13 +4,13 @@ import React from "react";
 import { profile, socials } from "../../utils/types";
 
 // Material UI and bootstrap Components import
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import CustomTimeLine, { CustomTimelineSeparator } from "../Timeline/Timeline";
-import ImageSearchIcon from "@material-ui/icons/ImageSearch";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineContent from "@material-ui/lab/TimelineContent";
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineContent from "@mui/lab/TimelineContent";
 import CustomButton from "../Button/Button";
-import GetAppIcon from "@material-ui/icons/GetApp";
+import GetAppIcon from "@mui/icons-material/GetApp";
 
 // css and Images imports
 import profileImage from "../../assets/images/ash.jpg";

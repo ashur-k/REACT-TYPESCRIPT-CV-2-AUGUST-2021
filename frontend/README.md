@@ -14,9 +14,9 @@ https://priceless-chandrasekhar-5b609b.netlify.app/
 
 ## Project Development:
 ### Following are the packages installed:
-   1. yarn add @material-ui/core
-   2. yarn add @material-ui/lab
-   3. yarn add @material-ui/icons 
+   1. yarn add @mui/material
+   2. yarn add @mui/lab
+   3. yarn add @mui/icons-material
    4. yarn add react-router-dom
    5. npm install --save @types/react-router-dom
       - This package is required by React for typescript definitions of React-router-domff

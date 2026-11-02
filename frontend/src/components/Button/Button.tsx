@@ -1,14 +1,14 @@
 import React from "react";
 
 // Material UI and bootstrap Components import
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 
 // css imports
 import "./Button.css";
 
 interface buttonInterface {
   text: string;
-  icon: JSX.Element | null;
+  icon: React.ReactElement | null;
 }
 
 const CustomButton = ({ text, icon }: buttonInterface) => {
