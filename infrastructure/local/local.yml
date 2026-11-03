@@ -26,11 +26,12 @@ services:
       context: ../..
       dockerfile: Dockerfile
     restart: unless-stopped
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     env_file:
       - ../../.env
       - .env
     environment:
-      DEBUG: "False"
+      DEBUG: "True"
       ALLOWED_HOSTS: localhost,127.0.0.1,frontend
       DB_NAME: ${DB_NAME:?Set DB_NAME in infrastructure/local/.env}
       DB_USER: ${DB_USER:?Set DB_USER in infrastructure/local/.env}
@@ -41,6 +42,11 @@ services:
       db:
         condition: service_healthy
     volumes:
+      - ../../backend:/app/backend
+      - ../../base:/app/base
+      - ../../blog:/app/blog
+      - ../../work_projects:/app/work_projects
+      - ../../manage.py:/app/manage.py
       - resume_media_data:/app/static/images
     networks:
       - resume-local-network

@@ -46,6 +46,18 @@ class WorkExperience(models.Model):
     deployed_url = models.CharField(max_length=500, null=True, blank=True)
     github_url = models.CharField(max_length=500, null=True, blank=True)
 
+    location = models.CharField(
+        max_length=150,
+        null=True,
+        blank=True,
+    )
+
+    company_logo = models.ImageField(
+        upload_to="company_logos/",
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.title
 

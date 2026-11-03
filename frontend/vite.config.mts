@@ -18,7 +18,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "http://nginx:80",
-        changeOrigin: true,
+        changeOrigin: false,
       },
       "/images": {
         target: "http://nginx:80",
@@ -26,7 +26,7 @@ export default defineConfig({
       },
       "/private-management": {
         target: "http://nginx:80",
-        changeOrigin: true,
+        changeOrigin: false,
       },
       "/static": {
         target: "http://nginx:80",

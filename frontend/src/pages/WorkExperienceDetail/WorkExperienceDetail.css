@@ -1,0 +1,720 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+.work-experience-detail {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 24px 16px;
+  background: #fff;
+  border-radius: 12px;
+  color: #171d32;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* ==============================
+   BREADCRUMB
+================================ */
+
+.work-detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 26px;
+  color: #626779;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.work-detail-breadcrumb a {
+  color: #555c6e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.work-detail-breadcrumb a:hover {
+  color: #ed2d12;
+}
+
+.breadcrumb-current {
+  color: #555c6e;
+}
+
+/* ==============================
+   COMPANY HEADER
+================================ */
+
+.work-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 0 18px;
+}
+
+.work-detail-company-logo {
+  width: 138px;
+  min-width: 138px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e6e9;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.beeks-logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  color: #102d56;
+}
+
+.beeks-logo-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 9px);
+  gap: 3px;
+  position: absolute;
+  right: -17px;
+  top: -7px;
+}
+
+.beeks-logo-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #079de8;
+}
+
+.work-detail-header-divider {
+  width: 2px;
+  height: 45px;
+  min-width: 2px;
+  background: #ed3219;
+}
+
+.work-detail-information {
+  min-width: 0;
+}
+
+.work-detail-information h1 {
+  margin: 0 0 3px;
+  color: #171d32;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.8px;
+}
+
+.work-detail-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #171d32;
+}
+
+.meta-dot {
+  color: #20263a;
+  font-weight: 700;
+}
+
+.location-icon {
+  color: #e83219;
+}
+
+/* ==============================
+   RED DIVIDER
+================================ */
+
+.work-detail-red-divider {
+  width: 100%;
+  height: 1px;
+  background: #f04a30;
+  margin-bottom: 17px;
+}
+
+/* ==============================
+   SECTION HEADINGS
+================================ */
+
+.work-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: #171d32;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+}
+
+.section-icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  justify-content: center;
+  align-items: center;
+  background: #ed351a;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.heading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ed351a;
+  font-size: 24px;
+  min-width: 25px;
+  line-height: 1;
+}
+
+.section-with-line {
+  border-bottom: 1px solid #f04429;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
+
+/* ==============================
+   ROLE OVERVIEW
+================================ */
+
+.work-role-overview {
+  margin-bottom: 22px;
+}
+
+.work-role-overview p {
+  margin: 8px 0 0 26px;
+  color: #20263a;
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* ==============================
+   MAIN TWO-COLUMN GRID
+================================ */
+
+.work-main-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.work-responsibilities,
+.work-technologies {
+  min-width: 0;
+}
+
+/* ==============================
+   RESPONSIBILITY CARDS
+================================ */
+
+.responsibility-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.responsibility-card {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 68px;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border: 1px solid #e5e6e9;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.035);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.responsibility-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+.responsibility-timeline-marker {
+  position: relative;
+  display: block;
+  flex: 0 0 10px;
+  align-self: stretch;
+}
+
+.responsibility-timeline-marker::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  bottom: -9px;
+  left: 50%;
+  width: 2px;
+  background: #ed351a;
+  transform: translateX(-50%);
+}
+
+.responsibility-timeline-marker::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ed351a;
+  transform: translateX(-50%);
+}
+
+.responsibility-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.responsibility-content h3 {
+  margin: 0 0 2px;
+  color: #171d32;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.responsibility-content p {
+  margin: 0;
+  color: #252a3a;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+/* Collapsed description: show only two lines */
+.responsibility-content p.collapsed {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Expanded description: show the complete text */
+.responsibility-content p.expanded {
+  display: block;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* Minimal read-more text link */
+.responsibility-read-more {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #ed351a;
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.responsibility-read-more:hover {
+  color: #c52b16;
+  text-decoration: underline;
+}
+
+.responsibility-icon {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 1px 2px;
+  color: #ed351a;
+  font-size: 25px;
+  line-height: 1;
+}
+
+/* ==============================
+   TECHNOLOGY STACK
+================================ */
+
+.technology-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.technology-card {
+  padding: 8px 12px 9px;
+  border: 1px solid #e4e5e8;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.035);
+}
+
+.technology-card h3 {
+  margin: 0 0 7px;
+  color: #171d32;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.technology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.technology-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border: 1px solid #dedfe3;
+  border-radius: 14px;
+  background: #f7f7f8;
+  color: #171d32;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ==============================
+   CONTRIBUTIONS & IMPACT
+================================ */
+
+.work-achievements-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 22px;
+  margin-top: 23px;
+  align-items: start;
+}
+
+.work-contributions,
+.work-impact {
+  min-width: 0;
+}
+
+.contribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contribution-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #252a3a;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.contribution-check {
+  color: #ed351a;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.achievement-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.achievement-card {
+  min-height: 80px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #f0dfd9;
+  border-radius: 11px;
+  background: #fff3ee;
+  color: #171d32;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.achievement-icon {
+  margin-bottom: 3px;
+  color: #ed351a;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ==============================
+   RELATED WORK
+================================ */
+
+.work-related {
+  margin-top: 25px;
+}
+
+.related-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.related-work-card {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 13px;
+  box-sizing: border-box;
+  border: 1px solid #e3e4e7;
+  border-radius: 10px;
+  background: #fff;
+  text-decoration: none;
+  color: #171d32;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.related-work-card:hover {
+  border-color: #ed351a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.related-work-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  min-width: 45px;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.cloud-icon {
+  color: #079de8;
+}
+
+.chart-icon {
+  color: #0877ed;
+}
+
+.related-work-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.related-work-content strong {
+  color: #171d32;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.related-work-content small {
+  color: #4d5262;
+  font-size: 9.5px;
+  line-height: 1.4;
+}
+
+.related-work-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #c6c9d0;
+  border-radius: 50%;
+  color: #171d32;
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ==============================
+   BACK TO RESUME
+================================ */
+
+.work-detail-back {
+  margin-top: 20px;
+}
+
+.work-detail-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ed351a;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.work-detail-back a:hover {
+  gap: 15px;
+}
+
+.work-detail-back span {
+  font-size: 19px;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1100px) {
+  .work-main-grid {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+  }
+
+  .work-achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 767px) {
+  .work-experience-detail {
+    padding: 16px;
+    border-radius: 9px;
+  }
+
+  .work-detail-breadcrumb {
+    font-size: 10px;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .work-detail-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .work-detail-company-logo {
+    width: 105px;
+    min-width: 105px;
+    height: 55px;
+  }
+
+  .beeks-logo {
+    font-size: 24px;
+  }
+
+  .work-detail-header-divider {
+    height: 55px;
+  }
+
+  .work-detail-information {
+    flex: 1;
+  }
+
+  .work-detail-information h1 {
+    font-size: 21px;
+  }
+
+  .work-detail-meta {
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .work-section-heading {
+    font-size: 16px;
+  }
+
+  .work-role-overview p {
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .work-main-grid,
+  .work-achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .responsibility-card {
+    min-height: auto;
+  }
+
+  .responsibility-content p {
+    font-size: 11px;
+  }
+
+  .work-achievements-grid {
+    margin-top: 22px;
+  }
+
+  .contribution-list li {
+    font-size: 11px;
+  }
+
+  .related-work-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+}
+
+/* ==============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 420px) {
+  .work-detail-header {
+    gap: 9px;
+  }
+
+  .work-detail-company-logo {
+    width: 85px;
+    min-width: 85px;
+    height: 48px;
+  }
+
+  .beeks-logo {
+    font-size: 20px;
+  }
+
+  .work-detail-information h1 {
+    font-size: 18px;
+  }
+
+  .achievement-cards {
+    gap: 5px;
+  }
+
+  .achievement-card {
+    font-size: 9px;
+  }
+
+  .technology-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

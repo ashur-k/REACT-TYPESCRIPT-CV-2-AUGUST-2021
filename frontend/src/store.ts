@@ -6,6 +6,7 @@ import { resumeListReducer } from "./redux/reducers/resumeReducers";
 import { userLoginReducer } from "./redux/reducers/userReducers";
 import { blogListReducer } from "./redux/reducers/BlogReducers";
 import { blogDetailReducer } from "./redux/reducers/BlogDetailsReducers";
+import { workExperienceDetailReducer } from "./redux/reducers/resumeReducers";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,9 @@ const store = configureStore({
     resumeList: resumeListReducer as Reducer<ReturnType<typeof resumeListReducer>>,
     blogList: blogListReducer as Reducer<ReturnType<typeof blogListReducer>>,
     blogDetail: blogDetailReducer as Reducer<ReturnType<typeof blogDetailReducer>>,
+    workExperienceDetail: workExperienceDetailReducer as Reducer<
+      ReturnType<typeof workExperienceDetailReducer>
+    >,
   },
 });
 

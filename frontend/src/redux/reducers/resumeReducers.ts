@@ -30,3 +30,48 @@ export const resumeListReducer = (
       return state;
   }
 };
+
+import { WorkExperienceDetailInterface } from "../../utils/types";
+
+interface WorkExperienceDetailReducerInterface {
+  loading: boolean;
+  error: string | null;
+  workExperience: WorkExperienceDetailInterface | null;
+}
+
+const workExperienceDetailInitialState: WorkExperienceDetailReducerInterface = {
+  loading: false,
+  error: null,
+  workExperience: null,
+};
+
+export const workExperienceDetailReducer = (
+  state: WorkExperienceDetailReducerInterface = workExperienceDetailInitialState,
+  action: Action
+): WorkExperienceDetailReducerInterface => {
+  switch (action.type) {
+    case ActionType.RESUME_DETAIL_REQUEST:
+      return {
+        loading: true,
+        error: null,
+        workExperience: null,
+      };
+
+    case ActionType.RESUME_DETAIL_SUCCESS:
+      return {
+        loading: false,
+        error: null,
+        workExperience: action.payload,
+      };
+
+    case ActionType.RESUME_DETAIL_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+        workExperience: null,
+      };
+
+    default:
+      return state;
+  }
+};

@@ -1,5 +1,5 @@
 import { ActionType } from "../constants/resumeConstants";
-import { ResumeDataInterface } from "../../utils/types";
+import { ResumeDataInterface, WorkExperienceDetailInterface } from "../../utils/types";
 
 interface ResumeListRequest {
   type: ActionType.RESUME_LIST_REQUEST;
@@ -13,4 +13,24 @@ interface ResumeListFail {
   payload: string;
 }
 
-export type Action = ResumeListRequest | ResumeListSuccess | ResumeListFail;
+interface ResumeDetailRequest {
+  type: ActionType.RESUME_DETAIL_REQUEST;
+}
+
+interface ResumeDetailSuccess {
+  type: ActionType.RESUME_DETAIL_SUCCESS;
+  payload: WorkExperienceDetailInterface;
+}
+
+interface ResumeDetailFail {
+  type: ActionType.RESUME_DETAIL_FAIL;
+  payload: string;
+}
+
+export type Action =
+  | ResumeListRequest
+  | ResumeListSuccess
+  | ResumeListFail
+  | ResumeDetailRequest
+  | ResumeDetailSuccess
+  | ResumeDetailFail;

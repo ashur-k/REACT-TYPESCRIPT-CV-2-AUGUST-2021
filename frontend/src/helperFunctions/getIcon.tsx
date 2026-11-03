@@ -25,6 +25,16 @@ import { DiReact } from "react-icons/di";
 import { BiCodeBlock } from "react-icons/bi";
 import { FaPython } from "react-icons/fa";
 import { VscRocket } from "react-icons/vsc";
+import { SiKeycloak } from "react-icons/si";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import { SiJira } from "react-icons/si";
+import { SiMailchimp } from "react-icons/si";
+import { SiHashicorp } from "react-icons/si";
+import LanIcon from "@mui/icons-material/Lan";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import { SiDocker } from "react-icons/si";
 
 const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
@@ -39,9 +49,9 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "LinkedInIcon":
       return <LinkedInIcon className="SVG" />;
     case "GitHubIcon":
-      return <GitHubIcon />;
+      return <GitHubIcon className="SVG" />;
     case "IoLogoPython":
-      return <IoLogoPython />;
+      return <IoLogoPython className="SVG" />;
     case "CloseIcon":
       return <CloseIcon />;
     case "IoLogoReact":
@@ -77,9 +87,29 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "BiCodeBlock":
       return <BiCodeBlock className="SVG-PRIMARY-COLOR" />;
     case "FaPython":
-      return <FaPython className="SVG-PRIMARY-COLOR" />;
+      return <FaPython className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
     case "VscRocket":
       return <VscRocket className="SVG-PRIMARY-COLOR" />;
+    case "SiKeycloak":
+      return <SiKeycloak className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "DashboardIcon":
+      return <DashboardIcon className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "ConfirmationNumberIcon":
+      return <ConfirmationNumberIcon className="SVG-PRIMARY-COLOR" />;
+    case "SiJira":
+      return <SiJira className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "SiMailchimp":
+      return <SiMailchimp className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "SiHashicorp":
+      return <SiHashicorp className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "LanIcon":
+      return <LanIcon className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "QueryStatsIcon":
+      return <QueryStatsIcon className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "EngineeringIcon":
+      return <EngineeringIcon className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "SiDocker":
+      return <SiDocker className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
     default:
       return <small>No Icon Found</small>;
   }

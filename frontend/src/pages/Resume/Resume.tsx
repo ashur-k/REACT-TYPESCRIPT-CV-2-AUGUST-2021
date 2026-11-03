@@ -13,7 +13,7 @@ import { Grid, Typography } from "@mui/material";
 import { Alert, Spinner } from "react-bootstrap";
 
 // Custom components import
-import WorkExpreience from "../../components/WorkExpreience/WorkExpreience";
+import WorkExpreience from "../../components/WorkExpreience/WorkExperience";
 import Education from "../../components/Education/Education";
 import Skills from "../../components/Skills/Skills";
 import SkillsCapabilities from "../../components/SkillsCapabilities/SkillsCapabilities";
@@ -106,7 +106,7 @@ const Resume = () => {
                   }}
                 >
                   {loading && <Spinner animation="border" variant="danger" />}
-                  <WorkExpreience work_expereinces={work} />
+                  <WorkExpreience work_experiences={work} />
                 </Grid>
               </Grid>
             </Grid>
