@@ -11,6 +11,8 @@ import Portfolio from "./pages/Portfolio/Portfolio";
 import Resume from "./pages/Resume/Resume";
 import { Login } from "./pages/Login/Login";
 import BlogDetail from "./pages/BlogDetail/BlogDetail";
+import WorkExperienceDetail from "./pages/WorkExperienceDetail/WorkExperienceDetail";
+import ScrollToTop from "./components/FunctionalComponents/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
 
         <Grid size="grow">
           <Router>
+            <ScrollToTop />
             <Header />
 
             <div className="main-content container_shadow">
@@ -32,6 +35,7 @@ function App() {
                 <Route path="/GitPage" element={<GitPage />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/" element={<Resume />} />
+                <Route path="/work-experience/:id" element={<WorkExperienceDetail />} />
               </Routes>
             </div>
           </Router>

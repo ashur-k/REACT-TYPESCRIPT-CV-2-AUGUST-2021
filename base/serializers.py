@@ -88,8 +88,8 @@ class AboutmeSerializer(serializers.ModelSerializer):
         return serializer.data
 
     # def sequnceing(self, instance):
-    #       sequence = instance.work_expereinces.all().order_by('id')
-    #       return WorkExperienceSerializer(sequence, many=True).data
+    #     sequence = instance.work_expereinces.all().order_by("id")
+    #     return WorkExperienceSerializer(sequence, many=True).data
 
     def get_skills(self, obj):
         skills = obj.skill_set.all()

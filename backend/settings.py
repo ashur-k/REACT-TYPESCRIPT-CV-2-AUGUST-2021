@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "base.apps.BaseConfig",
     "blog.apps.BlogConfig",
+    "work_projects.apps.WorkProjectsConfig",
     "django.contrib.postgres",
 ]
 
