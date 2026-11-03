@@ -355,19 +355,72 @@
 }
 
 .technology-card {
-  padding: 8px 12px 9px;
-  border: 1px solid #e4e5e8;
-  border-radius: 9px;
+  padding: 12px;
+  border: 1px solid #e5e6e9;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.035);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.technology-card h3 {
-  margin: 0 0 7px;
+.technology-card:hover {
+  transform: translateY(-3px);
+  border-color: #ed351a;
+  box-shadow: 0 5px 14px rgba(237, 53, 26, 0.09);
+}
+
+/* Category heading */
+
+.technology-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.technology-card-header h3 {
+  margin: 0;
   color: #171d32;
   font-size: 12px;
   font-weight: 700;
+  transition: color 0.25s ease;
 }
+
+.technology-card:hover .technology-card-header h3 {
+  color: #ed351a;
+}
+
+/* Technology count */
+
+.technology-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 20px;
+  background: #fff0ec;
+  color: #ed351a;
+  font-size: 10px;
+  font-weight: 600;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.technology-card:hover .technology-count {
+  background: #ed351a;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* Technology tags */
 
 .technology-tags {
   display: flex;
@@ -387,7 +440,19 @@
   font-size: 10.5px;
   font-weight: 500;
   line-height: 1.5;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.technology-tag:hover {
+  transform: translateY(-2px);
+  border-color: #ed351a;
+  background: #fff0ec;
+  color: #d62e18;
 }
 
 /* ==============================
@@ -423,6 +488,15 @@
   color: #252a3a;
   font-size: 10px;
   line-height: 1.5;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.contribution-list li:hover {
+  transform: translateX(5px);
+  color: var(--accent-color);
 }
 
 .contribution-check {
@@ -430,6 +504,14 @@
   font-size: 16px;
   font-weight: 800;
   line-height: 1.1;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contribution-list li:hover .contribution-check {
+  color: var(--accent-color);
+  transform: scale(1.15);
 }
 
 .achievement-cards {
@@ -454,6 +536,29 @@
   font-size: 10px;
   font-weight: 500;
   line-height: 1.5;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background-color: var(--card-hover-background);
+}
+
+.achievement-card .achievement-icon {
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+  transform: scale(1.2);
+  color: var(--accent-color);
 }
 
 .achievement-icon {
@@ -716,5 +821,34 @@
   .technology-tag {
     font-size: 10px;
     padding: 3px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contribution-list li,
+  .contribution-check,
+  .achievement-card,
+  .achievement-card .achievement-icon {
+    transition: none;
+  }
+
+  .contribution-list li:hover,
+  .achievement-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-card,
+  .technology-card-header h3,
+  .technology-count,
+  .technology-tag {
+    transition: none;
+  }
+
+  .technology-card:hover,
+  .technology-count,
+  .technology-tag:hover {
+    transform: none;
   }
 }

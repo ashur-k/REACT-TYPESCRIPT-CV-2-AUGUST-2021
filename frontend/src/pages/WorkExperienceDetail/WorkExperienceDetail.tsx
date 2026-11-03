@@ -112,7 +112,12 @@ const WorkExperienceDetail = () => {
         <div className="work-detail-information">
           <h1>
             {workExperience.job_title ?? workExperience.title}
-            {workExperience.job_title && ` · ${workExperience.title}`}
+            {workExperience.job_title && (
+              <span className="font-normal text-gray-500">
+                {" - "}
+                {workExperience.title}
+              </span>
+            )}
           </h1>
 
           <div className="work-detail-meta">
@@ -207,7 +212,9 @@ const WorkExperienceDetail = () => {
             {Object.entries(technologyGroups).length > 0 ? (
               Object.entries(technologyGroups).map(([category, technologies]) => (
                 <article className="technology-card" key={category}>
-                  <h3>{category}</h3>
+                  <header className="technology-card-header">
+                    <h3>{category}</h3>
+                  </header>
 
                   <div className="technology-tags">
                     {technologies.map((technology) => (
@@ -225,7 +232,7 @@ const WorkExperienceDetail = () => {
         </div>
       </section>
 
-      {/* Contributions and achievements */}
+      {/* Impact  and achievements */}
       <section className="work-achievements-grid">
         <div className="work-contributions">
           <h2 className="work-section-heading section-with-line">
