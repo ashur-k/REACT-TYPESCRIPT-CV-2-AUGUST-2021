@@ -268,7 +268,7 @@ export interface ResumeDataInterface {
     about_me: number;
   }[];
 
-  work_expereinces: {
+  work_experiences: {
     id: number;
     title: string;
     date: string;
@@ -353,4 +353,71 @@ export interface ClientInformationInterface {
   name: string;
   email: string;
   message: string;
+}
+
+export interface WorkExperienceDetailInterface {
+  id: number;
+  title: string;
+  job_title: string | null;
+  date: string;
+  description: string | null;
+  location: string | null;
+  company_logo: string | null;
+  office_job: boolean;
+  work_url: string | null;
+  deployed_url: string | null;
+  github_url: string | null;
+  display_order: number;
+
+  work_projects: {
+    id: number;
+    title: string;
+    description: string | null;
+    display_order: number;
+    experiences: {
+      id: number;
+      title: string;
+      icon: string;
+      description: string | null;
+      display_order: number;
+    }[];
+  }[];
+
+  technologies: {
+    id: number;
+    display_order: number;
+    technology_stack: {
+      id: number;
+      name: string;
+      description: string | null;
+      icon: string | null;
+      display_order: number;
+      category: {
+        id: number;
+        name: string;
+        description: string | null;
+        display_order: number;
+      };
+    };
+  }[];
+
+  achievements: {
+    id: number;
+    title: string;
+    description: string | null;
+    display_order: number;
+  }[];
+
+  key_contributions: {
+    id: number;
+    title: string;
+    description: string | null;
+    display_order: number;
+  }[];
+
+  related_studies: {
+    id: number;
+    title: string;
+    description?: string | null;
+  }[];
 }

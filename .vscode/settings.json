@@ -38,5 +38,8 @@
 
   "[nginx]": {
     "editor.formatOnSave": true
-  }
+  },
+  "cSpell.words": [
+    "workexperience"
+  ]
 }

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Link } from "react-router";
 // Redux imports
 
 // Typescript imports
@@ -12,24 +13,27 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineContent from "@mui/lab/TimelineContent";
 
 // Custom components import
-import CustomTimeline, { CustomTimelineSeparator } from "../../components/Timeline/Timeline";
+import CustomTimeline, { CustomTimelineSeparator } from "../Timeline/Timeline";
+import WorkExperienceLink from "./WorkExperienceLink";
 
 // css imports
-import "./WorkExpreience.css";
+import "./WorkExperience.css";
 
-const WorkExpreience: FunctionComponent<{
-  work_expereinces: ResumeDataInterface["work_expereinces"];
-}> = ({ work_expereinces }) => {
+const WorkExperience: FunctionComponent<{
+  work_experiences: ResumeDataInterface["work_experiences"];
+}> = ({ work_experiences: work_experiences }) => {
   return (
     <CustomTimeline title="Work Experience" icon={getIcon("WorkIcon")}>
-      {work_expereinces.map((experience) => (
+      {work_experiences.map((experience) => (
         <TimelineItem key={experience.id}>
           <CustomTimelineSeparator />
           <TimelineContent className="timeline_content">
-            <Typography className="timeline_title">{experience.title}</Typography>
-            <Typography variant="caption" className="timeline_date">
-              {experience.date}
-            </Typography>
+            <WorkExperienceLink
+              id={experience.id}
+              title={experience.title}
+              date={experience.date}
+            />
+
             <Typography variant="body2" className="timeline_description">
               {experience.description}
             </Typography>
@@ -63,4 +67,4 @@ const WorkExpreience: FunctionComponent<{
   );
 };
 
-export default WorkExpreience;
+export default WorkExperience;
