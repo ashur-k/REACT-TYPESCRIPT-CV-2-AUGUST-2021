@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('base', '0014_alter_workexperience_options'),
+        ("base", "0014_alter_workexperience_options"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='workexperience',
-            name='company_logo',
-            field=models.ImageField(blank=True, null=True, upload_to='company_logos/'),
+            model_name="workexperience",
+            name="company_logo",
+            field=models.ImageField(blank=True, null=True, upload_to="company_logos/"),
         ),
         migrations.AddField(
-            model_name='workexperience',
-            name='location',
+            model_name="workexperience",
+            name="location",
             field=models.CharField(blank=True, max_length=150, null=True),
         ),
     ]
