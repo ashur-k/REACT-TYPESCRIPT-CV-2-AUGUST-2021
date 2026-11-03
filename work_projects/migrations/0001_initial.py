@@ -5,127 +5,254 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('base', '0014_alter_workexperience_options'),
+        ("base", "0014_alter_workexperience_options"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TechnologyCategory',
+            name="TechnologyCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('display_order', models.PositiveIntegerField(default=0)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("description", models.TextField(blank=True, null=True)),
+                ("display_order", models.PositiveIntegerField(default=0)),
             ],
             options={
-                'verbose_name_plural': 'Technology categories',
-                'ordering': ('display_order', 'name'),
+                "verbose_name_plural": "Technology categories",
+                "ordering": ("display_order", "name"),
             },
         ),
         migrations.CreateModel(
-            name='Achievement',
+            name="Achievement",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_experience', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='achievements', to='base.workexperience')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_experience",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="achievements",
+                        to="base.workexperience",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Achievements',
-                'ordering': ('display_order', 'pk'),
+                "verbose_name_plural": "Achievements",
+                "ordering": ("display_order", "pk"),
             },
         ),
         migrations.CreateModel(
-            name='KeyContribution',
+            name="KeyContribution",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_experience', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='key_contributions', to='base.workexperience')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_experience",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="key_contributions",
+                        to="base.workexperience",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Key contributions',
-                'ordering': ('display_order', 'pk'),
+                "verbose_name_plural": "Key contributions",
+                "ordering": ("display_order", "pk"),
             },
         ),
         migrations.CreateModel(
-            name='TechnologyStack',
+            name="TechnologyStack",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('icon', models.CharField(blank=True, max_length=300, null=True)),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='technologies', to='work_projects.technologycategory')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("description", models.TextField(blank=True, null=True)),
+                ("icon", models.CharField(blank=True, max_length=300, null=True)),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="technologies",
+                        to="work_projects.technologycategory",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Technology stack',
-                'ordering': ('category', 'display_order', 'name'),
+                "verbose_name_plural": "Technology stack",
+                "ordering": ("category", "display_order", "name"),
             },
         ),
         migrations.CreateModel(
-            name='WorkProject',
+            name="WorkProject",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_experience', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='work_projects', to='base.workexperience')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_experience",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="work_projects",
+                        to="base.workexperience",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Work projects',
-                'ordering': ('display_order', 'pk'),
+                "verbose_name_plural": "Work projects",
+                "ordering": ("display_order", "pk"),
             },
         ),
         migrations.CreateModel(
-            name='ProjectExperience',
+            name="ProjectExperience",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_project', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='experiences', to='work_projects.workproject')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_project",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="experiences",
+                        to="work_projects.workproject",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Project experiences',
-                'ordering': ('display_order', 'pk'),
+                "verbose_name_plural": "Project experiences",
+                "ordering": ("display_order", "pk"),
             },
         ),
         migrations.CreateModel(
-            name='WorkRelatedStudy',
+            name="WorkRelatedStudy",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('institution', models.CharField(blank=True, max_length=200, null=True)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('study_date', models.CharField(blank=True, max_length=150, null=True)),
-                ('study_url', models.URLField(blank=True, max_length=500, null=True)),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_experience', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='related_studies', to='base.workexperience')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                (
+                    "institution",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                ("description", models.TextField(blank=True, null=True)),
+                ("study_date", models.CharField(blank=True, max_length=150, null=True)),
+                ("study_url", models.URLField(blank=True, max_length=500, null=True)),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_experience",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="related_studies",
+                        to="base.workexperience",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Work-related studies',
-                'ordering': ('display_order', 'pk'),
+                "verbose_name_plural": "Work-related studies",
+                "ordering": ("display_order", "pk"),
             },
         ),
         migrations.CreateModel(
-            name='ExperiencedTechnology',
+            name="ExperiencedTechnology",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('display_order', models.PositiveIntegerField(default=0)),
-                ('work_experience', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='experience_technologies', to='base.workexperience')),
-                ('technology_stack', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='work_experiences', to='work_projects.technologystack')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("display_order", models.PositiveIntegerField(default=0)),
+                (
+                    "work_experience",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="experience_technologies",
+                        to="base.workexperience",
+                    ),
+                ),
+                (
+                    "technology_stack",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="work_experiences",
+                        to="work_projects.technologystack",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Experience technologies',
-                'ordering': ('display_order',),
-                'constraints': [models.UniqueConstraint(fields=('work_experience', 'technology_stack'), name='unique_experience_technology')],
+                "verbose_name_plural": "Experience technologies",
+                "ordering": ("display_order",),
+                "constraints": [
+                    models.UniqueConstraint(
+                        fields=("work_experience", "technology_stack"),
+                        name="unique_experience_technology",
+                    )
+                ],
             },
         ),
     ]
