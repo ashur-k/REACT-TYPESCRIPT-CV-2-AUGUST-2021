@@ -13,14 +13,17 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
-  Icon,
+  IconButton,
   Typography,
 } from "@mui/material";
+
+import CloseIcon from "@mui/icons-material/Close";
 import { Image } from "react-bootstrap";
+
 // Custom components import
 import CustomButton from "../Button/Button";
 
-// css imports
+// CSS imports
 import "./ProjectDialog.css";
 
 const ProjectDialog: FunctionComponent<{
@@ -37,52 +40,64 @@ const ProjectDialog: FunctionComponent<{
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <p className="dialogClose_button" onClick={() => onClose(false)}>
-        <Icon>{getIcon("CloseIcon")}</Icon>
-      </p>
-
+      {/* Red title bar with close button */}
       <DialogTitle className="projectDialog_title" id="alert-dialog-title">
-        {projectDialog?.name}
+        <span className="projectDialog_heading">{projectDialog?.name}</span>
+
+        <IconButton
+          className="dialogClose_button"
+          onClick={() => onClose(false)}
+          aria-label="Close project dialog"
+          size="small"
+        >
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
 
-      <Image src={projectDialog?.image} rounded fluid alt={projectDialog?.name} />
+      {/* Project image */}
+      <Image
+        className="projectDialog_image"
+        src={projectDialog?.image}
+        rounded
+        fluid
+        alt={projectDialog?.name}
+      />
+
+      {/* Project details */}
       <DialogContent id="alert-dialog-description">
         <Typography variant="h6" className="projectDialog_description">
           Description:
         </Typography>
+
         <Typography variant="body2" className="projectDialog_description">
           {projectDialog?.description}
         </Typography>
-        <Typography variant="h6" className="projectDialog_description">
-          Key Techs:
-        </Typography>
-        <div>
-          <Grid container spacing={1}>
-            <Grid container spacing={1} size={12}>
-              {projectDialog?.key_techs.map((item) => (
-                <Grid key={item} size={2}>
-                  <Typography className="key-tech-items" variant="body2">
-                    {item}
-                  </Typography>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
+
+        <div className="projectDialog_technologies">
+          <Typography variant="h6" className="projectDialog_description">
+            Technologies Used
+          </Typography>
+
+          <div className="technology-tags">
+            {projectDialog?.key_techs.map((item) => (
+              <span className="technology-tag" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </DialogContent>
+
+      {/* Project action buttons */}
       <DialogActions className="projectDialog_actions">
         <a href={projectDialog?.github_url} target="_blank" rel="noreferrer">
-          <CustomButton
-            text="View Codes on Github"
-            icon={getIcon("GitHubIcon")}
-            //</CustomButton>
-          />
+          <CustomButton text="View Codes on Github" icon={getIcon("GitHubIcon")} />
         </a>
+
         <a href={projectDialog?.deployed_url} target="_blank" rel="noreferrer">
           <CustomButton
             text="View Live Hosted Site"
             icon={getIcon(projectDialog?.deployed_url_icon)}
-            //</CustomButton>
           />
         </a>
       </DialogActions>

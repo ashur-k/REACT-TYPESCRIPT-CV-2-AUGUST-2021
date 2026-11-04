@@ -1,51 +1,183 @@
-.projectDialog_title {
-  margin-top: -48px !important;
-  padding-top: 2px !important;
-  width: auto !important;
-  max-width: 40% !important;
-}
-.dialogClose_button {
-  color: black;
-  text-align: right;
-  margin-right: 15px;
-  margin-top: 5px;
-  cursor: pointer;
+/* ==============================
+   PROJECT DIALOG TITLE BAR
+================================ */
+
+.projectDialog .projectDialog_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 18px !important;
+  margin: 0 !important;
+
+  background-color: var(--main-color);
+  color: #fff;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: none !important;
 }
 
+.projectDialog .projectDialog_heading {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ==============================
+   CLOSE BUTTON
+================================ */
+
+.projectDialog .dialogClose_button {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  padding: 5px;
+
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 6px;
+
+  transition: background-color 0.2s ease;
+}
+
+.projectDialog .dialogClose_button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.projectDialog .dialogClose_button svg {
+  font-size: 21px;
+}
+
+/* ==============================
+   PROJECT IMAGE
+================================ */
+
 .projectDialog .projectDialog_image {
-  max-height: 300px;
+  display: block;
   width: 100%;
+  max-height: 300px;
   object-fit: cover;
   object-position: center center;
 }
+
+/* ==============================
+   PROJECT DESCRIPTION
+================================ */
+
 .projectDialog .projectDialog_description {
   margin-top: 10px !important;
 }
+
+/* ==============================
+   DIALOG ACTION BUTTONS
+================================ */
+
 .projectDialog .projectDialog_actions {
   justify-content: center !important;
   margin-bottom: 10px;
 }
+
+/* ==============================
+   PROJECT ICONS
+================================ */
+
 .projectDialog .projectDialog_icon {
   color: darkslategray !important;
-  margin: 0px 12px !important;
+  margin: 0 12px !important;
   cursor: pointer !important;
+  transition: color 0.2s ease;
 }
 
 .projectDialog .projectDialog_icon:hover {
   color: var(--main-color) !important;
-  margin: 0px 12px;
-  cursor: pointer;
 }
 
 .projectDialog .projectDialog_icon > .MuiSvgIcon-root {
   font-size: 30px;
 }
-.key-tech-items {
-  --tw-bg-opacity: 1;
-  background-color: #d33131;
-  color: #000;
-  text-align: center;
-  border-radius: 5px;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+
+/* ==============================
+   PROJECT TECHNOLOGY TAGS
+================================ */
+
+.projectDialog_technologies {
+  margin-top: 18px;
+}
+
+.projectDialog_technologies .projectDialog_description {
+  margin-bottom: 12px !important;
+  font-weight: 600;
+  color: #171d32;
+}
+
+.projectDialog .technology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.projectDialog .technology-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 13px;
+
+  background-color: #f4f5f7;
+  border: 1px solid #e2e4e8;
+  border-radius: 7px;
+
+  color: #343b50;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.projectDialog .technology-tag:hover {
+  background-color: #fff0ec;
+  border-color: var(--main-color);
+  color: var(--main-color);
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 480px) {
+  .projectDialog .projectDialog_title {
+    padding: 10px 14px !important;
+    font-size: 16px;
+  }
+
+  .projectDialog .dialogClose_button {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .projectDialog .projectDialog_actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .projectDialog .dialogClose_button {
+    transition: none;
+  }
 }
