@@ -26,10 +26,6 @@ export const Login = () => {
   const { error, loading, userInfo } = useTypedSelector((state) => state.userLogin);
 
   const objectLength = Object.keys(userInfo).length;
-
-  console.log(objectLength);
-  console.log(typeof userInfo);
-
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(login(email, password));

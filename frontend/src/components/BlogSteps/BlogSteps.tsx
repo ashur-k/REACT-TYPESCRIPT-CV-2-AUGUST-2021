@@ -20,7 +20,6 @@ const BlogSteps: FunctionComponent<{
   // Declaring function props data interface
   blog_sections: Blog["blog_sections"] | any;
 }> = ({ blog_sections }) => {
-  console.log(blog_sections);
   return (
     <div>
       {blog_sections?.map((section: any) => (
@@ -75,11 +74,9 @@ const BlogSteps: FunctionComponent<{
                       <TimelineItem key={command.id}>
                         <CustomTimelineSeparator />
                         <TimelineContent className="timeline_content">
-                          <Typography className="timeline_title">
-                            <code>
-                              <pre>{command.command}</pre>
-                            </code>
-                          </Typography>
+                          <pre className="timeline_title">
+                            <code>{command.command}</code>
+                          </pre>
                         </TimelineContent>
                       </TimelineItem>
                     ))}
@@ -97,7 +94,7 @@ const BlogSteps: FunctionComponent<{
                 </div>
 
                 {section.blog_section_images.map((image: any) => (
-                  <div>
+                  <div key={image.id}>
                     <hr></hr>
                     <Image src={image.image_path} fluid />
                   </div>
@@ -111,7 +108,7 @@ const BlogSteps: FunctionComponent<{
                 <hr></hr>
                 <Grid container>
                   {section.blog_section_code_snippets.map((snippet: any) => (
-                    <div className="m-1">
+                    <div className="m-1" key={snippet.id}>
                       <h6>{snippet.code_title}</h6>
                       <Paper elevation={3} className="code-paper-padding">
                         <code>
