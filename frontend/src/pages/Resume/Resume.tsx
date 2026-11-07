@@ -32,7 +32,7 @@ const Resume = () => {
   const [aboutMeText, setAboutMeText] = useState<string>("");
 
   const [education, setEducation] = useState<ResumeDataInterface["education_details"]>([]);
-  const [work, setWork] = useState<ResumeDataInterface["work_expereinces"]>([]);
+  const [work, setWork] = useState<ResumeDataInterface["work_experiences"]>([]);
   const [skills, setSkills] = useState<ResumeDataInterface["skills"]>([]);
   const [skillCapabilities, setSkillCapabilities] = useState<
     ResumeDataInterface["skill_capabilities"]
@@ -53,7 +53,7 @@ const Resume = () => {
 
     setAboutMeText(me.about_me ?? "");
     setEducation(me.education_details ?? []);
-    setWork(me.work_expereinces ?? []);
+    setWork(me.work_experiences ?? []);
     setSkills(me.skills ?? []);
     setSkillCapabilities(me.skill_capabilities ?? []);
   }, [aboutme]);

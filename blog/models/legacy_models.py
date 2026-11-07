@@ -6,7 +6,7 @@ class Blog(models.Model):
     class Meta:
         verbose_name_plural = "Blogs"
 
-    article_title = models.CharField(max_length=50, null=False, blank=False)
+    article_title = models.CharField(max_length=250, null=False, blank=False)
     article_overview = models.TextField(null=True, blank=True)
     banner_image_path = models.ImageField(null=True, blank=True)
     category = ArrayField(models.CharField(max_length=200, null=True, blank=True))

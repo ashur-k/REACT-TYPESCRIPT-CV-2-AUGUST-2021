@@ -1,0 +1,1142 @@
+/* =========================================================
+   1. Design foundation
+========================================================= */
+
+.step-by-step-tutorial {
+  --tutorial-red: var(--main-color, #e22d15);
+  --tutorial-ink: #202124;
+  --tutorial-muted: #656b73;
+  --tutorial-border: #e8e9eb;
+  --tutorial-surface: #ffffff;
+  --tutorial-soft: #f7f7f8;
+
+  min-height: 100vh;
+  padding-bottom: 100px;
+  color: var(--tutorial-ink);
+  background: #ffffff;
+}
+
+.step-by-step-tutorial *,
+.step-by-step-tutorial *::before,
+.step-by-step-tutorial *::after {
+  box-sizing: border-box;
+}
+
+.step-by-step-tutorial h1,
+.step-by-step-tutorial h2,
+.step-by-step-tutorial h3,
+.step-by-step-tutorial p {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   2. Hero
+========================================================= */
+
+.tutorial-hero {
+  padding: 65px 32px 58px;
+  border-bottom: 1px solid var(--tutorial-border);
+  background: #ffffff;
+}
+
+.tutorial-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+  align-items: center;
+  gap: 65px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.tutorial-hero-copy {
+  min-width: 0;
+}
+
+.tutorial-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 23px;
+  color: var(--tutorial-red);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.tutorial-eyebrow-line {
+  width: 27px;
+  height: 2px;
+  background: var(--tutorial-red);
+}
+
+.tutorial-hero-copy h1 {
+  max-width: 670px;
+  margin: 0 0 22px;
+  color: var(--tutorial-ink);
+  font-size: clamp(37px, 4.2vw, 55px);
+  font-weight: 760;
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.tutorial-overview {
+  max-width: 650px;
+  margin: 0 0 25px;
+  color: var(--tutorial-muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.tutorial-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #777d84;
+  font-size: 13px;
+}
+
+.tutorial-meta-dot {
+  color: var(--tutorial-red);
+  font-weight: 800;
+}
+
+.tutorial-hero-copy .article-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Hero image */
+
+.tutorial-hero-media {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--tutorial-border);
+  border-radius: 12px;
+  background: #f6f6f7;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.055);
+}
+
+.tutorial-hero-media > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+/* =========================================================
+   3. Hero graphic fallback
+========================================================= */
+
+.tutorial-hero-graphic {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 330px;
+  padding: 35px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0, #f9f9fa 55%, #f0f0f2 100%);
+}
+
+.tutorial-hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(#e6e6e8 1px, transparent 1px),
+    linear-gradient(90deg, #e6e6e8 1px, transparent 1px);
+  background-size: 27px 27px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.tutorial-hero-flow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.tutorial-technology,
+.tutorial-token {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  min-height: 125px;
+  padding: 16px 10px;
+  border: 1px solid #e5e5e7;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.055);
+}
+
+.tutorial-technology-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  margin-bottom: 11px;
+  border-radius: 12px;
+  font-size: 31px;
+  font-weight: 700;
+}
+
+.tutorial-react-symbol {
+  color: #149eca;
+  background: #e9f7fc;
+}
+
+.tutorial-django-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  margin-bottom: 11px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: #174b3b;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.tutorial-token {
+  border-color: rgba(226, 45, 21, 0.25);
+  background: #fffafa;
+}
+
+.tutorial-token-shield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  margin-bottom: 11px;
+  border-radius: 12px;
+  color: var(--tutorial-red);
+  background: #fff0ed;
+  font-size: 30px;
+}
+
+.tutorial-technology strong,
+.tutorial-token strong {
+  color: #252525;
+  font-size: 14px;
+}
+
+.tutorial-technology small,
+.tutorial-token small {
+  margin-top: 5px;
+  color: #858585;
+  font-size: 10px;
+}
+
+.tutorial-flow-arrow {
+  color: var(--tutorial-red);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.tutorial-hero-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  color: #73777d;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.tutorial-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #35a36b;
+}
+
+/* =========================================================
+   4. Main reading layout
+========================================================= */
+
+.tutorial-page-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 58px 32px 0;
+}
+
+.tutorial-reading-layout {
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  align-items: start;
+  gap: 75px;
+}
+
+.tutorial-sidebar {
+  position: sticky;
+  top: 80px;
+  z-index: 1010;
+}
+
+.tutorial-sidebar-inner {
+  min-width: 0;
+}
+
+/* =========================================================
+   5. Table of contents
+========================================================= */
+
+.tutorial-sidebar .article-toc {
+  padding: 0 0 20px;
+}
+
+.tutorial-sidebar .article-toc-title {
+  margin: 0 0 20px;
+  color: #555b62;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+.tutorial-sidebar .article-toc-list {
+  margin: 0;
+  padding: 0 0 0 15px;
+  border-left: 1px solid #e6e6e6;
+  list-style: none;
+}
+
+.tutorial-sidebar .article-toc-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.tutorial-sidebar .article-toc-link {
+  display: block;
+  width: 100%;
+  padding: 9px 0 9px 1px;
+  border: 0;
+  background: transparent;
+  color: #747980;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tutorial-sidebar .article-toc-link:hover {
+  color: var(--tutorial-red);
+}
+
+.tutorial-sidebar .article-toc-item.active::before {
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: var(--tutorial-red);
+  box-shadow: 0 0 0 1px var(--tutorial-red);
+  content: "";
+}
+
+.tutorial-sidebar .article-toc-item.active .article-toc-link {
+  color: var(--tutorial-red);
+  font-weight: 700;
+}
+
+/* =========================================================
+   6. Article content
+========================================================= */
+
+.tutorial-content {
+  width: 100%;
+  min-width: 0;
+  max-width: 830px;
+  color: var(--tutorial-ink);
+}
+
+.tutorial-content section {
+  scroll-margin-top: 35px;
+}
+
+/* =========================================================
+   7. Introduction
+========================================================= */
+
+.tutorial-introduction {
+  margin-bottom: 45px;
+}
+
+.tutorial-introduction-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 25px;
+  padding: 25px 26px;
+  border: 1px solid #ececee;
+  border-radius: 9px;
+  background: #fafafa;
+}
+
+.tutorial-introduction-icon {
+  display: flex;
+  flex: 0 0 39px;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 10px;
+  color: var(--tutorial-red);
+  background: #fff0ed;
+  font-size: 19px;
+}
+
+.tutorial-introduction-card h2 {
+  margin: 0 0 11px;
+  color: #252525;
+  font-size: 22px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.tutorial-section-introduction {
+  margin: 0 0 20px;
+  color: #555d65;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.tutorial-introduction-card .tutorial-section-introduction {
+  margin-bottom: 0;
+}
+
+.tutorial-introduction > .article-blocks {
+  margin-top: 20px;
+}
+
+/* =========================================================
+   8. Prerequisites
+========================================================= */
+
+.tutorial-prerequisites {
+  margin: 40px 0 58px;
+  padding: 27px 29px;
+  border: 1px solid #e9e9eb;
+  border-left: 4px solid var(--tutorial-red);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.tutorial-prerequisites-heading,
+.tutorial-supporting-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.tutorial-section-accent {
+  flex: 0 0 4px;
+  width: 4px;
+  min-height: 38px;
+  border-radius: 3px;
+  background: var(--tutorial-red);
+}
+
+.tutorial-kicker {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--tutorial-red);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.35px;
+}
+
+.tutorial-prerequisites h2 {
+  margin: 0;
+  color: #252525;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.tutorial-prerequisites > p {
+  margin: 19px 0 17px;
+  color: var(--tutorial-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tutorial-prerequisites ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tutorial-prerequisites li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #41464c;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tutorial-prerequisites li span {
+  display: flex;
+  flex: 0 0 20px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--tutorial-red);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   9. Implementation section
+========================================================= */
+
+.tutorial-implementation {
+  margin-top: 10px;
+}
+
+.tutorial-step {
+  position: relative;
+  margin-bottom: 55px;
+  padding: 0 0 48px;
+  border-bottom: 1px solid var(--tutorial-border);
+}
+
+.tutorial-step:last-child {
+  border-bottom: 0;
+}
+
+.tutorial-step-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 19px;
+  margin-bottom: 23px;
+}
+
+.tutorial-step-number {
+  display: flex;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: var(--tutorial-red);
+  box-shadow: 0 5px 12px rgba(226, 45, 21, 0.18);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.tutorial-step-title {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.tutorial-step-title .tutorial-kicker {
+  margin-bottom: 6px;
+}
+
+.tutorial-step-title h2 {
+  margin: 0;
+  color: #25282c;
+  font-size: 27px;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+
+.tutorial-step-body {
+  min-width: 0;
+  padding-left: 67px;
+}
+
+/* =========================================================
+   10. Supporting sections
+========================================================= */
+
+.tutorial-supporting-content {
+  margin-top: 25px;
+}
+
+.tutorial-supporting-section {
+  margin: 0 0 52px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--tutorial-border);
+}
+
+.tutorial-supporting-heading {
+  margin-bottom: 21px;
+}
+
+.tutorial-supporting-heading h2 {
+  margin: 0;
+  color: #25282c;
+  font-size: 25px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.tutorial-supporting-section--verification {
+  padding: 27px 28px;
+  border: 1px solid #e5ece7;
+  border-radius: 9px;
+  background: #f9fcfa;
+}
+
+.tutorial-supporting-section--verification .tutorial-section-accent {
+  background: #39865c;
+}
+
+.tutorial-supporting-section--verification .tutorial-kicker {
+  color: #39865c;
+}
+
+.tutorial-supporting-section--security {
+  padding: 27px 28px;
+  border: 1px solid #f0e3d5;
+  border-radius: 9px;
+  background: #fffaf4;
+}
+
+.tutorial-supporting-section--security .tutorial-section-accent {
+  background: #d58a35;
+}
+
+.tutorial-supporting-section--security .tutorial-kicker {
+  color: #b56c1b;
+}
+
+.tutorial-supporting-section--common_mistakes {
+  padding: 27px 28px;
+  border: 1px solid #ece5e5;
+  border-radius: 9px;
+  background: #fcf9f9;
+}
+
+/* =========================================================
+   11. Conclusion
+========================================================= */
+
+.tutorial-conclusion {
+  margin-top: 55px;
+  padding: 34px;
+  border: 1px solid #f0d7d2;
+  border-radius: 10px;
+  background: #fff8f6;
+}
+
+.tutorial-conclusion h2 {
+  margin: 0 0 15px;
+  color: #242424;
+  font-size: 29px;
+  font-weight: 750;
+}
+
+.tutorial-conclusion > p {
+  margin: 0;
+  color: #555d65;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* =========================================================
+   12. Shared paragraph blocks
+========================================================= */
+
+.tutorial-content .article-paragraph {
+  margin: 0 0 24px;
+}
+
+.tutorial-content .article-paragraph-title {
+  margin: 0 0 11px;
+  color: #30343a;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.tutorial-content .article-paragraph p,
+.tutorial-content .article-blocks > p {
+  margin: 0 0 17px;
+  color: #555d65;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =========================================================
+   13. Code and terminal blocks
+========================================================= */
+
+.tutorial-content .article-code-block {
+  margin: 25px 0 30px;
+  overflow: hidden;
+  border: 1px solid #30343b;
+  border-radius: 9px;
+  background: #1e2229;
+  box-shadow: 0 5px 17px rgba(0, 0, 0, 0.07);
+}
+
+.tutorial-content .article-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 45px;
+  padding: 10px 17px;
+  border-bottom: 1px solid #383e48;
+  background: #292e37;
+  color: #e8e9eb;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.tutorial-content .article-code-block pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 21px;
+  overflow-x: auto;
+  color: #e5e7eb;
+  font-size: 13px;
+  line-height: 1.8;
+  tab-size: 2;
+}
+
+.tutorial-content .article-code-block code {
+  color: inherit;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  white-space: pre;
+}
+
+.tutorial-content .article-code-block.terminal {
+  border-color: #343a43;
+}
+
+/* =========================================================
+   14. Images
+========================================================= */
+
+.tutorial-content .article-image {
+  margin: 27px 0 31px;
+}
+
+.tutorial-content .article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--tutorial-border);
+  border-radius: 9px;
+  background: #f7f7f7;
+}
+
+.tutorial-content .article-image figcaption {
+  margin-top: 10px;
+  color: #777e85;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================================================
+   15. Callouts
+========================================================= */
+
+.tutorial-content .article-callout {
+  margin: 25px 0;
+  padding: 21px 23px;
+  border: 1px solid #f0ded9;
+  border-left: 4px solid var(--tutorial-red);
+  border-radius: 7px;
+  background: #fff8f6;
+}
+
+.tutorial-content .article-callout h3 {
+  margin: 0 0 9px;
+  color: #343434;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.tutorial-content .article-callout p {
+  margin: 0 0 9px;
+  color: #555d65;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tutorial-content .article-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   16. Quotes
+========================================================= */
+
+.tutorial-content .article-quote {
+  margin: 27px 0;
+  padding: 23px 26px;
+  border-left: 3px solid var(--tutorial-red);
+  border-radius: 0 7px 7px 0;
+  background: #f7f7f8;
+  color: #555d65;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.85;
+}
+
+.tutorial-content .article-quote cite {
+  display: block;
+  margin-top: 12px;
+  color: #777e85;
+  font-size: 12px;
+  font-style: normal;
+}
+
+/* =========================================================
+   17. Tables
+========================================================= */
+
+.tutorial-content .article-table-wrapper {
+  margin: 27px 0;
+}
+
+.tutorial-content .article-table-wrapper h3 {
+  margin: 0 0 13px;
+  color: #30343a;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.tutorial-content .article-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--tutorial-border);
+  border-radius: 8px;
+}
+
+.tutorial-content .article-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #555d65;
+  font-size: 13px;
+}
+
+.tutorial-content .article-table th {
+  background: #f3f3f4;
+  color: #30343a;
+  font-weight: 750;
+  text-align: left;
+}
+
+.tutorial-content .article-table th,
+.tutorial-content .article-table td {
+  padding: 13px 15px;
+  border-bottom: 1px solid #e8e9eb;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.tutorial-content .article-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.tutorial-content .article-table tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* =========================================================
+   18. Dividers and further reading
+========================================================= */
+
+.tutorial-content .article-divider {
+  margin: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--tutorial-border);
+}
+
+.tutorial-content .article-reading-links {
+  margin: 28px 0;
+  padding: 23px;
+  border: 1px solid var(--tutorial-border);
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.tutorial-content .article-reading-links h3 {
+  margin: 0 0 13px;
+  color: #30343a;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.tutorial-content .article-reading-links p {
+  margin: 0 0 11px;
+  color: #555d65;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tutorial-content .article-reading-links p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   19. Responsive: tablet
+========================================================= */
+
+@media (max-width: 1050px) {
+  .tutorial-hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    gap: 35px;
+  }
+
+  .tutorial-reading-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* =========================================================
+   20. Responsive: mobile
+========================================================= */
+
+@media (max-width: 760px) {
+  .tutorial-hero {
+    padding: 42px 20px 35px;
+  }
+
+  .tutorial-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .tutorial-hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(34px, 7vw, 45px);
+    letter-spacing: -1.2px;
+  }
+
+  .tutorial-overview {
+    font-size: 15px;
+  }
+
+  .tutorial-hero-media {
+    max-width: 550px;
+  }
+
+  .tutorial-hero-graphic {
+    min-height: 270px;
+  }
+
+  .tutorial-page-container {
+    padding: 35px 20px 0;
+  }
+
+  .tutorial-reading-layout {
+    display: block;
+  }
+
+  .tutorial-sidebar {
+    margin-bottom: 32px;
+  }
+
+  .tutorial-sidebar-inner {
+    position: static;
+    max-height: none;
+    padding: 17px 18px;
+    overflow: visible;
+    border: 1px solid var(--tutorial-border);
+    border-radius: 8px;
+    background: #fafafa;
+  }
+
+  .tutorial-sidebar .article-toc-title {
+    margin-bottom: 12px;
+  }
+
+  .tutorial-sidebar .article-toc-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 15px;
+  }
+
+  .tutorial-sidebar .article-toc-link {
+    font-size: 11px;
+  }
+
+  .tutorial-step-title h2 {
+    font-size: 23px;
+  }
+
+  .tutorial-step-body {
+    padding-left: 0;
+  }
+
+  .tutorial-supporting-section--verification,
+  .tutorial-supporting-section--security,
+  .tutorial-supporting-section--common_mistakes {
+    padding: 23px 20px;
+  }
+}
+
+/* =========================================================
+   21. Responsive: small mobile
+========================================================= */
+
+@media (max-width: 480px) {
+  .tutorial-hero {
+    padding: 32px 16px;
+  }
+
+  .tutorial-eyebrow {
+    font-size: 10px;
+  }
+
+  .tutorial-hero-copy h1 {
+    font-size: 33px;
+  }
+
+  .tutorial-hero-meta {
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .tutorial-hero-graphic {
+    min-height: 225px;
+    padding: 18px 10px;
+  }
+
+  .tutorial-hero-flow {
+    gap: 7px;
+  }
+
+  .tutorial-technology,
+  .tutorial-token {
+    width: 88px;
+    min-height: 108px;
+    padding: 10px 6px;
+  }
+
+  .tutorial-technology-symbol,
+  .tutorial-django-symbol,
+  .tutorial-token-shield {
+    width: 39px;
+    height: 39px;
+    font-size: 25px;
+  }
+
+  .tutorial-technology strong,
+  .tutorial-token strong {
+    font-size: 12px;
+  }
+
+  .tutorial-technology small,
+  .tutorial-token small {
+    font-size: 9px;
+  }
+
+  .tutorial-flow-arrow {
+    font-size: 17px;
+  }
+
+  .tutorial-page-container {
+    padding: 28px 15px 0;
+  }
+
+  .tutorial-sidebar-inner {
+    padding: 15px 13px;
+  }
+
+  .tutorial-sidebar .article-toc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-introduction-card {
+    gap: 12px;
+    padding: 19px 16px;
+  }
+
+  .tutorial-introduction-card h2 {
+    font-size: 19px;
+  }
+
+  .tutorial-prerequisites {
+    padding: 22px 19px;
+  }
+
+  .tutorial-prerequisites ul {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-step {
+    margin-bottom: 38px;
+    padding-bottom: 32px;
+  }
+
+  .tutorial-step-heading {
+    gap: 13px;
+  }
+
+  .tutorial-step-number {
+    flex-basis: 41px;
+    width: 41px;
+    height: 41px;
+    border-radius: 10px;
+    font-size: 17px;
+  }
+
+  .tutorial-step-title h2 {
+    font-size: 20px;
+  }
+
+  .tutorial-kicker {
+    font-size: 9px;
+  }
+
+  .tutorial-content .article-code-block pre {
+    padding: 15px;
+    font-size: 11px;
+  }
+
+  .tutorial-content .article-table th,
+  .tutorial-content .article-table td {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .tutorial-conclusion {
+    padding: 25px 20px;
+  }
+
+  .tutorial-conclusion h2 {
+    font-size: 25px;
+  }
+}

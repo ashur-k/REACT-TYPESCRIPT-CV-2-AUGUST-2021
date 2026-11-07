@@ -32,6 +32,9 @@
   font-weight: 700 !important;
 }
 
+.customCard .article-categories {
+  margin-top: 12px;
+}
 /* End */
 
 /* Dialouge */

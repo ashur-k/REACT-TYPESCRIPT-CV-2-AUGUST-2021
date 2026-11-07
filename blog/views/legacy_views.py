@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Blog
-from .serializers import BlogSerializer
+from ..models import Blog
+from ..serializers import BlogSerializer
 
 
 @api_view(["GET"])

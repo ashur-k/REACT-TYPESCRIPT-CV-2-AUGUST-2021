@@ -35,6 +35,10 @@ import LanIcon from "@mui/icons-material/Lan";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import { SiDocker } from "react-icons/si";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import BoltIcon from "@mui/icons-material/Bolt";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import GroupsIcon from "@mui/icons-material/Groups";
 
 const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
@@ -110,6 +114,17 @@ const getIcon = (icon: string | undefined): ReactElement => {
       return <EngineeringIcon className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
     case "SiDocker":
       return <SiDocker className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
+    case "RocketLaunchIcon":
+      return <RocketLaunchIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "BoltIcon":
+      return <BoltIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "CheckCircleIcon":
+      return <CheckCircleIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "GroupsIcon":
+      return <GroupsIcon className="SVG-PRIMARY-COLOR" />;
     default:
       return <small>No Icon Found</small>;
   }

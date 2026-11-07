@@ -1,0 +1,469 @@
+/* =========================================================
+   ENGINEERING CASE STUDY TEMPLATE
+   =========================================================
+
+   Contents:
+   01. Main Page Layout
+   02. Article Header
+   03. Reading Information
+   04. Article Banner
+   05. Project Overview & Metrics
+   06. Technology Stack
+   07. Article Reading Layout
+   08. Tablet Responsive Layout
+   09. Mobile Responsive Layout
+   10. Accessibility & Reduced Motion
+
+   ========================================================= */
+
+/* =========================================================
+   01. MAIN PAGE LAYOUT
+   ========================================================= */
+
+.engineering-case-study {
+  min-height: 100vh;
+  padding: 90px 24px;
+  background: var(--article-page-background);
+  color: var(--article-text);
+}
+
+.engineering-case-study-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   02. ARTICLE HEADER
+   ========================================================= */
+
+.engineering-case-study-header {
+  max-width: 900px;
+  margin: 0 auto 35px;
+}
+
+/* Engineering case study label */
+
+.engineering-case-study-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  color: var(--article-accent);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.engineering-case-study-eyebrow-line {
+  width: 25px;
+  height: 2px;
+  background: var(--article-accent);
+}
+
+/* Main article title */
+
+.engineering-case-study-header h1 {
+  margin: 0 0 22px;
+
+  color: var(--article-heading);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 750;
+  line-height: 1.14;
+  letter-spacing: -0.045em;
+}
+
+/* Article introduction */
+
+.engineering-case-study-overview {
+  max-width: 820px;
+  margin: 0 0 20px;
+
+  color: var(--article-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   03. READING INFORMATION
+   ========================================================= */
+
+.engineering-case-study-reading-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+
+  color: var(--article-text-muted);
+  font-size: 0.85rem;
+}
+
+.engineering-case-study-reading-info span {
+  transition: color 0.2s ease;
+}
+
+.engineering-case-study-reading-info span:hover {
+  color: var(--article-accent);
+}
+
+/* =========================================================
+   04. ARTICLE BANNER
+   ========================================================= */
+
+.engineering-case-study-banner {
+  width: 100%;
+  max-height: 440px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+
+  border: 1px solid var(--article-border);
+  border-radius: 12px;
+
+  background: var(--article-surface-muted);
+  box-shadow: var(--article-shadow);
+}
+
+.engineering-case-study-banner img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+}
+
+/* =========================================================
+   05. PROJECT OVERVIEW & METRICS
+   ========================================================= */
+
+/* Main overview panel */
+
+.engineering-case-study-overview-panel {
+  margin: 0 0 32px;
+  padding: 20px 24px;
+
+  border: 1px solid var(--article-border);
+  border-radius: 10px;
+
+  background: var(--article-background);
+  box-shadow: var(--article-shadow);
+}
+
+/* Overview heading */
+
+.engineering-case-study-overview-panel h2 {
+  margin: 0 0 17px;
+
+  color: var(--article-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Four-column metrics layout */
+
+.engineering-case-study-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Individual metric */
+
+.engineering-case-study-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+  padding: 0 16px;
+
+  border-left: 2px solid var(--article-accent);
+}
+
+/* Remove separator from first metric */
+
+.engineering-case-study-metric:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+/* Icon and number displayed on the same line */
+
+.engineering-case-study-metric-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* Metric icon */
+
+.engineering-case-study-metric-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--article-accent);
+  line-height: 1;
+}
+
+/* Support Material UI and React Icons */
+
+.engineering-case-study-metric-icon svg {
+  display: block;
+  width: 17px !important;
+  height: 17px !important;
+  font-size: 17px !important;
+}
+
+/* Metric numerical value */
+
+.engineering-case-study-metric-heading strong {
+  color: var(--article-heading);
+
+  font-size: 1.4rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+/* Metric description */
+
+.engineering-case-study-metric-label {
+  color: var(--article-text-muted);
+
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   06. TECHNOLOGY STACK
+   ========================================================= */
+
+.engineering-case-study-technology {
+  margin: 0 0 50px;
+}
+
+/* Technology section heading */
+
+.engineering-case-study-technology h2 {
+  margin: 0 0 22px;
+
+  color: var(--article-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Technology badges container */
+
+.engineering-case-study-technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Individual technology badge */
+
+.engineering-case-study-technology-item {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 14px;
+
+  border: 1px solid var(--article-border);
+  border-radius: 7px;
+
+  background: var(--article-background);
+  color: var(--article-text-muted);
+
+  font-size: 0.85rem;
+  font-weight: 550;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Technology badge hover */
+
+.engineering-case-study-technology-item:hover {
+  color: var(--article-accent);
+  border-color: var(--article-accent);
+
+  background: rgba(226, 45, 21, 0.05);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   07. ARTICLE READING LAYOUT
+   ========================================================= */
+
+/* Table of contents + article content */
+
+.engineering-case-study-reading-layout {
+  display: grid;
+
+  grid-template-columns:
+    var(--article-sidebar-width)
+    minmax(0, var(--article-content-width));
+
+  justify-content: center;
+  align-items: start;
+  gap: 55px;
+}
+
+/* Main article content */
+
+.engineering-case-study-body {
+  min-width: 0;
+}
+
+/* =========================================================
+   08. TABLET RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* Switch article layout to a single column */
+
+  .engineering-case-study-reading-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .article-toc-sidebar {
+    order: 0;
+  }
+
+  .engineering-case-study-body {
+    order: 1;
+  }
+
+  /* Display metrics in two columns */
+
+  .engineering-case-study-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 0;
+  }
+
+  /* First metric in each row has no left separator */
+
+  .engineering-case-study-metric:nth-child(odd) {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .engineering-case-study-metric:nth-child(even) {
+    padding-left: 16px;
+    border-left: 2px solid var(--article-accent);
+  }
+}
+
+/* =========================================================
+   09. MOBILE RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 600px) {
+  /* Main page spacing */
+
+  .engineering-case-study {
+    padding: 38px 18px 60px;
+  }
+
+  /* Header */
+
+  .engineering-case-study-header {
+    margin-bottom: 28px;
+  }
+
+  .engineering-case-study-header h1 {
+    font-size: 2.15rem;
+  }
+
+  .engineering-case-study-overview {
+    font-size: 1rem;
+  }
+
+  /* Banner */
+
+  .engineering-case-study-banner {
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+
+  /* Project overview panel */
+
+  .engineering-case-study-overview-panel {
+    padding: 17px;
+    margin-bottom: 26px;
+  }
+
+  .engineering-case-study-overview-panel h2 {
+    margin-bottom: 15px;
+  }
+
+  /* Metric spacing */
+
+  .engineering-case-study-metrics {
+    gap: 18px 0;
+  }
+
+  .engineering-case-study-metric {
+    padding-right: 8px;
+  }
+
+  .engineering-case-study-metric:nth-child(even) {
+    padding-left: 10px;
+  }
+
+  /* Metric numbers */
+
+  .engineering-case-study-metric-heading strong {
+    font-size: 1.2rem;
+  }
+
+  /* Metric icons */
+
+  .engineering-case-study-metric-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px !important;
+  }
+
+  /* Metric descriptions */
+
+  .engineering-case-study-metric-label {
+    font-size: 0.74rem;
+  }
+
+  /* Technology section */
+
+  .engineering-case-study-technology {
+    margin-bottom: 38px;
+  }
+
+  .engineering-case-study-technology-list {
+    gap: 8px;
+  }
+
+  .engineering-case-study-technology-item {
+    padding: 7px 11px;
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   10. ACCESSIBILITY & REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .engineering-case-study-reading-info span,
+  .engineering-case-study-technology-item {
+    transition: none;
+  }
+
+  .engineering-case-study-technology-item:hover {
+    transform: none;
+  }
+}

@@ -50,7 +50,7 @@ const BlogDetail = () => {
         </Grid>
       ) : (
         <Grid container className="section pb_45 pt_45">
-          <SiteTitle title={blogs?.article_title} />
+          <SiteTitle title={blogs?.article_title ?? ""} />
 
           <Grid size={12}>
             <div>
@@ -69,7 +69,7 @@ const BlogDetail = () => {
                     md: 6,
                   }}
                 >
-                  <BlogDescription article_overview={blogs?.article_overview} />
+                  <BlogDescription article_overview={blogs?.article_overview ?? ""} />
                 </Grid>
 
                 <Grid
