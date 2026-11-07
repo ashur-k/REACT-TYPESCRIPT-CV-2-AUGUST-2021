@@ -5,46 +5,111 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('blog', '0008_blogsectionterminalcommand'),
+        ("blog", "0008_blogsectionterminalcommand"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BlogPresentation',
+            name="BlogPresentation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('template', models.CharField(choices=[('technical_article', 'Technical Article'), ('engineering_deep_dive', 'Engineering Deep Dive'), ('step_by_step_tutorial', 'Step-by-Step Tutorial'), ('engineering_case_study', 'Engineering Case Study'), ('developer_notes', 'Developer Notes')], max_length=50)),
-                ('configuration', models.JSONField(blank=True, default=dict)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('blog', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='presentation', to='blog.blog')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "template",
+                    models.CharField(
+                        choices=[
+                            ("technical_article", "Technical Article"),
+                            ("engineering_deep_dive", "Engineering Deep Dive"),
+                            ("step_by_step_tutorial", "Step-by-Step Tutorial"),
+                            ("engineering_case_study", "Engineering Case Study"),
+                            ("developer_notes", "Developer Notes"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("configuration", models.JSONField(blank=True, default=dict)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "blog",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="presentation",
+                        to="blog.blog",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Blog Presentation',
-                'verbose_name_plural': 'Blog Presentations',
+                "verbose_name": "Blog Presentation",
+                "verbose_name_plural": "Blog Presentations",
             },
         ),
         migrations.CreateModel(
-            name='BlogBlock',
+            name="BlogBlock",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('block_type', models.CharField(choices=[('heading', 'Heading'), ('paragraph', 'Paragraph'), ('image', 'Image'), ('code', 'Code Snippet'), ('terminal', 'Terminal Command'), ('quote', 'Quote'), ('callout', 'Information Box'), ('table', 'Table'), ('divider', 'Divider'), ('reading_links', 'Reading Links')], max_length=30)),
-                ('position', models.PositiveIntegerField(default=0)),
-                ('title', models.CharField(blank=True, max_length=200)),
-                ('content', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='blogs/blocks/')),
-                ('configuration', models.JSONField(blank=True, default=dict)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('blog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='blocks', to='blog.blog')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "block_type",
+                    models.CharField(
+                        choices=[
+                            ("heading", "Heading"),
+                            ("paragraph", "Paragraph"),
+                            ("image", "Image"),
+                            ("code", "Code Snippet"),
+                            ("terminal", "Terminal Command"),
+                            ("quote", "Quote"),
+                            ("callout", "Information Box"),
+                            ("table", "Table"),
+                            ("divider", "Divider"),
+                            ("reading_links", "Reading Links"),
+                        ],
+                        max_length=30,
+                    ),
+                ),
+                ("position", models.PositiveIntegerField(default=0)),
+                ("title", models.CharField(blank=True, max_length=200)),
+                ("content", models.TextField(blank=True)),
+                (
+                    "image",
+                    models.ImageField(blank=True, null=True, upload_to="blogs/blocks/"),
+                ),
+                ("configuration", models.JSONField(blank=True, default=dict)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "blog",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="blocks",
+                        to="blog.blog",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Blog Content Block',
-                'verbose_name_plural': 'Blog Content Blocks',
-                'ordering': ('position', 'id'),
-                'indexes': [models.Index(fields=['blog', 'position'], name='blog_block_position_idx')],
+                "verbose_name": "Blog Content Block",
+                "verbose_name_plural": "Blog Content Blocks",
+                "ordering": ("position", "id"),
+                "indexes": [
+                    models.Index(
+                        fields=["blog", "position"], name="blog_block_position_idx"
+                    )
+                ],
             },
         ),
     ]
