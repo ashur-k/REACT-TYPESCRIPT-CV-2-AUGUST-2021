@@ -6,7 +6,7 @@ interface BlogDetailRequestAction {
 }
 interface BlogDetailSuccessAction {
   type: BlogDetailsActionType.BLOG_DETAIL_SUCCESS;
-  payload: Blog[];
+  payload: Blog;
 }
 interface BlogDetailErrorAction {
   type: BlogDetailsActionType.BLOG_DETAIL_ERROR;

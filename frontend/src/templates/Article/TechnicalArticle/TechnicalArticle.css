@@ -1,0 +1,553 @@
+/* =========================================================
+   1. ARTICLE PAGE LAYOUT
+   ========================================================= */
+
+.technical-article {
+  min-height: 100vh;
+  padding: 65px 24px 90px;
+  background: var(--article-page-background);
+  color: var(--article-text);
+}
+
+.technical-article-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   2. ARTICLE HEADER
+   ========================================================= */
+
+.technical-article-header {
+  max-width: 850px;
+  margin: 0 auto 38px;
+}
+
+.technical-article-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--article-accent);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.technical-article-eyebrow-line {
+  width: 25px;
+  height: 2px;
+  background: var(--article-accent);
+}
+
+.technical-article-header h1 {
+  margin: 0 0 22px;
+  color: var(--article-heading);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 750;
+  line-height: 1.14;
+  letter-spacing: -0.045em;
+}
+
+.technical-article-overview {
+  max-width: 780px;
+  margin: 0 0 24px;
+  color: var(--article-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   3. ARTICLE METADATA AND CATEGORY TAGS
+   ========================================================= */
+
+.technical-article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: var(--article-text-muted);
+  font-size: 0.85rem;
+}
+
+.technical-article-meta-divider {
+  color: #b5b5b5;
+}
+
+.technical-article-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Category tag appearance */
+.technical-article-category {
+  padding: 5px 11px;
+  border: 1px solid var(--article-border);
+  border-radius: 20px;
+  background: var(--article-background);
+  color: var(--article-text-muted);
+  font-size: 0.78rem;
+
+  /* Smooth hover animation */
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Category tag hover interaction */
+.technical-article-category:hover {
+  color: var(--article-accent);
+  background: rgba(226, 45, 21, 0.05);
+  border-color: var(--article-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(226, 45, 21, 0.1);
+}
+
+/* Reading time appearance and hover interaction */
+.technical-article-meta > span:first-child {
+  display: inline-block;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.technical-article-meta > span:first-child:hover {
+  color: var(--article-accent);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   4. ARTICLE BANNER IMAGE
+   ========================================================= */
+
+.technical-article-banner {
+  width: 100%;
+  max-height: 440px;
+  margin: 0 auto 55px;
+  overflow: hidden;
+  border: 1px solid var(--article-border);
+  border-radius: 12px;
+  background: var(--article-surface-muted);
+  box-shadow: var(--article-shadow);
+}
+
+.technical-article-banner img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+}
+
+/* =========================================================
+   5. ARTICLE READING LAYOUT
+   ========================================================= */
+
+.technical-article-reading-layout {
+  display: grid;
+  grid-template-columns:
+    var(--article-sidebar-width)
+    minmax(0, var(--article-content-width));
+  justify-content: center;
+  align-items: start;
+  gap: 55px;
+}
+
+/* =========================================================
+   10. ARTICLE SECTION HEADINGS
+   ========================================================= */
+
+.article-section-heading {
+  scroll-margin-top: 35px;
+  margin: 48px 0 20px;
+  color: var(--article-heading);
+  font-size: 1.75rem;
+  font-weight: 720;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+/* =========================================================
+   11. PARAGRAPHS AND PARAGRAPH HEADINGS
+   ========================================================= */
+
+.article-paragraph {
+  margin: 0 0 25px;
+}
+
+/* Paragraph appearance */
+.article-paragraph p {
+  position: relative;
+  margin: 0 -12px 15px;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  color: var(--article-text);
+  font-weight: 300;
+  line-height: 1.9;
+
+  transition:
+    font-weight 0.3s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.3s ease;
+}
+
+/* Remove bottom spacing from the final paragraph */
+.article-paragraph p:last-child {
+  margin-bottom: 0;
+}
+
+/* Interactive reading spotlight */
+.article-paragraph p:hover {
+  font-size: 1.02em;
+  font-weight: 600;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(226, 45, 21, 0.35) 0%,
+    rgba(226, 45, 21, 0.22) 55%,
+    rgba(226, 45, 21, 0.08) 100%
+  );
+
+  box-shadow: 0 5px 25px rgba(226, 45, 21, 0.14);
+
+  transform: scale(1.005);
+}
+
+/* Paragraph headings */
+.article-paragraph-title {
+  margin: 30px 0 12px;
+  color: var(--article-heading);
+  font-size: 1.2rem;
+  font-weight: 650;
+}
+
+/* Other content paragraph styles */
+.article-callout p,
+.article-quote p,
+.article-reading-links p {
+  margin: 0 0 15px;
+  color: var(--article-text);
+  line-height: 1.9;
+}
+
+.article-callout p:last-child,
+.article-quote p:last-child,
+.article-reading-links p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   12. ARTICLE IMAGES
+   ========================================================= */
+
+.article-image {
+  margin: 35px 0;
+}
+
+.article-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--article-border);
+  border-radius: var(--article-radius);
+}
+
+.article-image figcaption {
+  margin-top: 10px;
+  color: var(--article-text-muted);
+  font-size: 0.83rem;
+  text-align: center;
+}
+
+/* =========================================================
+   13. CODE BLOCKS AND TERMINAL COMMANDS
+   ========================================================= */
+
+.article-code-block {
+  margin: 30px 0;
+  overflow: hidden;
+  border: 1px solid #30343b;
+  border-radius: var(--article-radius);
+  background: var(--article-code-background);
+}
+
+.article-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #3b3e45;
+  color: #c8cbd0;
+  font-size: 0.8rem;
+}
+
+.article-code-block pre {
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  color: var(--article-code-text);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  tab-size: 4;
+}
+
+.article-code-block code {
+  font-family: "Cascadia Code", Consolas, Monaco, monospace;
+  white-space: pre;
+}
+
+/* =========================================================
+   14. CODE COPY BUTTON
+   ========================================================= */
+
+.article-copy-button {
+  padding: 5px 11px;
+  border: 1px solid #555a63;
+  border-radius: 5px;
+  background: transparent;
+  color: #e4e5e7;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.article-copy-button:hover {
+  border-color: var(--article-accent);
+  color: #ffffff;
+}
+
+/* =========================================================
+   15. QUOTE BLOCKS
+   ========================================================= */
+
+.article-quote {
+  margin: 32px 0;
+  padding: 22px 25px;
+  border-left: 4px solid var(--article-accent);
+  border-radius: 0 var(--article-radius) var(--article-radius) 0;
+  background: var(--article-surface-muted);
+}
+
+.article-quote cite {
+  display: block;
+  margin-top: 12px;
+  color: var(--article-text-muted);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+/* =========================================================
+   16. CALLOUT BLOCKS
+   ========================================================= */
+
+.article-callout {
+  margin: 30px 0;
+  padding: 22px 24px;
+  border: 1px solid var(--article-border);
+  border-left: 4px solid var(--article-accent);
+  border-radius: var(--article-radius);
+  background: var(--article-surface-muted);
+}
+
+.article-callout h3,
+.article-reading-links h3,
+.article-table-wrapper h3 {
+  margin: 0 0 12px;
+  color: var(--article-heading);
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   17. TABLE BLOCKS
+   ========================================================= */
+
+.article-table-wrapper {
+  width: 100%;
+  margin: 38px 0;
+}
+
+/* Horizontal scrolling for smaller screens */
+.article-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--article-accent);
+  border-radius: 10px;
+  background: var(--article-background);
+  box-shadow: 0 4px 16px rgba(226, 45, 21, 0.06);
+}
+
+/* Main table */
+.article-table {
+  width: 100%;
+  min-width: 550px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: var(--article-text);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Table header */
+.article-table thead {
+  background: rgba(226, 45, 21, 0.1);
+}
+
+.article-table th {
+  padding: 17px 20px;
+  border: 1px solid rgba(226, 45, 21, 0.35);
+  color: var(--article-accent);
+  font-weight: 750;
+  font-size: 0.85rem;
+  letter-spacing: 0.025em;
+  vertical-align: middle;
+}
+
+/* Table cells */
+.article-table td {
+  padding: 18px 20px;
+  border: 1px solid var(--article-border);
+  vertical-align: top;
+}
+
+/* Alternating row backgrounds */
+.article-table tbody tr:nth-child(even) {
+  background: var(--article-surface-muted);
+}
+
+/* Row hover interaction */
+.article-table tbody tr {
+  transition: background 0.25s ease;
+}
+
+.article-table tbody tr:hover {
+  background: rgba(226, 45, 21, 0.075);
+}
+
+/* First column emphasis */
+.article-table tbody td:first-child {
+  font-weight: 650;
+  color: var(--article-heading);
+}
+
+/* Empty table message */
+.article-table-empty {
+  padding: 20px;
+  color: var(--article-text-muted);
+  text-align: center;
+}
+
+/* Keep complete words together inside table cells */
+.article-table th,
+.article-table td {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* Mobile table spacing */
+@media (max-width: 600px) {
+  .article-table {
+    font-size: 0.85rem;
+  }
+
+  .article-table th,
+  .article-table td {
+    padding: 14px 16px;
+  }
+}
+
+/* =========================================================
+   18. DIVIDERS
+   ========================================================= */
+
+.article-divider {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--article-border);
+}
+
+/* =========================================================
+   19. READING LINKS
+   ========================================================= */
+
+.article-reading-links {
+  margin: 35px 0;
+  padding: 22px;
+  border: 1px solid var(--article-border);
+  border-radius: var(--article-radius);
+}
+
+/* =========================================================
+   20. RESPONSIVE LAYOUT - TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+  .technical-article-reading-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .article-toc-sidebar {
+    order: 0;
+  }
+
+  .technical-article-body {
+    order: 1;
+  }
+}
+
+/* =========================================================
+   21. RESPONSIVE LAYOUT - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .technical-article {
+    padding: 38px 18px 60px;
+  }
+
+  .technical-article-header {
+    margin-bottom: 28px;
+  }
+
+  .technical-article-header h1 {
+    font-size: 2.15rem;
+  }
+
+  .technical-article-overview {
+    font-size: 1rem;
+  }
+
+  .technical-article-banner {
+    margin-bottom: 35px;
+    border-radius: 8px;
+  }
+
+  .article-section-heading {
+    margin-top: 38px;
+    font-size: 1.45rem;
+  }
+
+  .article-code-block pre {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   22. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .article-paragraph,
+  .article-paragraph::before,
+  .article-paragraph p {
+    transition: none;
+  }
+}

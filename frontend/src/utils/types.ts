@@ -313,7 +313,7 @@ export const resumeData: ResumeDataInterface[] = [
         about_me: 1,
       },
     ],
-    work_expereinces: [
+    work_experiences: [
       {
         id: 1,
         title: "Kirk Of the Holy Rood",
@@ -418,6 +418,9 @@ export interface WorkExperienceDetailInterface {
   related_studies: {
     id: number;
     title: string;
+    institution: string;
     description?: string | null;
+    study_date?: string | null;
+    study_url?: string | null;
   }[];
 }

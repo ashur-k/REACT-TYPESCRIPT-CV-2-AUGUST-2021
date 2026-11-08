@@ -1,10 +1,8 @@
-import { Container, Grid } from "@mui/material";
 import { HashRouter as Router, Routes, Route } from "react-router";
 
 import "./App.css";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Profile from "./components/Profile/Profile";
+
 import Blog from "./pages/Blog/Blog";
 import GitPage from "./pages/GitPage/GitPage";
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -13,37 +11,32 @@ import { Login } from "./pages/Login/Login";
 import BlogDetail from "./pages/BlogDetail/BlogDetail";
 import WorkExperienceDetail from "./pages/WorkExperienceDetail/WorkExperienceDetail";
 import ScrollToTop from "./components/FunctionalComponents/ScrollToTop/ScrollToTop";
+import Articles from "./pages/Articles/Articles";
+import ArticleDetail from "./pages/ArticleDetail/ArticleDetail";
+import BlogDetailResolver from "./pages/BlogDetail/BlogDetailResolver";
+import SiteLayout from "./layouts/SiteLayout/SiteLayout";
+
+import "./styles/article-tokens.css";
 
 function App() {
   return (
-    <Container className="top_60">
-      <Grid container spacing={3}>
-        <Grid size={{ xs: 12, sm: 12, md: 4, lg: 3 }}>
-          <Profile />
-        </Grid>
+    <Router>
+      <ScrollToTop />
 
-        <Grid size="grow">
-          <Router>
-            <ScrollToTop />
-            <Header />
-
-            <div className="main-content container_shadow">
-              <Routes>
-                <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog-detail/:id?" element={<BlogDetail />} />
-                <Route path="/GitPage" element={<GitPage />} />
-                <Route path="/Login" element={<Login />} />
-                <Route path="/" element={<Resume />} />
-                <Route path="/work-experience/:id" element={<WorkExperienceDetail />} />
-              </Routes>
-            </div>
-          </Router>
-
-          <Footer />
-        </Grid>
-      </Grid>
-    </Container>
+      <SiteLayout>
+        <Routes>
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog-detail/:id" element={<BlogDetailResolver />} />
+          <Route path="/GitPage" element={<GitPage />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Resume />} />
+          <Route path="/work-experience/:id" element={<WorkExperienceDetail />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:id" element={<ArticleDetail />} />
+        </Routes>
+      </SiteLayout>
+    </Router>
   );
 }
 

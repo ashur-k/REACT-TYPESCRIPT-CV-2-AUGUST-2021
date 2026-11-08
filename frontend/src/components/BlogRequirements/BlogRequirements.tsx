@@ -18,7 +18,7 @@ import CustomTimeline, { CustomTimelineSeparator } from "../../components/Timeli
 import "./BlogRequirements.css";
 
 const BlogRequirements: FunctionComponent<{
-  requirements: [];
+  requirements: string[];
 }> = ({ requirements }) => {
   return (
     <CustomTimeline title="Requirements" icon={getIcon("VscChecklist")}>
