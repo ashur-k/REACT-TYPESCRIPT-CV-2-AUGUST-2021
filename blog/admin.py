@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.contrib import admin
 
 from .models import (
@@ -29,6 +31,10 @@ class BlogBlockInline(admin.StackedInline):
         "image",
         "configuration",
     )
+
+    class Media:
+        css: ClassVar[dict] = {"all": ("blog/admin/blog_blocks_inline.css",)}
+        js = ("blog/admin/blog_blocks_inline.js",)
 
 
 @admin.register(Blog)

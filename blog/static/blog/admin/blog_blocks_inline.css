@@ -1,0 +1,47 @@
+/* Accordion header */
+#blocks-group .inline-related > h3 {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+#blocks-group .blog-block-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  background: #f3f5f8;
+  color: #263246;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+#blocks-group .blog-block-toggle:hover {
+  background: #e9edf2;
+}
+
+#blocks-group .blog-block-toggle::after {
+  content: "+";
+  font-size: 20px;
+  color: var(--main-color, #e22d15);
+}
+
+#blocks-group .blog-block-toggle[aria-expanded="true"]::after {
+  content: "−";
+}
+
+#blocks-group .blog-block-toggle:focus-visible {
+  outline: 2px solid #e22d15;
+  outline-offset: -2px;
+}
+
+/* Collapsed block */
+#blocks-group .inline-related.blog-block-collapsed > :not(h3) {
+  display: none !important;
+}
