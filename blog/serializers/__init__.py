@@ -1,6 +1,7 @@
 from .blog_serializers import (
     BlogArticleSerializer,
     BlogBlockSerializer,
+    BlogListSerializer,
     BlogPresentationSerializer,
 )
 from .legacy_serializers import (
@@ -22,4 +23,5 @@ __all__ = [
     "BlogArticleSerializer",
     "BlogBlockSerializer",
     "BlogPresentationSerializer",
+    "BlogListSerializer",
 ]

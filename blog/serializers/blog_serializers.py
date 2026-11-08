@@ -43,3 +43,32 @@ class BlogArticleSerializer(serializers.ModelSerializer):
             "presentation",
             "blocks",
         )
+
+
+class BlogListSerializer(serializers.ModelSerializer):
+    presentation = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Blog
+        fields = (
+            "id",
+            "article_title",
+            "article_overview",
+            "banner_image_path",
+            "category",
+            "presentation",
+        )
+
+    def get_presentation(self, obj):
+        presentation = getattr(obj, "presentation", None)
+
+        if presentation is None:
+            return {
+                "template": "legacy",
+                "label": "Legacy Blog",
+            }
+
+        return {
+            "template": presentation.template,
+            "label": presentation.get_template_display(),
+        }

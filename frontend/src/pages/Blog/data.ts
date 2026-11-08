@@ -6,6 +6,7 @@ export interface Blog {
 
   category: Category[];
   requirements: string[];
+  presentation?: BlogPresentation | null;
 
   blog_sections: [
     {
@@ -54,12 +55,24 @@ export interface Blog {
 
 export type Category = "react" | "JavaScript" | "flask" | "django" | "mongo";
 
+export type BlogPresentationTemplate =
+  | "technical_article"
+  | "engineering_deep_dive"
+  | "step_by_step_tutorial"
+  | "engineering_case_study"
+  | "developer_notes"
+  | "legacy";
+
+export interface BlogPresentation {
+  template: BlogPresentationTemplate;
+}
+
 export const blogs: Blog[] = [
   {
     id: 1,
     article_title: "React And Django (DRF) connectivity",
     article_overview:
-      "To start with in development mode we are required running Django server and react server on 2 separate ports. Normally React runs at http://localhost:3000/ and django at http://localhost:8000/ ",
+      "To start with in development mode we are required running Django server and react server on 2 separate ports. Normally React runs at http://localhost:3000/ and django at http://localhost:8000/",
     banner_image_path: "/images/django-react-header.png",
     category: ["django"],
     requirements: ["Beginners Knowledege", "VS-Code", "Node Package Manager", "Python 3", "PIP-3"],

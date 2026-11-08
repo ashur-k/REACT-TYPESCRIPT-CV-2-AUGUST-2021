@@ -10,7 +10,7 @@ class Aboutme(models.Model):
     about_me = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return "Ashur-Aboutme"
+        return "Ashur Aboutme"
 
 
 class Education(models.Model):
