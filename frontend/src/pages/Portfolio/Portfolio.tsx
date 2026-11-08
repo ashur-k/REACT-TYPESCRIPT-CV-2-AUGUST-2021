@@ -14,7 +14,7 @@ import { Alert, Image, Spinner } from "react-bootstrap";
 // Custom components import
 import ProjectsNavbar from "../../components/ProjectNabar/ProjectNavbar";
 import ProjectDialog from "../../components/ProjectDialog/ProjectDialog";
-
+import ArticleCategories from "../../components/Article/Shared/ArticleCategories";
 // css imports
 // @ts-ignore CSS is loaded by the bundler and has no TypeScript declarations.
 import "./Portfolio.css";
@@ -104,9 +104,12 @@ const Portfolio = () => {
                             <Image src={project.image} rounded thumbnail alt={project.name} />
                             <CardContent>
                               <Typography className="customCard_title">{project.name}</Typography>
+
                               <Typography variant="body2" className="customCard_description">
                                 {project.description}
                               </Typography>
+
+                              <ArticleCategories categories={project.category} />
                             </CardContent>
                           </CardActionArea>
                         </Card>

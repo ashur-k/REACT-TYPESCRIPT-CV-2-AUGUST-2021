@@ -1,0 +1,54 @@
+/* =========================================================
+   ARTICLE CATEGORIES - CONTAINER
+========================================================= */
+.article-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   ARTICLE CATEGORY - TAG
+========================================================= */
+
+.article-category {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 5px 11px;
+  border: 1px solid var(--article-border, #e5e7eb);
+  border-radius: 5px;
+  background: var(--article-background, #ffffff);
+  color: var(--article-text-muted, #666666);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.article-category:hover {
+  transform: translateY(-2px);
+  border-color: var(--article-accent, #e22d15);
+  background: rgba(226, 45, 21, 0.05);
+  color: var(--article-accent, #e22d15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-category {
+    transition: none;
+  }
+
+  .article-category:hover {
+    transform: none;
+  }
+}

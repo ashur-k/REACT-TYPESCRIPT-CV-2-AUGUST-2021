@@ -69,7 +69,7 @@ class SkillCapabilitiesSerializer(serializers.ModelSerializer):
 
 class AboutmeSerializer(serializers.ModelSerializer):
     education_details = serializers.SerializerMethodField(read_only=True)
-    work_expereinces = serializers.SerializerMethodField(read_only=True)
+    work_experiences = serializers.SerializerMethodField(read_only=True)
     skills = serializers.SerializerMethodField(read_only=True)
     skill_capabilities = serializers.SerializerMethodField(read_only=True)
 
@@ -82,14 +82,10 @@ class AboutmeSerializer(serializers.ModelSerializer):
         serializer = EducationSerializer(education_details, many=True)
         return serializer.data
 
-    def get_work_expereinces(self, obj):
-        work_expereinces = obj.workexperience_set.all()
-        serializer = WorkExperienceSerializer(work_expereinces, many=True)
+    def get_work_experiences(self, obj):
+        work_experiences = obj.workexperience_set.all()
+        serializer = WorkExperienceSerializer(work_experiences, many=True)
         return serializer.data
-
-    # def sequnceing(self, instance):
-    #     sequence = instance.work_expereinces.all().order_by("id")
-    #     return WorkExperienceSerializer(sequence, many=True).data
 
     def get_skills(self, obj):
         skills = obj.skill_set.all()

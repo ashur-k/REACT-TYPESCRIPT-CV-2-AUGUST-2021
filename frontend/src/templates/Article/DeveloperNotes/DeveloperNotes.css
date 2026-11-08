@@ -1,0 +1,185 @@
+/* =========================================================
+   01. MAIN PAGE LAYOUT
+   ========================================================= */
+
+.developer-notes {
+  min-height: 100vh;
+  padding: 65px 24px 90px;
+  background: var(--article-page-background);
+  color: var(--article-text);
+}
+
+.developer-notes-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   02. ARTICLE HEADER
+   ========================================================= */
+
+.developer-notes-header {
+  max-width: 850px;
+  margin: 0 auto 38px;
+}
+
+.developer-notes-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  color: var(--article-accent);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.developer-notes-eyebrow-line {
+  width: 25px;
+  height: 2px;
+  background: var(--article-accent);
+}
+
+.developer-notes-header h1 {
+  margin: 0 0 22px;
+
+  color: var(--article-heading);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 750;
+  line-height: 1.14;
+  letter-spacing: -0.045em;
+}
+
+.developer-notes-overview {
+  max-width: 780px;
+  margin: 0 0 24px;
+
+  color: var(--article-text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   03. READING INFORMATION
+   ========================================================= */
+
+.developer-notes-reading-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  color: var(--article-text-muted);
+  font-size: 0.85rem;
+}
+
+.developer-notes-reading-info span {
+  transition: color 0.2s ease;
+}
+
+.developer-notes-reading-info span:hover {
+  color: var(--article-accent);
+}
+
+/* =========================================================
+   04. ARTICLE BANNER
+   ========================================================= */
+
+.developer-notes-banner {
+  width: 100%;
+  max-height: 440px;
+  margin: 0 auto 55px;
+  overflow: hidden;
+
+  border: 1px solid var(--article-border);
+  border-radius: 12px;
+
+  background: var(--article-surface-muted);
+  box-shadow: var(--article-shadow);
+}
+
+.developer-notes-banner img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+}
+
+/* =========================================================
+   05. ARTICLE READING LAYOUT
+   ========================================================= */
+
+.developer-notes-reading-layout {
+  display: grid;
+
+  grid-template-columns:
+    var(--article-sidebar-width)
+    minmax(0, var(--article-content-width));
+
+  justify-content: center;
+  align-items: start;
+  gap: 55px;
+}
+
+.developer-notes-body {
+  min-width: 0;
+}
+
+/* =========================================================
+   06. TABLET RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .developer-notes-reading-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .article-toc-sidebar {
+    order: 0;
+  }
+
+  .developer-notes-body {
+    order: 1;
+  }
+}
+
+/* =========================================================
+   07. MOBILE RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .developer-notes {
+    padding: 38px 18px 60px;
+  }
+
+  .developer-notes-header {
+    margin-bottom: 28px;
+  }
+
+  .developer-notes-header h1 {
+    font-size: 2.15rem;
+  }
+
+  .developer-notes-overview {
+    font-size: 1rem;
+  }
+
+  .developer-notes-banner {
+    margin-bottom: 35px;
+    border-radius: 8px;
+  }
+}
+
+/* =========================================================
+   08. ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .developer-notes-reading-info span {
+    transition: none;
+  }
+}

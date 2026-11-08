@@ -1,0 +1,60 @@
+.article-detail {
+  max-width: 100%;
+}
+
+.article-header h1 {
+  margin-bottom: 20px;
+}
+
+.article-overview {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.article-banner {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 25px 0;
+}
+
+.article-content {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.article-block-heading {
+  margin-top: 35px;
+  margin-bottom: 18px;
+}
+
+.article-block-paragraph {
+  margin-bottom: 24px;
+}
+
+.article-block-paragraph p {
+  white-space: pre-wrap;
+  margin-bottom: 12px;
+}
+
+.article-code-block {
+  margin: 25px 0;
+}
+
+.article-code-block pre,
+.article-table-content {
+  padding: 20px;
+  border-radius: 6px;
+  background: #202124;
+  color: #f1f1f1;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.article-code-block code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.9rem;
+}

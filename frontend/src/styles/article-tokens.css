@@ -1,0 +1,31 @@
+:root {
+  /* Brand */
+  --article-accent: #e22d15;
+  --article-accent-hover: #c92410;
+
+  /* Surfaces */
+  --article-background: #ffffff;
+  --article-page-background: #fafafa;
+  --article-surface-muted: #f6f7f9;
+  --article-border: #e8e8e8;
+
+  /* Typography */
+  --article-text: #252525;
+  --article-text-muted: #686868;
+  --article-heading: #202124;
+
+  /* Code */
+  --article-code-background: #202124;
+  --article-code-text: #f1f1f1;
+
+  /* Layout */
+  --article-content-width: 780px;
+  --article-sidebar-width: 230px;
+
+  /* Spacing */
+  --article-section-spacing: 42px;
+
+  /* Effects */
+  --article-radius: 8px;
+  --article-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}

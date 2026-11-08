@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { Alert, Spinner } from "react-bootstrap";
 import { Box, Icon } from "@mui/material";
-import { FaPython } from "react-icons/fa";
 
+import ArticleCategories from "../../components/Article/Shared/ArticleCategories";
 import { useAppDispatch } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { getWorkExperienceDetail } from "../../redux/actions/resumeActions";
@@ -216,13 +216,7 @@ const WorkExperienceDetail = () => {
                     <h3>{category}</h3>
                   </header>
 
-                  <div className="technology-tags">
-                    {technologies.map((technology) => (
-                      <span className="technology-tag" key={technology}>
-                        {technology}
-                      </span>
-                    ))}
-                  </div>
+                  <ArticleCategories categories={technologies} className="technology-categories" />
                 </article>
               ))
             ) : (

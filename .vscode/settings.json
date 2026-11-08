@@ -41,5 +41,13 @@
   },
   "cSpell.words": [
     "workexperience"
-  ]
+  ],
+
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescript",
+    "*.css": "css",
+    "*.jsx": "javascriptreact",
+    "*.js": "javascript"
+  }
 }
