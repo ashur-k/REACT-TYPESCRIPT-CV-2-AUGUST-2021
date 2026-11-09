@@ -88,7 +88,7 @@ const Header = () => {
             </a>
           ))}
 
-          <a href={`${CV_DOWNLOAD_URL}?inline=1`} target="_blank" rel="noreferrer">
+          <a href={`${CV_DOWNLOAD_URL}?inline=1`} rel="noreferrer">
             <CustomButton text="Hire me" icon={<GetAppIcon />} />
           </a>
         </div>

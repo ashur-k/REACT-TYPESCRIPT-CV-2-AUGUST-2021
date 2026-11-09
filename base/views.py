@@ -147,7 +147,7 @@ def download_cv(request):
     try:
         cv.file.open("rb")
     except FileNotFoundError:
-        raise Http404("CV file could not be found.")
+        raise Http404("CV file could not be found.") from None
 
     return FileResponse(
         cv.file,
