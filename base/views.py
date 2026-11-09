@@ -2,6 +2,8 @@
 # To Hash Passwords
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
+from django.http import FileResponse, Http404
+from django.views.decorators.http import require_GET
 
 # for error status
 from rest_framework import status
@@ -11,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from .models import Aboutme, ContactInformation, Project
+from .models import Aboutme, ContactInformation, CVDocument, Project
 from .serializers import (
     AboutmeSerializer,
     ProjectSerializer,
@@ -133,3 +135,23 @@ def getContactInformation(request):
     }
 
     return Response(message, status=status.HTTP_200_OK)
+
+
+@require_GET
+def download_cv(request):
+    cv = CVDocument.objects.first()
+
+    if not cv or not cv.file:
+        raise Http404("CV is currently unavailable.")
+
+    try:
+        cv.file.open("rb")
+    except FileNotFoundError:
+        raise Http404("CV file could not be found.") from None
+
+    return FileResponse(
+        cv.file,
+        as_attachment=True,
+        filename="Ashur-Kanwal-CV.pdf",
+        content_type="application/pdf",
+    )

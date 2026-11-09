@@ -1,5 +1,9 @@
+from pathlib import Path
+
+from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.core.exceptions import ValidationError
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 
 
@@ -123,3 +127,44 @@ class ContactInformation(models.Model):
 
     def __str__(self):
         return self.name
+
+
+cv_storage = FileSystemStorage(location=Path(settings.BASE_DIR) / "uploads" / "cv")
+
+
+def validate_cv_file(value):
+    if Path(value.name).suffix.lower() != ".pdf":
+        raise ValidationError("Only PDF files are allowed.")
+
+    if value.size > 10 * 1024 * 1024:
+        raise ValidationError("CV file must not exceed 10 MB.")
+
+
+class CVDocument(models.Model):
+    file = models.FileField(
+        upload_to="",
+        storage=cv_storage,
+        validators=[validate_cv_file],
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "CV"
+        verbose_name_plural = "CV"
+
+    def __str__(self):
+        return f"CV (updated {self.updated_at:%Y-%m-%d})"
+
+    def save(self, *args, **kwargs):
+        old_file = None
+
+        if self.pk:
+            try:
+                old_file = type(self).objects.get(pk=self.pk).file
+            except type(self).DoesNotExist:
+                pass
+
+        super().save(*args, **kwargs)
+
+        if old_file and old_file.name != self.file.name:
+            old_file.delete(save=False)

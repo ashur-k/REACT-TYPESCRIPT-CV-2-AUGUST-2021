@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import (
     Aboutme,
     ContactInformation,
+    CVDocument,
     Education,
     Project,
     Skill,
@@ -13,6 +14,18 @@ from .models import (
 
 class ContactInformationAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "message", "received_at")
+
+
+@admin.register(CVDocument)
+class CVDocumentAdmin(admin.ModelAdmin):
+    list_display = ("id", "file", "updated_at")
+    readonly_fields = ("updated_at",)
+
+    def has_add_permission(self, request):
+        return not CVDocument.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 admin.site.register(Project)

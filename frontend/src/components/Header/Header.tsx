@@ -12,6 +12,8 @@ import { HomeRounded, Telegram } from "@mui/icons-material";
 import CustomButton from "../Button/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar } from "react-bootstrap";
+import GetAppIcon from "@mui/icons-material/GetApp";
+export const CV_DOWNLOAD_URL = "/api/cv/download/";
 
 // css imports
 import "./Header.css";
@@ -86,8 +88,8 @@ const Header = () => {
             </a>
           ))}
 
-          <a href="media/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
-            <CustomButton text="Hire me" icon={<Telegram />} />
+          <a href={`${CV_DOWNLOAD_URL}?inline=1`} rel="noreferrer">
+            <CustomButton text="Hire me" icon={<GetAppIcon />} />
           </a>
         </div>
       </Navbar.Collapse>
