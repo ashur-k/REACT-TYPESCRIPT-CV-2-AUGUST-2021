@@ -21,4 +21,5 @@ urlpatterns = [
         views.getContactInformation,
         name="getContactInformation",
     ),
+    path("cv/download/", views.download_cv, name="download-cv"),
 ]
