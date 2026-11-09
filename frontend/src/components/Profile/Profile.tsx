@@ -11,6 +11,7 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineContent from "@mui/lab/TimelineContent";
 import CustomButton from "../Button/Button";
 import GetAppIcon from "@mui/icons-material/GetApp";
+import { CV_DOWNLOAD_URL } from "../../utils/cv";
 
 // css and Images imports
 import profileImage from "../../assets/images/ash.jpg";
@@ -72,8 +73,8 @@ const Profile = () => {
           ))}
         </CustomTimeLine>
         <div className="button-container">
-          <a href="media/AshurkanwalCV.pdf" target="_blank" rel="noreferrer">
-            <CustomButton text={"Download Cv"} icon={<GetAppIcon />} />
+          <a href={CV_DOWNLOAD_URL}>
+            <CustomButton text="Download CV" icon={<GetAppIcon />} />
           </a>
         </div>
       </div>
