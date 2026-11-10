@@ -61,7 +61,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "IoLogoReact":
       return <IoLogoReact />;
     case "FiDatabase":
-      return <FiDatabase />;
+      return <FiDatabase className="SVG-PRIMARY-COLOR" />;
     case "FaGit":
       return <FaGit />;
     case "GrHeroku":

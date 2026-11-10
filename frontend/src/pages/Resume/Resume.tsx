@@ -87,17 +87,6 @@ const Resume = () => {
             <SiteTitle title="Resume" />
             <Grid size={12}>
               <Grid container className="resume_timeline">
-                {/* Education */}
-                <Grid
-                  size={{
-                    sm: 12,
-                    md: 6,
-                  }}
-                >
-                  {loading && <Spinner animation="border" variant="danger" />}
-                  <Education education_details={education} />
-                </Grid>
-
                 {/* Experience */}
                 <Grid
                   size={{
@@ -107,6 +96,17 @@ const Resume = () => {
                 >
                   {loading && <Spinner animation="border" variant="danger" />}
                   <WorkExpreience work_experiences={work} />
+                </Grid>
+
+                {/* Education */}
+                <Grid
+                  size={{
+                    sm: 12,
+                    md: 6,
+                  }}
+                >
+                  {loading && <Spinner animation="border" variant="danger" />}
+                  <Education education_details={education} />
                 </Grid>
               </Grid>
             </Grid>

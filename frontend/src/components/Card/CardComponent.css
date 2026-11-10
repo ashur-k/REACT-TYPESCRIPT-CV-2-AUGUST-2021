@@ -1,0 +1,258 @@
+/* =========================================
+   Service Cards
+========================================= */
+
+.service_card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.service_card:hover {
+  transform: translateY(-7px);
+  border-color: var(--main-color);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+}
+
+/* =========================================
+   Card Body
+========================================= */
+
+.service_card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+}
+
+/* =========================================
+   Card Header
+========================================= */
+
+.service_header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 60px;
+  margin-bottom: 16px;
+}
+
+/* =========================================
+   Icon Wrapper
+========================================= */
+
+.service_icon_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+
+  padding: 12px;
+  box-sizing: border-box;
+
+  border-radius: 14px;
+  background: rgba(226, 45, 21, 0.09);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service_card:hover .service_icon_wrapper {
+  background: var(--secondary-color);
+  transform: scale(1.08);
+}
+
+/* =========================================
+   Icon
+========================================= */
+
+.service_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 32px;
+  line-height: 1;
+}
+
+.service_icon svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  max-width: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.service_card:hover .service_icon {
+  color: #ffffff;
+}
+
+.service_card:hover .service_icon svg {
+  color: #ffffff;
+}
+
+/* =========================================
+   Card Title
+========================================= */
+
+.service_title {
+  flex: 1;
+  min-width: 0;
+  margin: 0 !important;
+  font-weight: 600 !important;
+}
+
+/* =========================================
+   Card Description
+========================================= */
+
+.service_description {
+  margin: 0;
+  color: #666666;
+  line-height: 1.7 !important;
+  overflow: visible;
+  display: block;
+}
+
+/* =========================================
+   Expand Button
+========================================= */
+
+.service_expand_button {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+
+  margin-top: 18px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+  color: var(--main-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.service_expand_button:hover {
+  text-decoration: underline;
+}
+
+.service_expand_button:focus-visible {
+  outline: 2px solid var(--main-color);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* =========================================
+   Expand Arrow
+========================================= */
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.arrow.rotated {
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   Expanded Details
+========================================= */
+
+.service_details {
+  margin-top: 14px;
+  padding-top: 14px;
+
+  border-top: 1px solid #eeeeee;
+
+  color: #666666;
+  line-height: 1.7;
+}
+
+/* =========================================
+   Card Hover
+========================================= */
+
+.service_card:hover {
+  cursor: default;
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+
+@media (max-width: 768px) {
+  .service_card {
+    min-height: 260px;
+  }
+
+  .service_card .card-body {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .service_card {
+    min-height: 240px;
+  }
+
+  .service_card:hover {
+    transform: none;
+  }
+
+  .service_header {
+    gap: 12px;
+  }
+
+  .service_icon_wrapper {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .service_icon {
+    font-size: 28px;
+  }
+
+  .service_icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* =========================================
+   Accessibility: Reduced Motion
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .service_card,
+  .service_icon_wrapper,
+  .service_icon,
+  .arrow {
+    transition: none;
+  }
+
+  .service_card:hover {
+    transform: none;
+  }
+}
