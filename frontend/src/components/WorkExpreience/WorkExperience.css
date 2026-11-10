@@ -17,8 +17,11 @@
 
 .resume_timeline .timeline_content .timeline_links {
   display: flex;
-  margin-top: 10px;
   margin-right: 5px;
+}
+
+.resume_timeline .timeline_content .timeline_links:has(a) {
+  margin-top: 10px;
 }
 
 .timeline_links .timeline_links-typography {

@@ -77,7 +77,7 @@ class Skill(models.Model):
         verbose_name_plural = "Skills"
 
     about_me = models.ForeignKey(Aboutme, on_delete=models.CASCADE)
-    title = models.CharField(max_length=30, null=False, blank=False)
+    title = models.CharField(max_length=250, null=False, blank=False)
     description = models.TextField(null=True, blank=True)
     icon = models.CharField(max_length=300)
 

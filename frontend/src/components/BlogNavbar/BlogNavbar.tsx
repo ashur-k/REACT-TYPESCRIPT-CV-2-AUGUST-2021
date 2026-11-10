@@ -1,4 +1,8 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
+
+// MUI icons
+import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 // Typescript imports
 import { BlogPresentationTemplate, Category } from "../../pages/Blog/data";
@@ -35,48 +39,93 @@ const BlogNavbar: FunctionComponent<BlogNavbarProps> = ({
   activePresentation,
   handlerFilterPresentation,
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleCategoryFilter = (category: Category | "all") => {
+    handlerFilterCategory(category);
+    setIsExpanded(false);
+  };
+
+  const handlePresentationFilter = (presentation: BlogPresentationTemplate | "all") => {
+    handlerFilterPresentation(presentation);
+    setIsExpanded(false);
+  };
+
   return (
-    <div className="blog-navbar-main">
-      <ul className="blog-navbar-categories">
-        <BlogtNavbarItems
-          value="all"
-          active={active}
-          handlerFilterCategory={handlerFilterCategory}
-        />
-
-        <BlogtNavbarItems
-          value="react"
-          active={active}
-          handlerFilterCategory={handlerFilterCategory}
-        />
-
-        <BlogtNavbarItems
-          value="mongo"
-          active={active}
-          handlerFilterCategory={handlerFilterCategory}
-        />
-
-        <BlogtNavbarItems
-          value="django"
-          active={active}
-          handlerFilterCategory={handlerFilterCategory}
-        />
-      </ul>
-
-      <select
-        className="blog-presentation-select"
-        value={activePresentation}
-        onChange={(event) =>
-          handlerFilterPresentation(event.target.value as BlogPresentationTemplate | "all")
-        }
-        aria-label="Filter blogs by presentation"
+    <div className="blog-navbar-sticky">
+      {/* Mobile filter toggle */}
+      <button
+        type="button"
+        className="blog-navbar-toggle"
+        onClick={() => setIsExpanded((previous) => !previous)}
+        aria-expanded={isExpanded}
+        aria-controls="blog-navbar-content"
       >
-        {presentationOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+        <FilterListRoundedIcon className="blog-filter-icon" />
+
+        <span>Filter articles</span>
+
+        <ExpandMoreRoundedIcon className={`blog-filter-chevron ${isExpanded ? "expanded" : ""}`} />
+      </button>
+
+      {/* Filter options */}
+      <div
+        id="blog-navbar-content"
+        className={`blog-navbar-content ${isExpanded ? "is-expanded" : ""}`}
+      >
+        <ul className="blog-navbar-categories">
+          <BlogtNavbarItems
+            value="all"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+
+          <BlogtNavbarItems
+            value="Frontend"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+
+          <BlogtNavbarItems
+            value="Databases"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+
+          <BlogtNavbarItems
+            value="Security"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+
+          <BlogtNavbarItems
+            value="Python"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+
+          <BlogtNavbarItems
+            value="Infrastructure"
+            active={active}
+            handlerFilterCategory={handleCategoryFilter}
+          />
+        </ul>
+
+        <select
+          className="blog-presentation-select"
+          value={activePresentation}
+          onChange={(event) =>
+            handlePresentationFilter(event.target.value as BlogPresentationTemplate | "all")
+          }
+          aria-label="Filter blogs by presentation"
+        >
+          {presentationOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };
