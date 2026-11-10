@@ -17,19 +17,18 @@ export const BlogtNavbarItems: FunctionComponent<BlogNavbarItemsProps> = ({
   handlerFilterCategory,
   active,
 }) => {
-  let className = "project-navbar-item hover:text-green";
-
-  if (active === value) {
-    className += " text-green";
-  }
+  const isActive = active === value;
 
   return (
-    <li
-      className={className}
-      onClick={() => handlerFilterCategory(value)}
-      aria-current={active === value ? "page" : undefined}
-    >
-      {value === "all" ? "All" : value}
+    <li className="blog-navbar-item">
+      <button
+        type="button"
+        className={`blog-category-button ${isActive ? "active" : ""}`}
+        onClick={() => handlerFilterCategory(value)}
+        aria-pressed={isActive}
+      >
+        {value === "all" ? "All" : value}
+      </button>
     </li>
   );
 };

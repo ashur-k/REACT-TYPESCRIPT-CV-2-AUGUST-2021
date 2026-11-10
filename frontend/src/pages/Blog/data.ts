@@ -53,7 +53,7 @@ export interface Blog {
   ];
 }
 
-export type Category = "react" | "JavaScript" | "flask" | "django" | "mongo";
+export type Category = "Frontend" | "Databases" | "Security" | "Python" | "Infrastructure";
 
 export type BlogPresentationTemplate =
   | "technical_article"
@@ -74,7 +74,7 @@ export const blogs: Blog[] = [
     article_overview:
       "To start with in development mode we are required running Django server and react server on 2 separate ports. Normally React runs at http://localhost:3000/ and django at http://localhost:8000/",
     banner_image_path: "/images/django-react-header.png",
-    category: ["django"],
+    category: ["Python"],
     requirements: ["Beginners Knowledege", "VS-Code", "Node Package Manager", "Python 3", "PIP-3"],
     blog_sections: [
       {
