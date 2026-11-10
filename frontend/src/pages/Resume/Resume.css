@@ -31,8 +31,7 @@
 }
 
 .service .MuiSvgIcon-root {
-  font-size: 46px !important;
-  margin-left: 0px !important;
+  font-size: 26px !important;
   font-weight: 300 !important;
   color: var(--main-color) !important;
   background-color: #fff !important;

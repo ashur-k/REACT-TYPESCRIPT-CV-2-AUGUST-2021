@@ -40,6 +40,13 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import GroupsIcon from "@mui/icons-material/Groups";
 
+import ApiIcon from "@mui/icons-material/Api";
+import WidgetsIcon from "@mui/icons-material/Widgets";
+import DnsIcon from "@mui/icons-material/Dns";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import SecurityIcon from "@mui/icons-material/Security";
+import CloudIcon from "@mui/icons-material/Cloud";
+
 const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
     case "WorkIcon":
@@ -61,7 +68,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "IoLogoReact":
       return <IoLogoReact />;
     case "FiDatabase":
-      return <FiDatabase />;
+      return <FiDatabase className="SVG-PRIMARY-COLOR" />;
     case "FaGit":
       return <FaGit />;
     case "GrHeroku":
@@ -116,15 +123,30 @@ const getIcon = (icon: string | undefined): ReactElement => {
       return <SiDocker className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
     case "RocketLaunchIcon":
       return <RocketLaunchIcon className="SVG-PRIMARY-COLOR" />;
-
     case "BoltIcon":
       return <BoltIcon className="SVG-PRIMARY-COLOR" />;
 
     case "CheckCircleIcon":
       return <CheckCircleIcon className="SVG-PRIMARY-COLOR" />;
-
     case "GroupsIcon":
       return <GroupsIcon className="SVG-PRIMARY-COLOR" />;
+    case "ApiIcon":
+      return <ApiIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "WidgetsIcon":
+      return <WidgetsIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "DnsIcon":
+      return <DnsIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "AccountTreeIcon":
+      return <AccountTreeIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "SecurityIcon":
+      return <SecurityIcon className="SVG-PRIMARY-COLOR" />;
+
+    case "CloudIcon":
+      return <CloudIcon className="SVG-PRIMARY-COLOR" />;
     default:
       return <small>No Icon Found</small>;
   }

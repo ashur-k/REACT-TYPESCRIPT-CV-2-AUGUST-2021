@@ -146,6 +146,42 @@ const WorkExperienceDetail = () => {
         </h2>
 
         <p>{workExperience.description || "No description available."}</p>
+
+        {/* External links */}
+        <div className="work-role-links">
+          {workExperience.work_url?.trim() && (
+            <a
+              href={workExperience.work_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-role-link"
+            >
+              Work Site <span>↗</span>
+            </a>
+          )}
+
+          {workExperience.deployed_url?.trim() && (
+            <a
+              href={workExperience.deployed_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-role-link"
+            >
+              Live Site <span>↗</span>
+            </a>
+          )}
+
+          {workExperience.github_url?.trim() && (
+            <a
+              href={workExperience.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="work-role-link"
+            >
+              Codes on Git <span>↗</span>
+            </a>
+          )}
+        </div>
       </section>
 
       {/* Responsibilities and technology */}
