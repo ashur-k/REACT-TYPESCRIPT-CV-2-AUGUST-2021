@@ -1,3 +1,17 @@
+.blog-detail-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.blog-detail-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 .blog-title-grid {
   background-color: var(--main-color) !important;
   color: #fff;
@@ -10,4 +24,27 @@
 .requirements-list {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 768px) {
+  .blog-detail-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .blog-detail-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .blog-detail-page .resume_timeline {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .blog-detail-page .resume_timeline > * {
+    min-width: 0;
+  }
 }

@@ -92,4 +92,57 @@
   outline-offset: 3px;
 }
 
+/* Work Experience Description */
+
+.timeline_description-wrapper {
+  position: relative;
+  margin-top: 6px;
+}
+
+.timeline_description-content {
+  cursor: pointer;
+}
+
+.timeline_description-wrapper.collapsed .timeline_description-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.timeline_description-wrapper.expanded .timeline_description-content {
+  display: block;
+}
+
+.resume_timeline .timeline_content .timeline_description {
+  color: gray;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.timeline-read-more {
+  display: inline-block;
+  padding: 3px 0;
+  margin-top: 3px;
+  border: none;
+  background: transparent;
+  color: var(--main-color);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.timeline-read-more:hover {
+  text-decoration: underline;
+}
+
+.timeline-read-more:focus-visible {
+  outline: 2px solid var(--main-color);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 /* End */

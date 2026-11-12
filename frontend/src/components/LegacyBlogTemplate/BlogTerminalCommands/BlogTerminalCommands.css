@@ -1,0 +1,165 @@
+.legacy-blog-terminal {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border: 1px solid #30343b;
+  border-radius: 9px;
+
+  background: #171a21;
+  color: #e6edf3;
+}
+
+/* Terminal header */
+
+.legacy-blog-terminal__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 12px 16px;
+
+  background: #22262e;
+  border-bottom: 1px solid #30343b;
+}
+
+.legacy-blog-terminal__window-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.terminal-dot--red {
+  background: #ff5f57;
+}
+
+.terminal-dot--yellow {
+  background: #febc2e;
+}
+
+.terminal-dot--green {
+  background: #28c840;
+}
+
+.legacy-blog-terminal__title {
+  font-size: 0.78rem;
+  color: #aeb6c2;
+  font-weight: 500;
+}
+
+/* Terminal body */
+
+.legacy-blog-terminal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
+}
+
+/* Individual commands */
+
+.legacy-blog-terminal__command {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 12px 16px;
+
+  transition: background-color 0.2s ease;
+}
+
+.legacy-blog-terminal__command:hover {
+  background: #22262e;
+}
+
+.legacy-blog-terminal__prompt {
+  flex-shrink: 0;
+  color: #7ee787;
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding-top: 1px;
+}
+
+.legacy-blog-terminal__command pre {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+
+  overflow-x: auto;
+
+  color: #e6edf3;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.legacy-blog-terminal__command code {
+  font-family: inherit;
+}
+
+/* Copy button */
+
+.legacy-blog-terminal__copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+  border: 1px solid #454b55;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #aeb6c2;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.legacy-blog-terminal__copy svg {
+  font-size: 17px;
+}
+
+.legacy-blog-terminal__copy:hover {
+  color: #ffffff;
+  border-color: #7ee787;
+  background: #303640;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 576px) {
+  .legacy-blog-terminal__header {
+    padding: 10px 12px;
+  }
+
+  .legacy-blog-terminal__command {
+    gap: 9px;
+    padding: 11px 12px;
+  }
+
+  .legacy-blog-terminal__command pre {
+    font-size: 0.76rem;
+  }
+
+  .legacy-blog-terminal__copy {
+    width: 29px;
+    height: 29px;
+  }
+}
