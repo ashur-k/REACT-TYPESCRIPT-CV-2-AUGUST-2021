@@ -13,7 +13,7 @@ import SiteTitle from "../../components/SiteTitle/SiteTitle";
 
 import BlogDescription from "../../components/BlogDescription/BlogDescription";
 import BlogRequirements from "../../components/BlogRequirements/BlogRequirements";
-import BlogSteps from "../../components/BlogSteps/BlogSteps";
+import BlogSteps from "../../components/LegacyBlogTemplate/BlogSteps/BlogSteps";
 
 import "./BlogDetail.css";
 
@@ -49,7 +49,7 @@ const BlogDetail = () => {
           <Alert variant="danger">{error}</Alert>
         </Grid>
       ) : (
-        <Grid container className="section pb_45 pt_45">
+        <Grid container className="section pb_45 pt_45 blog-detail-page">
           <SiteTitle title={blogs?.article_title ?? ""} />
 
           <Grid size={12}>
@@ -60,24 +60,14 @@ const BlogDetail = () => {
             </div>
           </Grid>
 
-          <Grid container className="section pb_45">
+          <Grid container className="blog-detail-content">
             <Grid size={12}>
               <Grid container className="resume_timeline">
-                <Grid
-                  size={{
-                    sm: 12,
-                    md: 6,
-                  }}
-                >
+                <Grid size={{ xs: 12, md: 6 }}>
                   <BlogDescription article_overview={blogs?.article_overview ?? ""} />
                 </Grid>
 
-                <Grid
-                  size={{
-                    sm: 12,
-                    md: 6,
-                  }}
-                >
+                <Grid size={{ xs: 12, md: 6 }}>
                   <BlogRequirements requirements={requirements} />
                 </Grid>
               </Grid>
