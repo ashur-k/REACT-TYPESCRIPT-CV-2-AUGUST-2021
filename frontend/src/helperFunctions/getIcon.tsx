@@ -39,6 +39,7 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import BoltIcon from "@mui/icons-material/Bolt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import GroupsIcon from "@mui/icons-material/Groups";
+import { FaBookOpenReader } from "react-icons/fa6";
 
 import ApiIcon from "@mui/icons-material/Api";
 import WidgetsIcon from "@mui/icons-material/Widgets";
@@ -46,11 +47,27 @@ import DnsIcon from "@mui/icons-material/Dns";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import SecurityIcon from "@mui/icons-material/Security";
 import CloudIcon from "@mui/icons-material/Cloud";
+import { SiKingstontechnology } from "react-icons/si";
+import { GrOverview } from "react-icons/gr";
+import { SiDevelopmentcontainers } from "react-icons/si";
+import { GiAchievement } from "react-icons/gi";
 
 const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
     case "WorkIcon":
       return <WorkIcon className="SVG" />;
+    case "ReadingRed":
+      return <FaBookOpenReader className="SVG-PRIMARY-COLOR" />;
+    case "AchievementRed":
+      return <GiAchievement className="SVG-PRIMARY-COLOR" />;
+    case "WorkIconRed":
+      return <WorkIcon className="SVG-PRIMARY-COLOR" />;
+    case "TechnologyRed":
+      return <SiKingstontechnology className="SVG-PRIMARY-COLOR" />;
+    case "Learning":
+      return <SiDevelopmentcontainers className="SVG-PRIMARY-COLOR" />;
+    case "Overview":
+      return <GrOverview className="SVG" />;
     case "SchoolRoundedIcon":
       return <SchoolRoundedIcon className="SVG" />;
     case "FacebookIcon":
@@ -66,7 +83,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "CloseIcon":
       return <CloseIcon />;
     case "IoLogoReact":
-      return <IoLogoReact />;
+      return <IoLogoReact className="SVG-PRIMARY-COLOR" />;
     case "FiDatabase":
       return <FiDatabase className="SVG-PRIMARY-COLOR" />;
     case "FaGit":
@@ -94,7 +111,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "BsFillTerminalFill":
       return <BsFillTerminalFill className="SVG" />;
     case "DiReact":
-      return <DiReact className="SVG" />;
+      return <DiReact className="SVG SVG-PRIMARY-COLOR" />;
     case "BiCodeBlock":
       return <BiCodeBlock className="SVG-PRIMARY-COLOR" />;
     case "FaPython":
@@ -147,6 +164,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
 
     case "CloudIcon":
       return <CloudIcon className="SVG-PRIMARY-COLOR" />;
+
     default:
       return <small>No Icon Found</small>;
   }

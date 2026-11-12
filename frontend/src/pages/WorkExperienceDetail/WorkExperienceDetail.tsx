@@ -141,7 +141,7 @@ const WorkExperienceDetail = () => {
       {/* Role overview */}
       <section className="work-role-overview">
         <h2 className="work-section-heading">
-          <span className="section-icon">i</span>
+          <span className="section-icon">{getIcon("Overview")}</span>
           Role overview
         </h2>
 
@@ -189,7 +189,7 @@ const WorkExperienceDetail = () => {
         {/* Responsibilities */}
         <div className="work-responsibilities">
           <h2 className="work-section-heading section-with-line">
-            <span className="heading-icon">▣</span>
+            <span className="heading-icon">{getIcon("WorkIconRed")}</span>
             What I worked on
           </h2>
 
@@ -240,7 +240,7 @@ const WorkExperienceDetail = () => {
         {/* Technology stack */}
         <div className="work-technologies">
           <h2 className="work-section-heading section-with-line">
-            <span className="heading-icon">◆</span>
+            <span className="heading-icon">{getIcon("TechnologyRed")}</span>
             Technology stack
           </h2>
 
@@ -289,7 +289,7 @@ const WorkExperienceDetail = () => {
 
         <div className="work-impact">
           <h2 className="work-section-heading section-with-line">
-            <span className="heading-icon">🏆</span>
+            <span className="heading-icon">{getIcon("AchievementRed")}</span>
             Impact & achievements
           </h2>
 
@@ -312,8 +312,8 @@ const WorkExperienceDetail = () => {
       {/* Independent learning */}
       <section className="work-related">
         <h2 className="work-section-heading">
-          <span className="heading-icon">↗</span>
-          Independent learning
+          <span className="heading-icon">{getIcon("ReadingRed")}</span>
+          Technical Reading & Research
         </h2>
 
         <div className="related-work-grid">
@@ -332,7 +332,12 @@ const WorkExperienceDetail = () => {
                   </small>
 
                   {study.study_url && (
-                    <a href={study.study_url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className="study-documentation-link"
+                      href={study.study_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       View documentation
                     </a>
                   )}
@@ -340,7 +345,7 @@ const WorkExperienceDetail = () => {
               </article>
             ))
           ) : (
-            <p>No independent learning topics have been added yet.</p>
+            <p>No technical research resources have been added yet.</p>
           )}
         </div>
       </section>

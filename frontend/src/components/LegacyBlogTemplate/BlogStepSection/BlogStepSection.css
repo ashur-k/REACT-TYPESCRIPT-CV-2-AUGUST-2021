@@ -1,0 +1,32 @@
+.legacy-blog-step-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+.legacy-blog-step-header {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.legacy-blog-step-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  gap: 28px;
+}
+
+@media screen and (max-width: 768px) {
+  .legacy-blog-step-section {
+    padding: 28px 0;
+  }
+
+  .legacy-blog-step-content {
+    gap: 22px;
+  }
+}

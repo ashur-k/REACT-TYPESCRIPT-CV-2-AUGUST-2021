@@ -112,7 +112,7 @@ const Resume = () => {
             </Grid>
           </Grid>
 
-          {/* Services */}
+          {/* Skills */}
           <Grid container className="section pb_45">
             <SiteTitle title="My Skills" />
             <Grid size={12}>
@@ -121,8 +121,15 @@ const Resume = () => {
             </Grid>
           </Grid>
 
-          {/* Skills */}
-          <SkillsCapabilities skillCapabilities={skillCapabilities} />
+          {/* Skills Capabilities */}
+          {skillCapabilities.length > 0 && (
+            <Grid container className="section pb_45">
+              <SiteTitle title="Technologies in Practice" />
+              <Grid size={12}>
+                <SkillsCapabilities skillCapabilities={skillCapabilities} />
+              </Grid>
+            </Grid>
+          )}
 
           <Contact />
         </div>

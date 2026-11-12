@@ -1,43 +1,40 @@
 import React, { FunctionComponent } from "react";
 
-// Material UI and bootstrap Components import
-import { Grid, Paper, Typography } from "@mui/material";
-import { ResumeDataInterface } from "../../utils/types";
+// Material UI imports
+import { Grid, Paper, Typography, Icon } from "@mui/material";
 import TimelineDot from "@mui/lab/TimelineDot";
 
-// css imports
+// Typescript imports
+import { ResumeDataInterface } from "../../utils/types";
+import getIcon from "../../helperFunctions/getIcon";
+// CSS imports
 import "./SkillsCapabilities.css";
 
 const SkillsCapabilities: FunctionComponent<{
   skillCapabilities: ResumeDataInterface["skill_capabilities"];
 }> = ({ skillCapabilities }) => {
   return (
-    <Grid container sx={{ justifyContent: "space-between" }} className="section graybg pb_45 p_50">
+    <Grid container className="section graybg pb_45 p_50">
       <Grid size={12}>
-        <Grid container sx={{ justifyContent: "space-between" }} spacing={3}>
+        <div className="skill-capabilities-grid">
           {skillCapabilities.map((skill) => (
-            <Grid
-              key={skill.id}
-              size={{
-                xs: 12,
-                sm: 6,
-                md: 3,
-              }}
-            >
-              <Paper elevation={0} className="skill">
-                <Typography variant="h6" className="skills_title">
-                  {skill.title}
-                </Typography>
+            <Paper key={skill.id} elevation={0} className="skill-capability-card">
+              <Typography className="skills_title">
+                {skill.icon && <Icon className="skill-capability-icon">{getIcon(skill.icon)}</Icon>}
+                <span>{skill.title}</span>
+              </Typography>
+
+              <div className="skill-capability-items">
                 {skill.category.map((element) => (
                   <Typography key={element} variant="body2" className="skill_description">
                     <TimelineDot variant="outlined" className="timeline_dot" />
-                    {element}
+                    <span>{element}</span>
                   </Typography>
                 ))}
-              </Paper>
-            </Grid>
+              </div>
+            </Paper>
           ))}
-        </Grid>
+        </div>
       </Grid>
     </Grid>
   );

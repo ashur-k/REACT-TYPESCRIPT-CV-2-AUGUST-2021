@@ -294,6 +294,7 @@ export interface ResumeDataInterface {
     title: string;
     category: string[];
     about_me: number;
+    icon: string;
   }[];
 }
 
@@ -344,6 +345,7 @@ export const resumeData: ResumeDataInterface[] = [
         title: "Frontend",
         category: ["ReactJs", "JavaScript", "TypeScript", "Bootstrap", "Material UI"],
         about_me: 1,
+        icon: "...",
       },
     ],
   },

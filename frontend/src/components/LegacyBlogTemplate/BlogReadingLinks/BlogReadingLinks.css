@@ -1,0 +1,109 @@
+.legacy-blog-reading-links {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.legacy-blog-reading-links__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--main-color, #e22d15);
+}
+
+.legacy-blog-reading-links__header svg {
+  font-size: 21px;
+}
+
+.legacy-blog-reading-links__header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.legacy-blog-reading-links__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legacy-blog-reading-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 15px 18px;
+
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 8px;
+
+  background: var(--background-color, transparent);
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.legacy-blog-reading-link:hover {
+  border-color: var(--main-color, #e22d15);
+  background-color: rgba(226, 45, 21, 0.035);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.legacy-blog-reading-link__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.legacy-blog-reading-link__title {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.legacy-blog-reading-link__icon {
+  flex-shrink: 0;
+  font-size: 19px !important;
+  color: var(--main-color, #e22d15);
+  opacity: 0.75;
+  transition: transform 0.2s ease;
+}
+
+.legacy-blog-reading-link:hover .legacy-blog-reading-link__icon {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .legacy-blog-reading-link {
+    padding: 13px 15px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+  .legacy-blog-reading-links__header {
+    margin-bottom: 12px;
+  }
+
+  .legacy-blog-reading-link {
+    padding: 12px;
+  }
+
+  .legacy-blog-reading-link__title {
+    font-size: 0.85rem;
+  }
+}
