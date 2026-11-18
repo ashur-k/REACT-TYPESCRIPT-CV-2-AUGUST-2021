@@ -21,7 +21,9 @@ class BlogSection(models.Model):
         verbose_name_plural = "Blog Sections"
         ordering = ("id",)
 
-    article_title = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    article_title = models.ForeignKey(
+        Blog, on_delete=models.CASCADE, verbose_name="Blog"
+    )
     title = models.CharField(max_length=100, null=False, blank=False)
     paragraph = models.TextField(null=True, blank=True)
     image_path = models.ImageField(null=True, blank=True)

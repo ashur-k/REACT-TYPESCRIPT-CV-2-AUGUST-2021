@@ -73,7 +73,7 @@ const Blog = () => {
           <Grid container spacing={1}>
             <Grid container spacing={1} size={12}>
               {filteredBlogs.map((blog) => (
-                <Grid key={blog.id} size={{ xs: 12, sm: 6, md: 4 }} sx={{ display: "flex" }}>
+                <Grid key={blog.id} size={{ xs: 12, sm: 6, md: 6 }} sx={{ display: "flex" }}>
                   <Box sx={{ m: 1, width: "100%", display: "flex" }}>
                     <BlogCard
                       blogId={blog.id}
