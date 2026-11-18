@@ -21,7 +21,9 @@ export interface BlogBlock {
     | "callout"
     | "table"
     | "divider"
-    | "reading_links";
+    | "reading_links"
+    | "diagram"
+    | "design";
   position: number;
   title: string;
   content: string;

@@ -14,10 +14,8 @@ const ArticleTemplateRenderer = ({ article }: ArticleTemplateRendererProps) => {
   switch (article.presentation.template) {
     case "technical_article":
       return <TechnicalArticleTemplate article={article} />;
-
     case "engineering_deep_dive":
       return <EngineeringDeepDiveTemplate article={article} />;
-
     case "step_by_step_tutorial":
       return <StepByStepTutorialTemplate article={article} />;
     case "engineering_case_study":

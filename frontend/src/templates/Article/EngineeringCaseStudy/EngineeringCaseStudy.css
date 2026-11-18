@@ -133,6 +133,50 @@
 }
 
 /* =========================================================
+   PYTHON SOURCE CODE
+   ========================================================= */
+
+.article-code-block--source pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+/* Comments */
+.article-code-block--source .token.comment {
+  color: #6a9955;
+}
+
+/* Keywords: async, def, return, await */
+.article-code-block--source .token.keyword {
+  color: #c586c0;
+}
+
+/* Function names */
+.article-code-block--source .token.function {
+  color: #dcdcaa;
+}
+
+/* Strings */
+.article-code-block--source .token.string {
+  color: #ce9178;
+}
+
+/* Numbers */
+.article-code-block--source .token.number {
+  color: #b5cea8;
+}
+
+/* Operators */
+.article-code-block--source .token.operator {
+  color: #d4d4d4;
+}
+
+/* Built-in functions */
+.article-code-block--source .token.builtin {
+  color: #4ec9b0;
+}
+
+/* =========================================================
    05. PROJECT OVERVIEW & METRICS
    ========================================================= */
 

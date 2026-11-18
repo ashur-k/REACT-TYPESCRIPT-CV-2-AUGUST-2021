@@ -1,5 +1,9 @@
 import type { BlogBlock } from "../../../redux/interfaces/BlogArticleInterface";
+import ArticleDiagram from "./ArticleDiagram/ArticleDiagram";
 import CopyButton from "../UI/CopyButton";
+import ArticleDesign from "./ArticleDesign/ArticleDesign";
+import Prism from "prismjs";
+import "prismjs/components/prism-python";
 
 interface ArticleBlockRendererProps {
   blocks: BlogBlock[];
@@ -38,7 +42,6 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
               </h2>
             );
           }
-
           case "paragraph":
             return (
               <div key={block.id} id={`section-${block.id}`} className="article-paragraph">
@@ -47,7 +50,6 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
                 {renderParagraph(block.content)}
               </div>
             );
-
           case "image":
             return block.image ? (
               <figure key={block.id} id={`section-${block.id}`} className="article-image">
@@ -55,8 +57,28 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
                 {block.title && <figcaption>{block.title}</figcaption>}
               </figure>
             ) : null;
-
           case "code":
+            return (
+              <section
+                key={block.id}
+                id={`section-${block.id}`}
+                className="article-code-block article-code-block--source"
+              >
+                <div className="article-code-header">
+                  <span>{block.title || "Python"}</span>
+                  <CopyButton text={block.content} />
+                </div>
+
+                <pre>
+                  <code
+                    className="language-python"
+                    dangerouslySetInnerHTML={{
+                      __html: Prism.highlight(block.content, Prism.languages.python, "python"),
+                    }}
+                  />
+                </pre>
+              </section>
+            );
           case "terminal":
             return (
               <section
@@ -77,15 +99,13 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
                 </pre>
               </section>
             );
-
           case "quote":
             return (
               <blockquote key={block.id} id={`section-${block.id}`} className="article-quote">
                 {renderParagraph(block.content)}
-                {block.title && <cite>{block.title}</cite>}
+                <b>{block.title && <cite>{block.title}</cite>}</b>
               </blockquote>
             );
-
           case "callout":
             return (
               <aside key={block.id} id={`section-${block.id}`} className="article-callout">
@@ -93,7 +113,6 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
                 {renderParagraph(block.content)}
               </aside>
             );
-
           case "table": {
             const cells = parseTableContent(block.content);
 
@@ -155,10 +174,8 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
               </div>
             );
           }
-
           case "divider":
             return <hr key={block.id} className="article-divider" />;
-
           case "reading_links":
             return (
               <section key={block.id} className="article-reading-links">
@@ -166,7 +183,14 @@ const ArticleBlockRenderer = ({ blocks }: ArticleBlockRendererProps) => {
                 {renderParagraph(block.content)}
               </section>
             );
-
+          case "diagram":
+            return (
+              <div key={block.id} id={`section-${block.id}`} className="article-diagram-block">
+                <ArticleDiagram content={block.content} title={block.title} />
+              </div>
+            );
+          case "design":
+            return <ArticleDesign key={block.id} block={block} />;
           default:
             return null;
         }
