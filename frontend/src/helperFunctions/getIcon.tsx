@@ -51,6 +51,8 @@ import { SiKingstontechnology } from "react-icons/si";
 import { GrOverview } from "react-icons/gr";
 import { SiDevelopmentcontainers } from "react-icons/si";
 import { GiAchievement } from "react-icons/gi";
+import { SiDjango } from "react-icons/si";
+import { TbBrandDjango } from "react-icons/tb";
 
 const getIcon = (icon: string | undefined): ReactElement => {
   switch (icon) {
@@ -79,7 +81,7 @@ const getIcon = (icon: string | undefined): ReactElement => {
     case "GitHubIcon":
       return <GitHubIcon className="SVG" />;
     case "IoLogoPython":
-      return <IoLogoPython className="SVG" />;
+      return <IoLogoPython className="SVG-PRIMARY-COLOR" />;
     case "CloseIcon":
       return <CloseIcon />;
     case "IoLogoReact":
@@ -140,6 +142,10 @@ const getIcon = (icon: string | undefined): ReactElement => {
       return <SiDocker className="SVG-PRIMARY-COLOR" style={{ fontSize: "20px" }} />;
     case "RocketLaunchIcon":
       return <RocketLaunchIcon className="SVG-PRIMARY-COLOR" />;
+    case "Django":
+      return <SiDjango className="SVG-PRIMARY-COLOR" />;
+    case "DjangoDRF":
+      return <TbBrandDjango className="SVG-PRIMARY-COLOR" />;
     case "BoltIcon":
       return <BoltIcon className="SVG-PRIMARY-COLOR" />;
 

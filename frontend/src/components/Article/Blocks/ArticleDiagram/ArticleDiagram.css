@@ -1,0 +1,123 @@
+.article-diagram {
+  width: 100%;
+  margin: 30px 0;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e9ebf0;
+  border-radius: 8px;
+}
+
+.article-diagram-title {
+  margin-bottom: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #252525;
+}
+
+.article-diagram-container {
+  width: 100%;
+  min-width: 0;
+  overflow: auto;
+  text-align: center;
+  perspective: 1000px;
+}
+
+.article-diagram-container svg {
+  display: block;
+  max-width: none;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* Mermaid nodes */
+
+.article-diagram-svg .node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    filter 250ms ease,
+    opacity 250ms ease;
+}
+
+/* Node shapes */
+
+.article-diagram-svg .node rect,
+.article-diagram-svg .node polygon,
+.article-diagram-svg .node circle,
+.article-diagram-svg .node ellipse,
+.article-diagram-svg .node path {
+  transition:
+    filter 250ms ease,
+    stroke-width 250ms ease,
+    fill 250ms ease;
+}
+
+/* Hover effect */
+
+.article-diagram-svg .node:hover {
+  filter: drop-shadow(0 8px 8px rgb(0 0 0 / 18%));
+}
+
+.article-diagram-svg .node:hover rect,
+.article-diagram-svg .node:hover polygon,
+.article-diagram-svg .node:hover circle,
+.article-diagram-svg .node:hover ellipse,
+.article-diagram-svg .node:hover path {
+  stroke-width: 2.5px;
+}
+
+/* Mermaid edges */
+
+.article-diagram-svg .edgePath path {
+  transition:
+    stroke-width 250ms ease,
+    opacity 250ms ease;
+}
+
+.article-diagram-svg .edgePath:hover path {
+  stroke-width: 3px;
+}
+
+/* Error message */
+
+.article-diagram-error {
+  padding: 16px;
+  color: #b42318;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .article-diagram-svg .node,
+  .article-diagram-svg .node rect,
+  .article-diagram-svg .node polygon,
+  .article-diagram-svg .node circle,
+  .article-diagram-svg .node ellipse,
+  .article-diagram-svg .node path,
+  .article-diagram-svg .edgePath path {
+    transition: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .article-diagram {
+    padding: 16px;
+    margin: 24px 0;
+  }
+
+  .article-diagram-container {
+    text-align: left;
+  }
+
+  .article-diagram-container svg {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

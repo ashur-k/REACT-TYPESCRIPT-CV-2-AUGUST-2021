@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "work_projects.apps.WorkProjectsConfig",
     "django.contrib.postgres",
+    "admin_auto_filters",
 ]
 
 REST_FRAMEWORK = {

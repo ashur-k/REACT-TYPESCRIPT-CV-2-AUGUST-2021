@@ -59,9 +59,82 @@ class BlogAdmin(admin.ModelAdmin):
             return "Legacy article"
 
 
-# Preserve legacy administration.
-admin.site.register(BlogSection)
+@admin.register(BlogSection)
+class BlogSectionAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "article_title",
+    )
+
+    list_filter = (("article_title", admin.RelatedOnlyFieldListFilter),)
+
+    search_fields = (
+        "title",
+        "article_title__article_title",
+    )
+
+    @admin.display(description="Blog")
+    def article_title(self, obj):
+        return obj.article_title
+
+
+class BlogFilter(admin.SimpleListFilter):
+    title = "Blog"
+    parameter_name = "blog"
+
+    def lookups(self, request, model_admin):
+        blogs = Blog.objects.order_by("article_title")
+
+        return [(str(blog.pk), blog.article_title) for blog in blogs]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(section_title__article_title_id=self.value())
+
+        return queryset
+
+
+class BlogSectionFilter(admin.SimpleListFilter):
+    title = "Blog Section"
+    parameter_name = "blog_section"
+
+    def lookups(self, request, model_admin):
+        sections = BlogSection.objects.all()
+
+        blog_id = request.GET.get("blog")
+        if blog_id:
+            sections = sections.filter(article_title_id=blog_id)
+
+        return [
+            (str(section.pk), section.title) for section in sections.order_by("title")
+        ]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(section_title_id=self.value())
+        return queryset
+
+
+@admin.register(BlogSectionImage)
+class BlogSectionImageAdmin(admin.ModelAdmin):
+    list_display = (
+        "image_title",
+        "section_title",
+        "number_of_image",
+    )
+
+    list_filter = (
+        BlogFilter,
+        BlogSectionFilter,
+    )
+
+    search_fields = (
+        "image_title",
+        "section_title__title",
+        "section_title__article_title__article_title",
+    )
+
+
 admin.site.register(BlogReadingLink)
-admin.site.register(BlogSectionImage)
 admin.site.register(BlogSectionCodeSnippet)
 admin.site.register(BlogSectionTerminalCommand)

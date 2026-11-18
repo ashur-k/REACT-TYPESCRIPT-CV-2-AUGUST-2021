@@ -8,11 +8,52 @@
   scrollbar-color: #dedede transparent;
 }
 
-@media (max-width: 899px) {
+/* Blog detail desktop layout */
+@media (min-width: 1536px) {
+  .site-layout-blog-detail {
+    position: relative;
+  }
+
+  .site-layout-blog-detail > .site-sidebar-grid {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 220px;
+    max-width: 220px;
+    padding-right: 12px;
+    z-index: 5;
+  }
+
+  .site-layout-blog-detail > .site-main-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+}
+
+/* Preserve existing responsive behaviour */
+@media (max-width: 1535px) {
   .site-sidebar-article {
     position: static;
     max-height: none;
     overflow: visible;
     padding: 0;
+  }
+}
+
+/* Blog detail: slightly wider desktop reading area */
+@media (min-width: 1536px) {
+  .site-layout-container--blog-detail {
+    width: calc(100% - 64px);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1535px) {
+  .site-layout-container--blog-detail {
+    max-width: 1200px;
   }
 }

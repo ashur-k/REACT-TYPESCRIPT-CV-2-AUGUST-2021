@@ -15,6 +15,8 @@ class BlogBlock(models.Model):
         TABLE = "table", "Table"
         DIVIDER = "divider", "Divider"
         READING_LINKS = "reading_links", "Reading Links"
+        DIAGRAM = "diagram", "Diagram"
+        DESIGN = "design", "Designed Content"
 
     blog = models.ForeignKey(
         Blog,

@@ -79,59 +79,57 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
 
           <h1>{article.article_title}</h1>
 
-          <p className="engineering-case-study-overview">{article.article_overview}</p>
+          {article.banner_image_path && (
+            <figure className="engineering-case-study-banner">
+              <img src={article.banner_image_path} alt={article.article_title} />
+            </figure>
+          )}
 
-          <div className="engineering-case-study-reading-info">
-            <span>{readingTime} min read</span>
-            <span>{wordCount} words</span>
+          {metrics.length > 0 && (
+            <section
+              className="engineering-case-study-overview-panel"
+              aria-label="Project overview"
+            >
+              <h2>Project Overview</h2>
+
+              <div className="engineering-case-study-metrics">
+                {metrics.map((metric, index) => (
+                  <div key={`${metric.label}-${index}`} className="engineering-case-study-metric">
+                    <div className="engineering-case-study-metric-heading">
+                      <span className="engineering-case-study-metric-icon">
+                        {getIcon(metric.icon)}
+                      </span>
+
+                      <strong>{metric.value}</strong>
+                    </div>
+
+                    <span className="engineering-case-study-metric-label">{metric.label}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <div className="engineering-case-study-overview">
+            {article.article_overview
+              .split(/\n\s*\n/)
+              .filter((paragraph) => paragraph.trim().length > 0)
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph.trim()}</p>
+              ))}
           </div>
 
-          <ArticleCategories categories={article.category} />
+          <div className="engineering-case-study-reading-info">
+            <span>
+              <b>{readingTime} min read</b>
+            </span>
+            <span>
+              <b>{wordCount} words</b>
+            </span>
+          </div>
+
+          {/* <ArticleCategories categories={article.category} /> */}
         </header>
-
-        {article.banner_image_path && (
-          <figure className="engineering-case-study-banner">
-            <img src={article.banner_image_path} alt={article.article_title} />
-          </figure>
-        )}
-
-        {metrics.length > 0 && (
-          <section className="engineering-case-study-overview-panel" aria-label="Project overview">
-            <h2>Project Overview</h2>
-
-            <div className="engineering-case-study-metrics">
-              {metrics.map((metric, index) => (
-                <div key={`${metric.label}-${index}`} className="engineering-case-study-metric">
-                  <div className="engineering-case-study-metric-heading">
-                    <span className="engineering-case-study-metric-icon">
-                      {getIcon(metric.icon)}
-                    </span>
-
-                    <strong>{metric.value}</strong>
-                  </div>
-
-                  <span className="engineering-case-study-metric-label">{metric.label}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-        {article.requirements.length > 0 && (
-          <section className="engineering-case-study-technology">
-            <h2>Technology Stack</h2>
-
-            <div className="engineering-case-study-technology-list">
-              {article.requirements.map((technology, index) => (
-                <span
-                  key={`${technology}-${index}`}
-                  className="engineering-case-study-technology-item"
-                >
-                  {technology}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
 
         <div className="engineering-case-study-reading-layout">
           <aside className="article-toc-sidebar">
@@ -139,6 +137,22 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
           </aside>
 
           <article className="engineering-case-study-body">
+            {article.requirements.length > 0 && (
+              <section className="engineering-case-study-technology">
+                <h2>Technology Stack</h2>
+
+                <div className="engineering-case-study-technology-list">
+                  {article.requirements.map((technology, index) => (
+                    <span
+                      key={`${technology}-${index}`}
+                      className="engineering-case-study-technology-item"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
             <ArticleBlockRenderer blocks={article.blocks} />
           </article>
         </div>
