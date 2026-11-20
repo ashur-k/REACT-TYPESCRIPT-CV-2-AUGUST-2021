@@ -25,6 +25,7 @@ class BlogBlockInline(admin.StackedInline):
     extra = 1
     fields = (
         "position",
+        "is_disabled",
         "block_type",
         "title",
         "content",

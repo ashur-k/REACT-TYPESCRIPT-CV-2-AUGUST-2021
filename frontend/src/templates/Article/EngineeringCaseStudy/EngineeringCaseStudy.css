@@ -7,12 +7,16 @@
    02. Article Header
    03. Reading Information
    04. Article Banner
-   05. Project Overview & Metrics
-   06. Technology Stack
-   07. Article Reading Layout
-   08. Tablet Responsive Layout
-   09. Mobile Responsive Layout
-   10. Accessibility & Reduced Motion
+   05. Python Source Code
+   06. Project Overview & Metrics
+   07. Technology Stack
+   08. Article Reading Layout
+       08A. Main Article Section Headings
+       08B. Reading Links
+       08C. Article Overview Heading
+   09. Tablet Responsive Layout
+   10. Mobile Responsive Layout
+   11. Accessibility & Reduced Motion
 
    ========================================================= */
 
@@ -33,9 +37,56 @@
   margin: 0 auto;
 }
 
+.article-numbered-heading {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0;
+
+  margin: 1.25rem 0 0;
+  padding: 0;
+
+  font-weight: 700;
+  line-height: 1.6;
+
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.article-paragraph p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.article-paragraph ul {
+  margin-top: 0;
+}
+
+.article-numbered-heading__number {
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.article-numbered-heading strong {
+  font-weight: 700;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove spacing between numbered heading and its paragraph */
+
+.article-numbered-heading + p {
+  margin-top: 0 !important;
+}
+
 /* =========================================================
    02. ARTICLE HEADER
    ========================================================= */
+
+/* Main article header */
 
 .engineering-case-study-header {
   max-width: 900px;
@@ -133,7 +184,7 @@
 }
 
 /* =========================================================
-   PYTHON SOURCE CODE
+   05. PYTHON SOURCE CODE
    ========================================================= */
 
 .article-code-block--source pre {
@@ -142,42 +193,49 @@
 }
 
 /* Comments */
+
 .article-code-block--source .token.comment {
   color: #6a9955;
 }
 
 /* Keywords: async, def, return, await */
+
 .article-code-block--source .token.keyword {
   color: #c586c0;
 }
 
 /* Function names */
+
 .article-code-block--source .token.function {
   color: #dcdcaa;
 }
 
 /* Strings */
+
 .article-code-block--source .token.string {
   color: #ce9178;
 }
 
 /* Numbers */
+
 .article-code-block--source .token.number {
   color: #b5cea8;
 }
 
 /* Operators */
+
 .article-code-block--source .token.operator {
   color: #d4d4d4;
 }
 
 /* Built-in functions */
+
 .article-code-block--source .token.builtin {
   color: #4ec9b0;
 }
 
 /* =========================================================
-   05. PROJECT OVERVIEW & METRICS
+   06. PROJECT OVERVIEW & METRICS
    ========================================================= */
 
 /* Main overview panel */
@@ -280,8 +338,10 @@
 }
 
 /* =========================================================
-   06. TECHNOLOGY STACK
+   07. TECHNOLOGY STACK
    ========================================================= */
+
+/* Technology section */
 
 .engineering-case-study-technology {
   margin: 0 0 50px;
@@ -341,7 +401,7 @@
 }
 
 /* =========================================================
-   07. ARTICLE READING LAYOUT
+   08. ARTICLE READING LAYOUT
    ========================================================= */
 
 /* Table of contents + article content */
@@ -365,7 +425,229 @@
 }
 
 /* =========================================================
-   08. TABLET RESPONSIVE LAYOUT
+   08A. MAIN ARTICLE SECTION HEADINGS
+   ========================================================= */
+
+.engineering-case-study-body .article-section-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0 0 24px;
+  padding: 0 0 14px;
+
+  border-bottom: 1px solid var(--article-border);
+
+  color: #000000;
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+
+  scroll-margin-top: 110px;
+}
+
+.engineering-case-study-body .article-section-heading::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+
+  width: 64px;
+  height: 3px;
+
+  background: var(--article-accent);
+  content: "";
+
+  transition: width 0.25s ease;
+}
+
+.engineering-case-study-body .article-section-heading:hover::after,
+.engineering-case-study-body .article-section-heading:focus-within::after {
+  width: 120px;
+}
+
+/* =========================================================
+   08B. READING LINKS
+   ========================================================= */
+
+/* Main reading links panel */
+
+.article-reading-links {
+  margin: 30px 0;
+  padding: 16px 12px 12px;
+
+  border: 1px solid var(--article-border);
+  border-radius: 16px;
+
+  background: var(--article-background);
+}
+
+/* Panel heading */
+
+.article-reading-links h2 {
+  margin: 0 0 10px;
+  padding: 0;
+
+  color: var(--article-heading);
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* Panel description */
+
+.article-reading-links-description {
+  margin: 0 0 12px;
+
+  color: var(--article-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Individual links container */
+
+.article-reading-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual link card */
+
+.article-reading-link {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  padding: 13px 12px;
+
+  border: 1px solid var(--article-border);
+  border-radius: 13px;
+
+  background: var(--article-background);
+  color: var(--article-text);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Link heading row */
+
+.article-reading-link-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+}
+
+/* Book icon */
+
+.article-reading-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--article-accent);
+  font-size: 18px;
+}
+
+/* Link title */
+
+.article-reading-link-text {
+  flex: 1;
+  min-width: 0;
+
+  color: var(--article-heading);
+  font-size: 0.95rem;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+/* External link arrow */
+
+.article-reading-link-arrow {
+  flex-shrink: 0;
+
+  color: var(--article-text-muted);
+  font-size: 15px;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Link description */
+
+.article-reading-link-description {
+  display: block;
+
+  color: var(--article-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* Hover effects */
+
+.article-reading-link:hover {
+  border-color: var(--article-accent);
+  background: rgba(226, 45, 21, 0.035);
+}
+
+.article-reading-link:hover .article-reading-link-arrow {
+  color: var(--article-accent);
+  transform: translate(2px, -2px);
+}
+
+/* Keyboard accessibility */
+
+.article-reading-link:focus-visible {
+  outline: 2px solid var(--article-accent);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   08C. ARTICLE OVERVIEW HEADING
+   ========================================================= */
+
+.article-overview-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #222;
+  transition: color 0.25s ease;
+}
+
+.article-overview-heading__accent {
+  width: 5px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--main-color, #e22d15);
+  transition: height 0.25s ease;
+}
+
+.article-overview-heading:hover {
+  color: var(--main-color, #e22d15);
+}
+
+.article-overview-heading:hover .article-overview-heading__accent {
+  height: 36px;
+}
+
+/* =========================================================
+   09. TABLET RESPONSIVE LAYOUT
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -405,7 +687,7 @@
 }
 
 /* =========================================================
-   09. MOBILE RESPONSIVE LAYOUT
+   10. MOBILE RESPONSIVE LAYOUT
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -495,13 +777,29 @@
     padding: 7px 11px;
     font-size: 0.8rem;
   }
+
+  /* Reading links */
+
+  .article-reading-links {
+    padding: 14px 10px 10px;
+    border-radius: 12px;
+  }
+
+  .article-reading-link {
+    padding: 12px 10px;
+  }
 }
 
 /* =========================================================
-   10. ACCESSIBILITY & REDUCED MOTION
+   11. ACCESSIBILITY & REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .article-reading-link,
+  .article-reading-link-arrow {
+    transition: none;
+  }
+
   .engineering-case-study-reading-info span,
   .engineering-case-study-technology-item {
     transition: none;

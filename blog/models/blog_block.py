@@ -30,6 +30,7 @@ class BlogBlock(models.Model):
     )
 
     position = models.PositiveIntegerField(default=0)
+    is_disabled = models.BooleanField(default=False)
 
     title = models.CharField(
         max_length=200,
