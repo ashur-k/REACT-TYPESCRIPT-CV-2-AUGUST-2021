@@ -29,6 +29,7 @@ export interface BlogBlock {
   content: string;
   image: string | null;
   configuration: Record<string, unknown>;
+  is_disabled?: boolean;
 }
 
 export interface BlogArticle {

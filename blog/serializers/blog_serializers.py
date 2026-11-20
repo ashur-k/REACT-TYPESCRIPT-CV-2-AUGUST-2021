@@ -20,6 +20,7 @@ class BlogBlockSerializer(serializers.ModelSerializer):
             "id",
             "block_type",
             "position",
+            "is_disabled",
             "title",
             "content",
             "image",

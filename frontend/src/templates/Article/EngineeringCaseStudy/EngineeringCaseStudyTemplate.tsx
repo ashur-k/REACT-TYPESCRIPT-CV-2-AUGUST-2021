@@ -49,15 +49,17 @@ const getProjectMetrics = (configuration: Record<string, unknown>): ProjectMetri
 };
 
 const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateProps) => {
-  const headings = article.blocks
-    .filter((block) => block.title.trim().length > 0)
+  const visibleBlocks = article.blocks.filter((block) => block.is_disabled !== true);
+
+  const headings = visibleBlocks
+    .filter((block) => block.block_type === "heading" && block.title.trim())
     .map((block) => ({
       id: `section-${block.id}`,
-      title: block.title,
+      title: block.title.trim(),
       level: 2,
     }));
 
-  const wordCount = article.blocks
+  const wordCount = visibleBlocks
     .map((block) => block.content)
     .join(" ")
     .trim()
@@ -109,7 +111,10 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
               </div>
             </section>
           )}
-
+          <h2 className="article-overview-heading">
+            <span className="article-overview-heading__accent" />
+            <span>Overview</span>
+          </h2>
           <div className="engineering-case-study-overview">
             {article.article_overview
               .split(/\n\s*\n/)
@@ -118,6 +123,23 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
                 <p key={index}>{paragraph.trim()}</p>
               ))}
           </div>
+
+          {article.requirements.length > 0 && (
+            <section className="engineering-case-study-technology">
+              <h2>Technology Stack</h2>
+
+              <div className="engineering-case-study-technology-list">
+                {article.requirements.map((technology, index) => (
+                  <span
+                    key={`${technology}-${index}`}
+                    className="engineering-case-study-technology-item"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="engineering-case-study-reading-info">
             <span>
@@ -137,23 +159,7 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
           </aside>
 
           <article className="engineering-case-study-body">
-            {article.requirements.length > 0 && (
-              <section className="engineering-case-study-technology">
-                <h2>Technology Stack</h2>
-
-                <div className="engineering-case-study-technology-list">
-                  {article.requirements.map((technology, index) => (
-                    <span
-                      key={`${technology}-${index}`}
-                      className="engineering-case-study-technology-item"
-                    >
-                      {technology}
-                    </span>
-                  ))}
-                </div>
-              </section>
-            )}
-            <ArticleBlockRenderer blocks={article.blocks} />
+            <ArticleBlockRenderer blocks={visibleBlocks} />
           </article>
         </div>
       </div>
