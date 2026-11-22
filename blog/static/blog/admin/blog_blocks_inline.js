@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
     label.textContent = `${position}. ${blockType} — ${title}`;
     button.appendChild(label);
 
+    const disabledField = block.querySelector('[name$="-is_disabled"]');
+
+    if (disabledField?.checked) {
+      block.classList.add("blog-block-disabled");
+    }
+
+    heading.insertBefore(button, heading.firstChild);
+
     heading.insertBefore(button, heading.firstChild);
 
     heading
