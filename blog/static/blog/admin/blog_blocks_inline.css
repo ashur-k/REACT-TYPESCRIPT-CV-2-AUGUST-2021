@@ -45,3 +45,23 @@
 #blocks-group .inline-related.blog-block-collapsed > :not(h3) {
   display: none !important;
 }
+
+/* Disabled block */
+#blocks-group .inline-related.blog-block-disabled > h3 .blog-block-toggle {
+  background: #a52210;
+  color: #e3d9d8;
+}
+
+#blocks-group
+  .inline-related.blog-block-disabled
+  > h3
+  .blog-block-toggle:hover {
+  background: #a52210;
+}
+
+#blocks-group
+  .inline-related.blog-block-disabled
+  > h3
+  .blog-block-toggle::after {
+  color: #e3d9d8;
+}

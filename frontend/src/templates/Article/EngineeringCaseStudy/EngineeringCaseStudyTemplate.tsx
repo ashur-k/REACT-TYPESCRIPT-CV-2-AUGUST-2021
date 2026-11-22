@@ -60,11 +60,14 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
     }));
 
   const wordCount = visibleBlocks
+    .filter((block) => block.block_type !== "code" && block.block_type !== "terminal")
     .map((block) => block.content)
     .join(" ")
     .trim()
     .split(/\s+/)
     .filter(Boolean).length;
+
+  const codeExampleCount = visibleBlocks.filter((block) => block.block_type === "code").length;
 
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
@@ -146,7 +149,10 @@ const EngineeringCaseStudyTemplate = ({ article }: EngineeringCaseStudyTemplateP
               <b>{readingTime} min read</b>
             </span>
             <span>
-              <b>{wordCount} words</b>
+              <b>{wordCount.toLocaleString()} words</b>
+            </span>
+            <span>
+              <b>{codeExampleCount} Code snippets</b>
             </span>
           </div>
 
